@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timofey Molokov - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 15px 0;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #f4f4f4;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .header h2 {
+            font-size: 1.8em;
+            color: #b0b0b0;
+            margin: 10px 0;
+        }
+        .header p {
+            font-size: 1.1em;
+            text-align: left;
+            max-width: 850px;
+            margin: 20px auto 0;
+            padding: 0 10px;
+        }
+        .project {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            background: #252525;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .project-text {
+            flex: 1;
+            min-width: 500px;
+            padding-right: 40px;
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-bottom: normal;
+        }
+        .project-text li {
+            margin-left: 25px;
+            margin-top: 10px;
+            padding-left: normal;
+        }
+        .project-gifs {
+            flex: 0 0 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .project-gifs img {
+            max-width: 500px;
+            border-radius: 5px;
+        }
+        .project h2 {
+            margin-top: 0;
+            color: #00c4e8;
+        }
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, #00c4e8, transparent);
+            margin: 60px 0;
+        }
+        .skills-contact {
+            margin-top: 40px;
+            text-align: normal;
+        }
+        .skills-contact h2 {
+            color: #b0b0b0;
+        }
+        a {
+            color: #00c4e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            body {
+                line-height: 1.36;
+            }
+            .header p {
+                padding: 0 20px; /* Увеличенные отступы для хедера */
+                max-width: 100%;
+            }
+            .project {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .project-text {
+                padding-right: 0px; /* Уменьшенные отступы для текста проектов */
+                padding-left: 0px;
+                margin-bottom: 20px;
+                min-width: 0; /* Убираем min-width для адаптивности */
+            }
+            .project-gifs {
+                flex: 1;
+                width: 100%;
+            }
+            .project-gifs img {
+                max-width: 100%; /* GIF масштабируются до ширины контейнера */
+                width: 100%; /* Полная ширина с учётом отступов */
+                box-sizing: border-box; /* Учитываем padding в ширине */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="gifs/my-photo.png" alt="Timofey Molokov">
+            <h1>Timofey Molokov</h1>
+            <h2>Game Developer Portfolio</h2>
+            <p>I’m a game developer and programmer with over 6 years of experience, tackling complex challenges across various platforms. I’ve built games using Unreal Engine, Unity, and Godot, and developed custom engines and physics systems in Rust. With a background in low-level programming, shader development, and computer graphics, I also bring an artistic perspective from my architectural education. Currently freelancing and open to exciting projects.</p>
+        </div>
+
+        <!-- Project 1: 4D Shooter -->
+        <div class="project">
+            <div class="project-text">
+                <h2>4D Shooter</h2>
+                <p><strong>Client:</strong> Personal Project (solo developer)</p>
+                <p><strong>Duration:</strong> May 2023 - Present (2 years)</p>
+                <p><strong>Technologies:</strong> Rust, custom 4D engine</p>
+                <p><strong>Target Platforms:</strong> Windows, Linux, macOS, Web</p>
+                <p><strong>Project Description:</strong> A multiplayer competitive arena shooter set in 4D space, featuring 3D slices of 4D objects.</p>
+                <p><strong>What I Did:</strong></p>
+                <ul>
+                    <li>Developed a custom 4D game engine from scratch in Rust.</li>
+                    <li>Implemented 4D physics using SDF-based collision detection.</li>
+                    <li>Created an optimized raymarching renderer for 4D visuals.</li>
+                    <li>Built a multiplayer system with a game server and matchmaking.</li>
+                    <li>Designed gameplay mechanics for 4D movement and interactions.</li>
+                    <li>Crafted the visual style, shaders, and HUD.</li>
+                </ul>
+            </div>
+            <div class="project-gifs">
+                <img src="gifs/4d-shooter.gif" alt="4D Shooter GIF">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Project 2: Purpose -->
+        <div class="project">
+            <div class="project-text">
+                <h2>Purpose</h2>
+                <p><strong>Client:</strong> Personal Project (Global Game Jam Montenegro 2025)</p>
+                <p><strong>Duration:</strong> 48 hours (23-25 January 2025)</p>
+                <p><strong>Award:</strong> 1st Place, Global Game Jam Montenegro 2025</p>
+                <p><strong>Technologies:</strong> Godot Engine</p>
+                <p><strong>Target Platforms:</strong> Windows, Linux</p>
+                <p><strong>Project Description:</strong> A 2D journey of consciousness seeking purpose, with time tied to player movement.</p>
+                <p><strong>What I Did:</strong></p>
+                <ul>
+                    <li>Designed and implemented gameplay as the sole developer.</li>
+                    <li>Built a custom SDF-based engine for physics and rendering.</li>
+                    <li>Wrote a shader for smooth bubble interactions using smooth minimum.</li>
+                    <li>Created reactive movement with size-changing mechanics.</li>
+                    <li>Linked time flow to player movement (forward speeds up, backward reverses).</li>
+                    <li>Crafted a unique visual style with dynamic effects.</li>
+                </ul>
+            </div>
+            <div class="project-gifs">
+                <img src="gifs/purpose.gif" alt="Purpose GIF">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Project 3: Terrain Editor -->
+        <div class="project">
+            <div class="project-text">
+                <h2>Terrain Editor</h2>
+                <p><strong>Client:</strong> mech.com (aka mixie)</p>
+                <p><strong>Duration:</strong> April 2022 - October 2022 (7 months)</p>
+                <p><strong>Technologies:</strong> Godot Engine 3, custom shaders</p>
+                <p><strong>Target Platforms:</strong> Web (desktop and mobile browsers)</p>
+                <p><strong>Project Description:</strong> A real-time terrain editor optimized for web browsers.</p>
+                <p><strong>What I Did:</strong></p>
+                <ul>
+                    <li>Prototyped and evaluated multiple approaches for a mobile-friendly map editor.</li>
+                    <li>Implemented a hexagonal grid with irregular quad-based meshing.</li>
+                    <li>Developed Vertex Shader-based terrain deformation for performance.</li>
+                    <li>Wrote shaders for real-time normal generation and texture blending.</li>
+                    <li>Added dynamic features like plant placement and water levels.</li>
+                    <li>Optimized for 30+ FPS on low-end mobile browsers.</li>
+                </ul>
+            </div>
+            <div class="project-gifs">
+                <img src="gifs/mechterrain.gif" alt="Terrain Editor GIF">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Project 4: Building Editor -->
+        <div class="project">
+            <div class="project-text">
+                <h2>Building Editor</h2>
+                <p><strong>Client:</strong> mech.com (aka mixie)</p>
+                <p><strong>Duration:</strong> November 2022 - January 2023 (3 months)</p>
+                <p><strong>Technologies:</strong> Godot Engine 3</p>
+                <p><strong>Target Platforms:</strong> Web (desktop and mobile browsers)</p>
+                <p><strong>Project Description:</strong> A real-time building editor with transformable geometry for terrain maps.</p>
+                <p><strong>What I Did:</strong></p>
+                <ul>
+                    <li>Developed a system for "transformer" buildings using scalable 3D boxes.</li>
+                    <li>Created a JSON-based structure for defining fixed and stretchable building elements.</li>
+                    <li>Implemented automatic floor and detail generation (doors, windows) based on size.</li>
+                    <li>Built real-time 3D model deformation and geometry generation.</li>
+                    <li>Optimized for seamless integration with the Terrain Editor on web platforms.</li>
+                </ul>
+            </div>
+            <div class="project-gifs">
+                <img src="gifs/mechbuildings.gif" alt="Building Editor GIF">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Project 5: Level Generator -->
+        <div class="project">
+            <div class="project-text">
+                <h2>Level Generator</h2>
+                <p><strong>Client:</strong> mech.com (aka mixie)</p>
+                <p><strong>Duration:</strong> February 2023 - April 2023 (3 months)</p>
+                <p><strong>Technologies:</strong> Godot Engine 3, custom shaders</p>
+                <p><strong>Target Platforms:</strong> Web (desktop and mobile browsers)</p>
+                <p><strong>Project Description:</strong> A real-time level generator based on text prompts for dynamic game environments.</p>
+                <p><strong>What I Did:</strong></p>
+                <ul>
+                    <li>Built a Godot frontend to generate level geometry from text prompts.</li>
+                    <li>Created shaders for visual effects and depth map generation.</li>
+                    <li>Integrated server-side texture overlay with seamless blending across segments.</li>
+                    <li>Added expandable level squares with unique prompt-based styles.</li>
+                    <li>Developed a controllable robot for testing with keyboard and joystick support.</li>
+                    <li>Optimized for smooth performance on web browsers.</li>
+                </ul>
+            </div>
+            <div class="project-gifs">
+                <img src="gifs/mechgen.gif" alt="Level Generator GIF">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Project 6: Another World -->
+        <div class="project">
+            <div class="project-text">
+                <h2>Another World</h2>
+                <p><strong>Client:</strong> Another World</p>
+                <p><strong>Duration:</strong> November 2019 - January 2020 (3 months)</p>
+                <p><strong>Technologies:</strong> Unity Engine</p>
+                <p><strong>Target Platforms:</strong> VR (Windows)</p>
+                <p><strong>Project Description:</strong> A cooperative VR shooter for physical platforms supporting up to 4 players.</p>
+                <p><strong>What I Did:</strong></p>
+                <ul>
+                    <li>Developed AI for enemy monsters with dynamic behavior.</li>
+                    <li>Configured physics for realistic monster interactions.</li>
+                    <li>Built a movement controller for enemies.</li>
+                    <li>Created animations synced with AI actions.</li>
+                </ul>
+            </div>
+            <div class="project-gifs">
+                <img src="gifs/anotherworld.gif" alt="Another World GIF">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Project 7: Dragon Destiny -->
+        <div class="project">
+            <div class="project-text">
+                <h2>Dragon Destiny</h2>
+                <p><strong>Client:</strong> Personal Project</p>
+                <p><strong>Duration:</strong> January 2019 - September 2019 (9 months)</p>
+                <p><strong>Technologies:</strong> Unreal Engine 4</p>
+                <p><strong>Target Platforms:</strong> Mobile (Android, iOS)</p>
+                <p><strong>Project Description:</strong> A fantasy shoot 'em up with RPG elements where you control a dragon.</p>
+                <p><strong>What I Did:</strong></p>
+                <ul>
+                    <li>Developed core gameplay with finger-based dragon control and attacks.</li>
+                    <li>Implemented enemy AI and behavior systems.</li>
+                    <li>Created RPG mechanics: talent tree, abilities, and dragon upgrades.</li>
+                    <li>Built character controller and animations for the dragon.</li>
+                    <li>Optimized performance for mobile platforms.</li>
+                    <li>Designed menus and level transition systems.</li>
+                </ul>
+            </div>
+            <div class="project-gifs">
+                <img src="gifs/dragon.gif" alt="Dragon Destiny GIF">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Skills & Contact -->
+        <div class="skills-contact">
+            <h2>Skills & Contact</h2>
+            <p><strong>Game Engines:</strong> Unreal Engine, Unity, Godot</p>
+            <p><strong>Programming Languages:</strong> Rust, C#, C, Godot Script</p>
+            <p><strong>Graphics & APIs:</strong> OpenGL, WebGL, WebGPU, DirectX, Vulkan (via Rust WGPU), shaders (SDF, raymarching)</p>
+            <p><strong>Other:</strong> Custom engine development, physics systems, game design, level design, art</p>
+            <p><strong>Availability:</strong> Open to freelance projects and remote opportunities</p>
+            <p><strong>Contact:</strong> <a href="mailto:maffi44maffi44@gmail.com">Email</a> | <a href="https://github.com/maffi44">GitHub</a> | <a href="https://linkedin.com/in/timofei-molokov-1978961a4">LinkedIn</a> | <a href="https://t.me/maffi44">Telegram</a></p>
+        </div>
+    </div>
+</body>
+</html>
