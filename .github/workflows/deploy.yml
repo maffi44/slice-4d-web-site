@@ -39,7 +39,7 @@ jobs:
             test -f index.html || { echo "index.html not found"; exit 1; }
 
             # Копируем index.html на сервер
-            cp index.html /var/www/html/index.html
+            sudo cp index.html /var/www/html/index.html
 
             # Устанавливаем правильные права, если нужно
             sudo chown www-data:www-data /var/www/html/index.html
