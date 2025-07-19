@@ -27,24 +27,19 @@ jobs:
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             set -e
 
-            # Создаем временную папку для деплоя
             TMP_DIR="/tmp/deploy_$(date +%s)"
             mkdir -p "$TMP_DIR"
             cd "$TMP_DIR"
 
-            # Клонируем репозиторий
             git clone https://github.com/${{ github.repository }} .
 
-            # Проверка, что index.html существует
             test -f index.html || { echo "index.html not found"; exit 1; }
 
-            # Копируем index.html на сервер
             sudo cp index.html /var/www/html/index.html
+            sudo cp gifs /var/www/html
 
-            # Устанавливаем правильные права, если нужно
             sudo chown www-data:www-data /var/www/html/index.html
 
-            # Удаляем временный каталог
             cd /
             rm -rf "$TMP_DIR"
           EOF
