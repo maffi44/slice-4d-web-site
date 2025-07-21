@@ -34,10 +34,7 @@ jobs:
             git clone https://github.com/${{ github.repository }} .
 
             test -f index.html || { echo "index.html not found"; exit 1; }
-
-            sudo cp index.html /var/www/html/index.html
-            sudo cp -rf gifs /var/www/html
-
+            sudo cp -rf ./* /var/www/html
             sudo chown www-data:www-data /var/www/html/index.html
 
             cd /
