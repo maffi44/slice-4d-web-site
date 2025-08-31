@@ -18,43 +18,47 @@
             font-family: 'Orbitron', 'Arial', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 16px;
         }
         
         .container {
-            max-width: 1240px;
+            max-width: 992px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
         }
         
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background-color: rgba(26, 26, 26, 1.0);
-            padding: 8px 0;
+            padding: 6.4px 0;
             z-index: 1000;
-            border-bottom: 3px solid rgba(45, 223, 255, 0.3);
+            border-bottom: 2.4px solid rgba(45, 223, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .nav-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
+            flex: 1;
         }
         
         .nav-item {
-            margin: 0 25px;
+            margin: 0 20px;
             color: #fff;
             text-decoration: none;
-            font-size: 21px;
+            font-size: 16.8px;
             text-transform: uppercase;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -70,8 +74,8 @@
         
         .nav-item.donate {
             background-color: #ff7e1b;
-            padding: 5px 40px;
-            border-radius: 30px;
+            padding: 4px 32px;
+            border-radius: 24px;
             color: white;
         }
         
@@ -84,7 +88,61 @@
             content: " ♥";
         }
         
-        /* Hero section */
+        .language-selector {
+            position: fixed;
+            top: 7px;
+            right: 15px;
+            z-index: 1001;
+        }
+        
+        .language-btn {
+            background: rgba(0, 213, 255, 0.1);
+            border: 1px solid #00f3ff;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+        
+        .language-btn:hover {
+            background: rgba(0, 243, 255, 0.3);
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #1a1a1a;
+            border: 1px solid #00f3ff;
+            border-radius: 5px;
+            margin-top: 5px;
+            display: none;
+            flex-direction: column;
+            min-width: 120px;
+            z-index: 1003;
+        }
+        
+        .language-dropdown.show {
+            display: flex;
+        }
+        
+        .language-option {
+            padding: 8px 12px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        
+        .language-option:hover {
+            background: rgba(0, 243, 255, 0.2);
+        }
+        
         .hero {
             height: 100vh;
             display: flex;
@@ -94,7 +152,6 @@
             overflow: hidden;
         }
         
-        /* Background */
         .background {
             position: absolute;
             top: 0;
@@ -105,92 +162,87 @@
             z-index: 1;
         }
         
-        /* Background image */
         .background-image {
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
-            max-width: 1920px;
+            max-width: 1536px;
             height: 100%;
             background: url('media/poster.png') no-repeat center center;
             background-size: cover;
             z-index: 2;
         }
         
-        /* Top image */
         .top-image {
             position: absolute;
-            top: 2.5%;
+            top: 2%;
             left: 50%;
             transform: translateX(-50%);
-            width: 87%;
-            max-width: 1920px;
-            height: 40%;
+            width: 69.6%;
+            max-width: 1536px;
+            height: 32%;
             background: url('media/poster_title.png') no-repeat center center;
             background-size: contain;
             z-index: 3;
             transition: all 0.5s ease;
         }
         
-        /* Bottom image */
         .bottom-image {
             position: absolute;
-            bottom: 3%;
+            bottom: 2.4%;
             left: 50%;
             transform: translateX(-50%);
-            width: 55%;
-            max-width: 800px;
-            height: 35%;
+            width: 44%;
+            max-width: 640px;
+            height: 28%;
             background: url('media/poster_title_2.png') no-repeat center center;
             background-size: contain;
             z-index: 3;
             transition: all 0.5s ease;
         }
         
-        /* Play button */
         .play-button {
             position: absolute;
             top: 48%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 195px;
-            height: 195px;
+            width: 156px;
+            height: 156px;
             background: url('media/play_button.png') no-repeat center center;
             background-size: contain;
             cursor: pointer;
             z-index: 4;
             transition: all 0.3s ease;
-            filter: drop-shadow(0 0 15px rgba(45, 223, 255, 0.7));
+            filter: drop-shadow(0 0 12px rgba(45, 223, 255, 0.7));
             animation: pulse 1.3s infinite;
         }
         
         .play-button:hover {
             transform: translate(-50%, -50%) scale(1.1);
-            filter: drop-shadow(0 0 20px rgba(45, 223, 255, 1));
+            filter: drop-shadow(0 0 16px rgba(45, 223, 255, 1));
             animation: none;
         }
         
         @keyframes pulse {
             0% {
                 transform: translate(-50%, -50%) scale(1);
-                filter: drop-shadow(0 0 15px rgba(145, 223, 255, 0.7));
+                filter: drop-shadow(0 0 12px rgba(145, 223, 255, 0.7));
             }
             50% {
                 transform: translate(-50%, -50%) scale(1.07);
-                filter: drop-shadow(0 0 20px rgba(145, 223, 255, 0.9));
+                filter: drop-shadow(0 0 16px rgba(145, 223, 255, 0.9));
             }
             100% {
                 transform: translate(-50%, -50%) scale(1);
-                filter: drop-shadow(0 0 15px rgba(145, 223, 255, 0.7));
+                filter: drop-shadow(0 0 12px rgba(145, 223, 255, 0.7));
             }
         }
         
-        /* Down arrow */
         .scroll-down {
             position: absolute;
-            bottom: -22px;
+            bottom: -17.6px;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0.4;
@@ -199,17 +251,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            z-index: 5;
         }
         
         .scroll-down-arrow {
-            width: 170px;
-            height: 140px;
+            width: 136px;
+            height: 112px;
             background: url('media/down_arrow.png') no-repeat center center;
             background-size: contain;
-            filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.7));
+            filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.7));
         }
         
-        /* Video modal */
         .video-modal {
             position: fixed;
             top: 0;
@@ -233,7 +285,7 @@
         
         .video-container {
             width: 80%;
-            max-width: 900px;
+            max-width: 720px;
             position: relative;
         }
         
@@ -244,38 +296,36 @@
         
         .close-button {
             position: absolute;
-            top: -40px;
+            top: -32px;
             right: 0;
             color: white;
-            font-size: 30px;
+            font-size: 24px;
             cursor: pointer;
         }
         
-        /* Sections */
         section {
-            padding: 80px 0;
+            padding: 64px 0;
         }
         
         .section-title {
-            font-size: 32px;
-            margin-bottom: 30px;
+            font-size: 25.6px;
+            margin-bottom: 24px;
             color: #00f3ff;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.6px;
             text-align: center;
         }
         
-        /* About section */
         .about-content {
-            max-width: 1400px;
+            max-width: 1120px;
             margin: 0 auto;
             text-align: left;
         }
         
         .about-text {
-            font-size: 28px;
-            letter-spacing: 1.6px;
-            margin-bottom: 80px;
+            font-size: 22.4px;
+            letter-spacing: 1.28px;
+            margin-bottom: 64px;
             color: #ffffff;
             line-height: 1.9;
         }
@@ -291,21 +341,20 @@
             text-decoration: underline;
         }
         
-        /* Video section */
         .video-section {
             text-align: center;
         }
         
         .section-video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            max-width: 1400px;
+            max-width: 1120px;
             margin: 0 auto;
-            margin-bottom: 88px;
-            border: 2px solid #00f3ff;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+            margin-bottom: 70.4px;
+            border: 1.6px solid #00f3ff;
+            box-shadow: 0 0 24px rgba(0, 243, 255, 0.4);
         }
         
         .section-video-container iframe {
@@ -316,7 +365,39 @@
             height: 100%;
         }
         
-        /* Donate section */
+        /* Download button styles */
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00f3ff, #0099cc);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 243, 255, 0.5);
+            background: linear-gradient(135deg, #00e0ff, #0088bb);
+        }
+        
+        .download-button i {
+            margin-right: 25px;
+            font-size: 25px;
+        }
+        
+        .download-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
         .donate {
             background-color: rgba(42, 42, 42, 0.7);
             padding: 0px 0;
@@ -327,45 +408,48 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 24px;
+            margin-top: 32px;
+            z-index: 5;
         }
         
         .donate-option {
             background-color: rgba(0, 243, 255, 0.1);
             border: 1px solid #00f3ff;
-            border-radius: 10px;
-            padding: 30px;
-            width: 280px;
+            border-radius: 8px;
+            padding: 24px;
+            width: 224px;
             transition: all 0.3s ease;
         }
         
         .donate-option:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 243, 255, 0.2);
         }
         
         .donate-option h3 {
-            color: #00f3ff;
-            margin-bottom: 15px;
-            font-size: 24px;
+            color: #ff7e1b;
+            margin-bottom: 12px;
+            font-size: 19.2px;
+            min-height: 30px;
         }
         
         .donate-option p {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             color: #cccccc;
-            font-size: 18px;
+            font-size: 14.4px;
+            min-height: 40px;
         }
         
         .donate-btn {
             display: inline-block;
             background-color: #ff7e1b;
             color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
+            padding: 9.6px 20px;
+            border-radius: 24px;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 18px;
+            font-size: 14.4px;
         }
         
         .donate-btn:hover {
@@ -373,24 +457,23 @@
             transform: scale(1.05);
         }
         
-        /* Footer */
         .footer {
             background-color: #2a2a2a;
-            padding: 60px 0 30px;
+            padding: 48px 0 24px;
             text-align: center;
         }
         
         .social-links {
             display: flex;
             justify-content: space-between;
-            max-width: 1240px;
+            max-width: 992px;
             margin: 0 auto 0px;
-            gap: 20px;
+            gap: 16px;
         }
         
         .social-link {
             color: #00f3ff;
-            font-size: 50px;
+            font-size: 40px;
             text-decoration: none;
             transition: all 0.3s ease;
             flex: 1;
@@ -399,29 +482,33 @@
         
         .social-link:hover {
             color: #ffffff;
-            transform: translateY(-3px);
+            transform: translateY(-2.4px);
+        }
+        
+        /* Custom X icon style */
+        .x-icon {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
         }
         
         .contact-email {
             color: #00f3ff;
-            font-size: 20px;
-            margin: 30px 0;
+            font-size: 16px;
+            margin: 24px 0;
             display: block;
         }
         
         .copyright {
             color: #666;
-            font-size: 14px;
-            margin-top: 30px;
+            font-size: 11.2px;
+            margin-top: 24px;
         }
         
-        /* Futuristic font */
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
         
-        /* Responsiveness */
         @media (max-width: 784px) {
             .navbar {
-                padding: 10px 0;
+                padding: 8px 0;
             }
             
             .nav-container {
@@ -429,42 +516,47 @@
             }
             
             .nav-item {
-                margin: 5px 10px;
-                font-size: 14px;
+                margin: 4px 8px;
+                font-size: 11.2px;
             }
             
             .background-image {
-                background: url('media/poster.png') no-repeat -237px center;
+                background: url('media/poster.png') no-repeat -190px center;
             }
 
             .top-image {
-                height: 25%;
-                top: 11%;
+                height: 20%;
+                top: 8.8%;
                 width: 100%;
                 background-image: url('media/poster_title_vertical.png');
                 background-size: contain;
             }
             
             .bottom-image {
-                height: 17%;
-                bottom: 14%;
-                width: 70%;
+                height: 13.6%;
+                bottom: 11.2%;
+                width: 56%;
                 background-size: contain;
                 max-width: 100%;
             }
             
             .play-button {
-                width: 180px;
-                height: 180px;
+                width: 144px;
+                height: 144px;
             }
             
             .scroll-down-arrow {
-                width: 130px;
-                height: 130px;
+                width: 104px;
+                height: 104px;
             }
             
             .about-text {
-                font-size: 16px;
+                font-size: 12.8px;
+            }
+            
+            .download-button {
+                padding: 12px 24px;
+                font-size: 18px;
             }
             
             .donate-options {
@@ -474,138 +566,165 @@
             
             .donate-option {
                 width: 100%;
-                max-width: 300px;
+                max-width: 240px;
             }
             
             .social-links {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 25px;
+                gap: 20px;
             }
             
             .social-link {
                 flex: none;
-                width: 50px;
+                width: 40px;
+                font-size: 32px;
+            }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .language-btn {
+                font-size: 12px;
+                padding: 4px 8px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <div class="language-selector">
+        <div class="language-btn" id="languageBtn">
+            <i class="fas fa-globe"></i> <span id="currentLangCode">EN</span>
+        </div>
+        <div class="language-dropdown" id="languageDropdown">
+            <a href="#" class="language-option" data-lang="en">English</a>
+            <a href="#" class="language-option" data-lang="ru">Русский</a>
+            <a href="#" class="language-option" data-lang="es">Español</a>
+            <a href="#" class="language-option" data-lang="fr">Français</a>
+            <a href="#" class="language-option" data-lang="de">Deutsch</a>
+            <a href="#" class="language-option" data-lang="zh">中文</a>
+            <a href="#" class="language-option" data-lang="ja">日本語</a>
+            <a href="#" class="language-option" data-lang="ko">한국어</a>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#about" class="nav-item about-link">About</a>
-            <a href="team.html" class="nav-item">Team</a>
-            <a href="https://slice4d.itch.io/slice4d" class="nav-item">Download</a>
-            <a href="blog.html" class="nav-item">Blog</a>
-            <a href="#donate" class="nav-item donate">Donate</a>
+            <a href="#about" class="nav-item about-link" data-key="nav.about">About</a>
+            <a href="team.html" class="nav-item" data-key="nav.team">Team</a>
+            <a href="https://slice4d.itch.io/slice4d" class="nav-item" data-key="nav.download">Download</a>
+            <a href="blog.html" class="nav-item" data-key="nav.blog">Blog</a>
+            <a href="#donate" class="nav-item donate" data-key="nav.donate">Donate</a>
         </div>
     </nav>
     
-    <!-- Hero section -->
     <section class="hero">
-        <!-- Background -->
         <div class="background"></div>
-        
-        <!-- Background image -->
         <div class="background-image"></div>
-        
-        <!-- Top image -->
         <div class="top-image"></div>
-        
-        <!-- Bottom image -->
         <div class="bottom-image"></div>
-        
-        <!-- Play button -->
         <div class="play-button"></div>
-        
-        <!-- Down arrow -->
         <div class="scroll-down" id="scrollDown">
             <div class="scroll-down-arrow"></div>
         </div>
     </section>
     
-    <!-- About section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">About Slice 4d Shooter</h2>
+            <h2 class="section-title" data-key="about.title">About Slice 4D Shooter</h2>
             <div class="about-content">
                 <p class="about-text">
-                    <a href="#" class="trailer-link">Slice 4D Shooter</a> is the first multiplayer competitive first person shooter set in true 4D space.
-                    Learn how to play a shooter in 4D space in the video tutorial below.
+                    <a href="#" class="trailer-link" data-key="about.gameName">Slice 4D Shooter</a>
+                    <span data-key="about.description1"> is the first multiplayer competitive first person shooter set in true 4D space.</span>
+                    <span data-key="about.description2"> Learn how to play a shooter in 4D space in the video tutorial below.</span>
                 </p>
                 
-                <!-- Tutorial video -->
                 <div class="video-section">
                     <div class="section-video-container">
                         <iframe src="https://www.youtube.com/embed/n-Rh9EIZ0Ag?si=JwNgKGuqf9KNiROD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
                 
-                <p class="about-text">
-                    Slice 4D Shooter is being developed by a small indie <a href="team.html">team of developers</a> since 2023 on a custom-built 4D game engine with the Rust programming language. All <a href="https://github.com/slice4d/slice4d">source code</a> of the game is open under a free <a href="https://github.com/slice4d/slice4d/blob/main/LICENSE">modified GPL license</a>.
+                <p class="about-text" data-key="about.description3">
+                    <span data-key="about.description3.text">Slice 4D Shooter is being developed by a small indie </span>
+                    <a href="team.html" data-key="about.teamLink">team of developers</a>
+                    <span data-key="about.description3.text2"> since 2023 year on a custom-built 4D game engine with the Rust programming language. All </span>
+                    <a href="https://github.com/slice4d/slice4d" data-key="about.sourceLink">source code</a>
+                    <span data-key="about.description3.text3"> of the game is open under a free </span>
+                    <a href="https://github.com/slice4d/slice4d/blob/main/LICENSE" data-key="about.licenseLink">modified GPL license</a>
+                    <span>.</span>
+                </p>
+                
+                <p class="about-text" data-key="about.description4">
+                    <span data-key="about.description4.text">Currently, Slice 4D Shooter is in the playable prototype stage of development and you can </span>
+                    <a href="https://slice4d.itch.io/slice4d" data-key="about.itchLink">try it on itch.io</a>
+                    <span data-key="about.description4.text2">. The current version supports online multiplayer.</span>
+                </p>
+                
+                <p class="about-text" data-key="about.description5">
+                    We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by community funding.
                 </p>
                 
                 <p class="about-text">
-                    Currently, Slice 4D Shooter is in the playable prototype stage of development and you can <a href="https://slice4d.itch.io/slice4d">try it on itch.io</a>.
-                    The current version supports online multiplayer.
+                    <a href="#donate" data-key="about.supportLink">Support the Slice 4D Shooter team</a>
+                    <span data-key="about.description6"> to help us make a truly free competitive esport game where players truly own the game they invest money and time into. You can find the development road map </span>
+                    <a href="blog/1.html" data-key="about.roadmapLink">here</a>
+                    <span>.</span>
                 </p>
-                
-                <p class="about-text">
-                    We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by freely funding from the audience.
-                </p>
-                
-                <p class="about-text">
-                    <a href="#donate">Support</a> the Slice 4D Shooter team to help us make a truly free competitive esport game where players truly own the game they invest money and time into, and greedy owners can't break the game because it's open for improvements and modifications by anyone.
-                </p>
+
+                <!-- Download button section -->
+                <div class="download-container">
+                    <a href="https://slice4d.itch.io/slice4d" class="download-button">
+                        <i class="fab fa-windows"></i> Download
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Donate section -->
     <section class="donate" id="donate">
         <div class="container">
-            <h2 class="section-title">Support development</h2>
+            <h2 class="section-title" data-key="donate.title">Support development</h2>
             <div class="donate-options">
                 <div class="donate-option">
-                    <h3>Patreon</h3>
-                    <p>Become a patron and get exclusive rewards</p>
-                    <a href="#" class="donate-btn">Support</a>
+                    <h3 data-key="donate.patreon">Patreon</h3>
+                    <p data-key="donate.patreonDesc">Become a patron and get exclusive rewards</p>
+                    <a href="#" class="donate-btn" data-key="donate.supportBtn">Support</a>
                 </div>
                 <div class="donate-option">
-                    <h3>PayPal</h3>
-                    <p>Make a secure donation via PayPal</p>
-                    <a href="#" class="donate-btn">Donate</a>
+                    <h3 data-key="donate.paypal">PayPal</h3>
+                    <p data-key="donate.paypalDesc">Make a secure donation via PayPal</p>
+                    <a href="#" class="donate-btn" data-key="donate.donateBtn">Donate</a>
                 </div>
                 <div class="donate-option">
-                    <h3>Crypto</h3>
-                    <p>Donate with cryptocurrency</p>
-                    <a href="#" class="donate-btn">Donate</a>
+                    <h3 data-key="donate.crypto">Crypto</h3>
+                    <p data-key="donate.cryptoDesc">Donate with cryptocurrency</p>
+                    <a href="#" class="donate-btn" data-key="donate.donateBtn">Donate</a>
                 </div>
                 <div class="donate-option">
-                    <h3>Boosty</h3>
-                    <p>Support us on the Russian platform Boosty</p>
-                    <a href="#" class="donate-btn">Support</a>
+                    <h3 data-key="donate.boosty">Boosty</h3>
+                    <p data-key="donate.boostyDesc">Support us on the Russian platform Boosty</p>
+                    <a href="#" class="donate-btn" data-key="donate.supportBtn">Support</a>
                 </div>
                 <div class="donate-option">
-                    <h3>Russia</h3>
-                    <p>Payment options for Russian supporters</p>
-                    <a href="#" class="donate-btn">Support</a>
+                    <h3 data-key="donate.russia">Russia</h3>
+                    <p data-key="donate.russiaDesc">Payment options for Russian supporters</p>
+                    <a href="#" class="donate-btn" data-key="donate.supportBtn">Support</a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><span class="x-icon">X</span></a>
                 <a href="https://github.com/slice4d/slice4d" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://slice4d.itch.io/slice4d" class="social-link"><i class="fab fa-itch-io"></i></a>
             </div>
             
             <a href="mailto:contact@slice4d.com" class="contact-email">contact@slice4d.com</a>
@@ -614,7 +733,6 @@
         </div>
     </footer>
     
-    <!-- Video modal -->
     <div class="video-modal" id="videoModal">
         <div class="video-container">
             <div class="close-button" id="closeButton">
@@ -625,6 +743,306 @@
     </div>
     
     <script>
+        // Language translations
+        const translations = {
+            en: {
+                'nav.about': 'About',
+                'nav.team': 'Team',
+                'nav.download': 'Download',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Donate',
+                'about.title': 'About Slice 4D Shooter',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': ' is the first multiplayer competitive first person shooter set in true 4D space.',
+                'about.description2': ' Learn how to play a shooter in 4D space in the video tutorial below.',
+                'about.description3.text': 'Slice 4D Shooter is being developed by a small indie ',
+                'about.teamLink': 'team of developers',
+                'about.description3.text2': ' since 2023 year on a custom-built 4D game engine with the Rust programming language. All ',
+                'about.sourceLink': 'source code',
+                'about.description3.text3': ' of the game is open under a free ',
+                'about.licenseLink': 'modified GPL license',
+                'about.description4.text': 'Currently, Slice 4D Shooter is in the playable prototype stage of development and you can ',
+                'about.itchLink': 'try it on itch.io',
+                'about.description4.text2': '. The current version supports online multiplayer.',
+                'about.description5': 'We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by community funding.',
+                'about.supportLink': 'Support the Slice 4D Shooter team',
+                'about.description6': ' to help us make a truly free competitive esport game where players truly own the game they invest money and time into. You can find the development road map ',
+                'about.roadmapLink': 'here',
+                'donate.title': 'Support development',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': 'Become a patron and get exclusive rewards',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': 'Make a secure donation via PayPal',
+                'donate.crypto': 'Crypto',
+                'donate.cryptoDesc': 'Donate with cryptocurrency',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': 'Support us on the Russian platform Boosty',
+                'donate.russia': 'Russia',
+                'donate.russiaDesc': 'Payment options for Russian supporters',
+                'donate.supportBtn': 'Support',
+                'donate.donateBtn': 'Donate'
+            },
+            ru: {
+                'nav.about': 'О проекте',
+                'nav.team': 'Команда',
+                'nav.download': 'Скачать',
+                'nav.blog': 'Блог',
+                'nav.donate': 'Поддержать',
+                'about.title': 'О Slice 4D Shooter',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': ' — это первый многопользовательский соревновательный шутер от первого лица в настоящем 4D-пространстве.',
+                'about.description2': ' Научитесь играть в шутер в 4D-пространстве в видеоуроке ниже.',
+                'about.description3.text': 'Slice 4D Shooter разрабатывается небольшой инди-',
+                'about.teamLink': 'командой разработчиков',
+                'about.description3.text2': ' с 2023 года на собственном движке для 4D-игр с использованием языка программирования Rust. Весь ',
+                'about.sourceLink': 'исходный код',
+                'about.description3.text3': ' игры открыт под свободной ',
+                'about.licenseLink': 'модифицированной лицензией GPL',
+                'about.description4.text': 'В настоящее время Slice 4D Shooter находится на стадии играбельного прототипа, и вы можете ',
+                'about.itchLink': 'попробовать его на itch.io',
+                'about.description4.text2': '. Текущая версия поддерживает многопользовательский онлайн-режим.',
+                'about.description5': 'Мы хотим сделать Slice 4D Shooter первым многопользовательским киберспортивным соревновательным онлайн-шутером в четырехмерном пространстве, поддерживаемым за счет финансирования сообщества.',
+                'about.supportLink': 'Поддержите команду Slice 4D Shooter',
+                'about.description6': ' чтобы помочь нам создать по-настоящему свободную киберспортивную игру, где игроки по-настоящему владеют игрой, в которую вкладывают свое время и деньги. План разработки можно найти ',
+                'about.roadmapLink': 'здесь',
+                'donate.title': 'Поддержать разработку',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': 'Станьте патроном и получайте эксклюзивные награды',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': 'Сделайте безопасное пожертвование через PayPal',
+                'donate.crypto': 'Криптовалюта',
+                'donate.cryptoDesc': 'Пожертвуйте криптовалютой',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': 'Поддержите нас на российском сервисе Boosty',
+                'donate.russia': 'Россия',
+                'donate.russiaDesc': 'Варианты оплаты для жертвователей из России',
+                'donate.supportBtn': 'Поддержать',
+                'donate.donateBtn': 'Пожертвовать'
+            },
+            es: {
+                'nav.about': 'Acerca de',
+                'nav.team': 'Equipo',
+                'nav.download': 'Descargar',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Donar',
+                'about.title': 'Acerca de Slice 4D Shooter',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': ' es el primer shooter competitivo multijugador en primera persona ambientado en un espacio 4D real.',
+                'about.description2': ' Aprende a jugar un shooter en espacio 4D en el video tutorial a continuación.',
+                'about.description3.text': 'Slice 4D Shooter está siendo desarrollado por un pequeño equipo indie de ',
+                'about.teamLink': 'desarrolladores',
+                'about.description3.text2': ' desde el año 2023 en un motor de juego 4D personalizado con el lenguaje de programación Rust. Todo el ',
+                'about.sourceLink': 'código fuente',
+                'about.description3.text3': ' del juego es abierto bajo una ',
+                'about.licenseLink': 'licencia GPL modificada gratuita',
+                'about.description4.text': 'Actualmente, Slice 4D Shooter está en la etapa de prototipo jugable y puedes ',
+                'about.itchLink': 'probarlo en itch.io',
+                'about.description4.text2': '. La versión actual soporta multijugador en línea.',
+                'about.description5': 'Queremos hacer de Slice 4D Shooter el primer shooter competitivo esport en línea multijugador ambientado en espacio tetradimensional, apoyado por financiación comunitaria.',
+                'about.supportLink': 'Apoya al equipo de Slice 4D Shooter',
+                'about.description6': ' para ayudarnos a hacer a un juego esport competitivo verdaderamente libre donde los jugadores sean verdaderos dueños del juego en el que invierten dinero y tiempo. Puedes encontrar la hoja de ruta de desarrollo ',
+                'about.roadmapLink': 'aquí',
+                'donate.title': 'Apoya el desarrollo',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': 'Conviértete en patrocinador y obtén recompensas exclusivas',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': 'Haz una donación segura a través de PayPal',
+                'donate.crypto': 'Cripto',
+                'donate.cryptoDesc': 'Dona con criptomonedas',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': 'Apóyanos en la plataforma rusa Boosty',
+                'donate.russia': 'Rusia',
+                'donate.russiaDesc': 'Opciones de pago para partidarios rusos',
+                'donate.supportBtn': 'Apoyar',
+                'donate.donateBtn': 'Donar'
+            },
+            fr: {
+                'nav.about': 'À propos',
+                'nav.team': 'Équipe',
+                'nav.download': 'Télécharger',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Faire un don',
+                'about.title': 'À propos de Slice 4D Shooter',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': ' est le premier jeu de tir compétitif multijoueur à la première personne se déroulant dans un véritable espace 4D.',
+                'about.description2': ' Apprenez à jouer à un shooter en espace 4D dans le tutoriel vidéo ci-dessous.',
+                'about.description3.text': 'Slice 4D Shooter est développé par une petite équipe indie de ',
+                'about.teamLink': 'développeurs',
+                'about.description3.text2': ' depuis 2023 sur un moteur de jeu 4D personnalisé avec le langage de programmation Rust. Tout le ',
+                'about.sourceLink': 'code source',
+                'about.description3.text3': ' du jeu est ouvert sous une ',
+                'about.licenseLink': 'licence GPL modifiée gratuite',
+                'about.description4.text': 'Actuellement, Slice 4D Shooter est au stade de prototype jouable et vous pouvez l',
+                'about.itchLink': 'essayer sur itch.io',
+                'about.description4.text2': '. La version actuelle prend en charge le multijoueur en ligne.',
+                'about.description5': 'Nous voulons faire de Slice 4D Shooter le premier jeu de tir compétitif esport en ligne multijoueur se déroulant dans un espace à quatre dimensions, soutenu par un financement communautaire.',
+                'about.supportLink': 'Soutenez léquipe de Slice 4D Shooter',
+                'about.description6': ' pour nous aider à créer un jeu esport compétitif véritablement libre où les joueurs soient de véritables propriétaires du jeu dans lequel ils investissent argent et temps. Vous pouvez trouver la feuille de route de développement ',
+                'about.roadmapLink': 'ici',
+                'donate.title': 'Soutenez le développement',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': 'Devenez mécène et obtenez des récompenses exclusives',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': 'Faites un don sécurisé via PayPal',
+                'donate.crypto': 'Crypto',
+                'donate.cryptoDesc': 'Faites un don en cryptomonnaie',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': 'Soutenez nous sur la plateforme russe Boosty',
+                'donate.russia': 'Russie',
+                'donate.russiaDesc': 'Options de paiement pour les supporters russes',
+                'donate.supportBtn': 'Soutenir',
+                'donate.donateBtn': 'Faire un don'
+            },
+            de: {
+                'nav.about': 'Über',
+                'nav.team': 'Team',
+                'nav.download': 'Download',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Spenden',
+                'about.title': 'Über Slice 4D Shooter',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': ' ist der erste multiplayer Competitive First-Person-Shooter in einem echten 4D-Raum.',
+                'about.description2': ' Erfahren Sie, wie Sie einen Shooter im 4D-Raum im Video-Tutorial unten spielen.',
+                'about.description3.text': 'Slice 4D Shooter wird seit 2023 von einem kleinen Indie-',
+                'about.teamLink': 'Entwicklerteam',
+                'about.description3.text2': ' mit der Rust-Programmiersprache auf einer maßgeschneiderten 4D-Spiel-Engine entwickelt. Der gesamte ',
+                'about.sourceLink': 'Quellcode',
+                'about.description3.text3': ' des Spiels ist unter einer kostenlosen ',
+                'about.licenseLink': 'modifizierten GPL-Lizenz Open Source',
+                'about.description4.text': 'Derzeit befindet sich Slice 4D Shooter im spielbaren Prototypenstadium und Sie können es auf ',
+                'about.itchLink': 'itch.io ausprobieren',
+                'about.description4.text2': '. Die aktuelle Version unterstützt Online-Multiplayer.',
+                'about.description5': 'Wir wollen Slice 4D Shooter zum ersten multiplayer Competitive Esport-Online-Shooter im vierdimensionalen Raum machen, der durch Community-Finanzierung unterstützt wird.',
+                'about.supportLink': 'Unterstützen Sie das Slice 4D Shooter-Team',
+                'about.description6': ' um uns zu helfen, ein wirklich freies Competitive-Esport-Spiel zu entwickeln, in dem Spieler das Spiel, in das sie investieren, auch wirklich besitzen. Den Entwicklungsfahrplan finden Sie ',
+                'about.roadmapLink': 'hier',
+                'donate.title': 'Entwicklung unterstützen',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': 'Werden Sie Patron und erhalten Sie exklusive Belohnungen',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': 'Machen Sie eine sichere Spende über PayPal',
+                'donate.crypto': 'Krypto',
+                'donate.cryptoDesc': 'Spenden Sie mit Kryptowährung',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': 'Unterstützen Sie uns auf der russischen Plattform Boosty',
+                'donate.russia': 'Russland',
+                'donate.russiaDesc': 'Zahlungsmöglichkeiten für russische Unterstützer',
+                'donate.supportBtn': 'Unterstützen',
+                'donate.donateBtn': 'Spenden'
+            },
+            zh: {
+                'nav.about': '关于',
+                'nav.team': '团队',
+                'nav.download': '下载',
+                'nav.blog': '博客',
+                'nav.donate': '捐赠',
+                'about.title': '关于 Slice 4D Shooter',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': ' 是第一款设置在真 4D 空间中的多人竞技第一人称射击游戏。',
+                'about.description2': ' 在下面的视频教程中学习如何在 4D 空间中玩射击游戏。',
+                'about.description3.text': 'Slice 4D Shooter 自 2023 年起由一个小型独立',
+                'about.teamLink': '开发团队',
+                'about.description3.text2': ' 使用 Rust 编程语言在自定义 4D 游戏引擎上开发。游戏的所有',
+                'about.sourceLink': '源代码',
+                'about.description3.text3': ' 都在免费的',
+                'about.licenseLink': '修改版 GPL 许可证',
+                'about.description4.text': '下开放。目前，Slice 4D Shooter 处于可玩原型开发阶段，您可以在',
+                'about.itchLink': 'itch.io 上尝试',
+                'about.description4.text2': '。当前版本支持在线多人游戏。',
+                'about.description5': '我们希望将 Slice 4D Shooter 打造成第一款设置在四维空间中的多人竞技电子竞技在线射击游戏，由社区资助支持。',
+                'about.supportLink': '支持 Slice 4D Shooter 团队',
+                'about.description6': ' 帮助我们制作一个真正免费的竞技电子竞技游戏，玩家真正拥有他们投入金钱和时间的游戏。您可以在此处找到开发路线图',
+                'about.roadmapLink': '这里',
+                'donate.title': '支持开发',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': '成为赞助人并获得独家奖励',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': '通过 PayPal 进行安全捐赠',
+                'donate.crypto': '加密货币',
+                'donate.cryptoDesc': '使用加密货币捐赠',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': '在俄罗斯平台 Boosty 上支持我们',
+                'donate.russia': '俄罗斯',
+                'donate.russiaDesc': '俄罗斯支持者的支付选项',
+                'donate.supportBtn': '支持',
+                'donate.donateBtn': '捐赠'
+            },
+            ja: {
+                'nav.about': 'About',
+                'nav.team': 'チーム',
+                'nav.download': 'ダウンロード',
+                'nav.blog': 'ブログ',
+                'nav.donate': '寄付',
+                'about.title': 'Slice 4D Shooterについて',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': 'は、真の4D空間を舞台にした最初のマルチプレイヤー競技型ファーストパーソンシューティングゲームです。',
+                'about.description2': '以下のビデオチュートリアルで、4D空間でのシューティングゲームのプレイ方法を学びましょう。',
+                'about.description3.text': 'Slice 4D Shooterは、2023年からRustプログラミング言語を使用したカスタムビルドの4Dゲームエンジンで、小さなインディー',
+                'about.teamLink': '開発者チーム',
+                'about.description3.text2': 'によって開発されています。ゲームの全',
+                'about.sourceLink': 'ソースコード',
+                'about.description3.text3': 'は、無料の',
+                'about.licenseLink': '修正版GPLライセンス',
+                'about.description4.text': 'の下で公開されています。目前、Slice 4D Shooterはプレイ可能なプロトタイプ段階にあり、',
+                'about.itchLink': 'itch.ioで試す',
+                'about.description4.text2': 'ことができます。現在のバージョンはオンラインマルチプレイヤーをサポートしています。',
+                'about.description5': '私たちは、Slice 4D Shooterを、コミュニティの資金支援を受けた四次元空間を舞台にした最初のマルチプレイヤー競技eスポーツオンラインシューティングゲームにしたいと考えています。',
+                'about.supportLink': 'Slice 4D Shooterチームを支援する',
+                'about.description6': 'プレイヤーがお金と時間を投資したゲームを真に所有できる、真に無料の競技eスポーツゲームを作るために。開発ロードマップは',
+                'about.roadmapLink': 'こちら',
+                'donate.title': '開発を支援する',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': 'パトロンになって限定特典をゲット',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': 'PayPalで安全に寄付',
+                'donate.crypto': '暗号通貨',
+                'donate.cryptoDesc': '暗号通貨で寄付',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': 'ロシアのプラットフォームBoostyで私たちを支援',
+                'donate.russia': 'ロシア',
+                'donate.russiaDesc': 'ロシアのサポーター向け支払いオプション',
+                'donate.supportBtn': '支援',
+                'donate.donateBtn': '寄付'
+            },
+            ko: {
+                'nav.about': '소개',
+                'nav.team': '팀',
+                'nav.download': '다운로드',
+                'nav.blog': '블로그',
+                'nav.donate': '기부',
+                'about.title': 'Slice 4D Shooter 소개',
+                'about.gameName': 'Slice 4D Shooter',
+                'about.description1': '는 진정한 4D 공간을 배경으로 하는 최초의 멀티플레이어 경쟁형 1인칭 슈팅 게임입니다.',
+                'about.description2': ' 아래 동영상 튜토리얼에서 4D 공간에서 슈팅 게임을 플레이하는 방법을 배워보세요.',
+                'about.description3.text': 'Slice 4D Shooter는 2023년부터 Rust 프로그래밍 언어를 사용한 맞춤형 4D 게임 엔진으로 소규모 인디 ',
+                'about.teamLink': '개발자 팀',
+                'about.description3.text2': '이 개발하고 있습니다. 게임의 모든 ',
+                'about.sourceLink': '소스 코드',
+                'about.description3.text3': '는 무료 ',
+                'about.licenseLink': '수정 GPL 라이선스',
+                'about.description4.text': '로 공개되어 있습니다. 현재 Slice 4D Shooter는 플레이 가능한 프로토타입 개발 단계에 있으며 ',
+                'about.itchLink': 'itch.io에서 시험해 볼',
+                'about.description4.text2': ' 수 있습니다. 현재 버전은 온라인 멀티플레이어를 지원합니다.',
+                'about.description5': '우리는 Slice 4D Shooter를 커뮤니티 펀딩으로 지원되는 4차원 공간을 배경으로 하는 최초의 멀티플레이어 경쟁 e스포츠 온라인 슈팅 게ーム으로 만들고 싶습니다.',
+                'about.supportLink': 'Slice 4D Shooter 팀 지원하기',
+                'about.description6': ' 플레이어가 돈과 시간을 투자한 게임을 진정으로 소유하는 진정한 무료 경쟁 e스포츠 게임을 만드는 데 도움을 주세요. 개발 로드맵은 ',
+                'about.roadmapLink': '여기',
+                'donate.title': '개발 지원하기',
+                'donate.patreon': 'Patreon',
+                'donate.patreonDesc': '후원자가 되어 독점 보상 받기',
+                'donate.paypal': 'PayPal',
+                'donate.paypalDesc': 'PayPal로 안전하게 기부하기',
+                'donate.crypto': '암호화폐',
+                'donate.cryptoDesc': '암호화폐로 기부하기',
+                'donate.boosty': 'Boosty',
+                'donate.boostyDesc': '러시아 플랫폼 Boosty에서 우리 지원하기',
+                'donate.russia': '러시아',
+                'donate.russiaDesc': '러시아 지원자를 위한 결제 옵션',
+                'donate.supportBtn': '지원',
+                'donate.donateBtn': '기부'
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
             const playButton = document.querySelector('.play-button');
             const videoModal = document.getElementById('videoModal');
@@ -634,6 +1052,98 @@
             const aboutSection = document.getElementById('about');
             const aboutLink = document.querySelector('.nav-item.about-link');
             const trailerLink = document.querySelector('.trailer-link');
+            const languageBtn = document.getElementById('languageBtn');
+            const languageDropdown = document.getElementById('languageDropdown');
+            const currentLangCode = document.getElementById('currentLangCode');
+            
+            // Get saved language or default to English
+            let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            
+            // Apply saved language on page load
+            changeLanguage(currentLanguage);
+            currentLangCode.textContent = currentLanguage.toUpperCase();
+            
+            // Language selection functionality
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('show');
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.remove('show');
+                }
+            });
+            
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                    languageDropdown.classList.remove('show');
+                    currentLangCode.textContent = lang.toUpperCase();
+                    
+                    // Save language preference
+                    localStorage.setItem('selectedLanguage', lang);
+                    
+                    // Update URL with language parameter without reloading
+                    const url = new URL(window.location);
+                    url.searchParams.set('lang', lang);
+                    window.history.replaceState({}, '', url);
+                });
+            });
+            
+            // Check for language parameter in URL
+            function checkUrlLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const langParam = urlParams.get('lang');
+                if (langParam && translations[langParam]) {
+                    changeLanguage(langParam);
+                    currentLangCode.textContent = langParam.toUpperCase();
+                    localStorage.setItem('selectedLanguage', langParam);
+                }
+            }
+            
+            // Handle browser back/forward navigation
+            window.addEventListener('popstate', function() {
+                checkUrlLanguage();
+            });
+            
+            // Check URL on initial load
+            checkUrlLanguage();
+            
+            function changeLanguage(lang) {
+                currentLanguage = lang;
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        // For links, preserve the href and only change the text
+                        if (element.tagName === 'A') {
+                            const originalHref = element.getAttribute('href');
+                            element.textContent = translations[lang][key];
+                            if (originalHref) {
+                                element.setAttribute('href', originalHref);
+                            }
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+            }
+            
+            // Modify all internal links to include language parameter
+            document.querySelectorAll('a[href]').forEach(link => {
+                const href = link.getAttribute('href');
+                // Only modify internal links (not starting with http or #)
+                if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+                    link.addEventListener('click', function(e) {
+                        // For internal navigation, preserve language
+                        const url = new URL(href, window.location.origin);
+                        url.searchParams.set('lang', currentLanguage);
+                        link.setAttribute('href', url.toString());
+                    });
+                }
+            });
             
             // Play button handler
             playButton.addEventListener('click', function() {
@@ -689,8 +1199,8 @@
                 } else {
                     topImage.style.backgroundSize = 'contain';
                     bottomImage.style.backgroundSize = 'contain';
-                    bottomImage.style.width = '55%';
-                    bottomImage.style.maxWidth = '800px';
+                    bottomImage.style.width = '44%';
+                    bottomImage.style.maxWidth = '640px';
                 }
             }
             
