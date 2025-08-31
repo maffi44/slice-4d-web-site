@@ -3,337 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timofey Molokov - Portfolio</title>
+    <title>Slice 4D Shooter - The First 4D Multiplayer Shooter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 10px;
-            background-color: #1a1a1a;
-            color: #f4f4f4;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-family: 'Orbitron', 'Arial', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
+        
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
+            padding: 0 20px;
         }
-        .header {
-            text-align: center;
-            padding: 15px 0;
-            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-            border-radius: 10px;
-            margin-bottom: 40px;
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 1.0);
+            padding: 8px 0;
+            z-index: 1000;
+            border-bottom: 3px solid rgba(45, 223, 255, 0.3);
         }
-        .header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid #f4f4f4;
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .header h2 {
-            font-size: 1.8em;
-            color: #b0b0b0;
-            margin: 10px 0;
-        }
-        .header p {
-            font-size: 1.1em;
-            text-align: left;
-            max-width: 850px;
-            margin: 20px auto 0;
-            padding: 0 10px;
-        }
-        .project {
+        
+        .nav-container {
             display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            background: #252525;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .project-text {
-            flex: 1;
-            min-width: 500px;
-            padding-right: 40px;
-            padding-left: 20px;
-            padding-top: 20px;
-            padding-bottom: normal;
-        }
-        .project-text li {
-            margin-left: 25px;
-            margin-top: 10px;
-            padding-left: normal;
-        }
-        .project-gifs {
-            flex: 0 0 540px;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .project-gifs img {
-            max-width: 500px;
-            border-radius: 5px;
-        }
-        .project h2 {
-            margin-top: 0;
-            color: #00c4e8;
-        }
-        .divider {
-            height: 2px;
-            background: linear-gradient(to right, #00c4e8, transparent);
-            margin: 60px 0;
-        }
-        .skills-contact {
-            margin-top: 40px;
-            text-align: normal;
-        }
-        .skills-contact h2 {
-            color: #b0b0b0;
-        }
-        a {
-            color: #00c4e8;
+        
+        .nav-item {
+            margin: 0 25px;
+            color: #fff;
             text-decoration: none;
+            font-size: 21px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        a:hover {
+        
+        .nav-item:hover {
+            color: #00f3ff;
+        }
+        
+        .nav-item.active {
+            color: #00f3ff;
+            font-weight: bold;
+        }
+        
+        .nav-item.donate {
+            background-color: #ff7e1b;
+            padding: 5px 40px;
+            border-radius: 30px;
+            color: white;
+        }
+        
+        .nav-item.donate:hover {
+            background-color: #ff7e1b;
+            transform: scale(1.05);
+        }
+        
+        .nav-item.donate::after {
+            content: " ♥";
+        }
+        
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2a2a2a;
+            z-index: 1;
+        }
+        
+        /* Background image */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1920px;
+            height: 100%;
+            background: url('media/poster.png') no-repeat center center;
+            background-size: cover;
+            z-index: 2;
+        }
+        
+        /* Top image */
+        .top-image {
+            position: absolute;
+            top: 2.5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 87%;
+            max-width: 1920px;
+            height: 40%;
+            background: url('media/poster_title.png') no-repeat center center;
+            background-size: contain;
+            z-index: 3;
+            transition: all 0.5s ease;
+        }
+        
+        /* Bottom image */
+        .bottom-image {
+            position: absolute;
+            bottom: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55%;
+            max-width: 800px;
+            height: 35%;
+            background: url('media/poster_title_2.png') no-repeat center center;
+            background-size: contain;
+            z-index: 3;
+            transition: all 0.5s ease;
+        }
+        
+        /* Play button */
+        .play-button {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 195px;
+            height: 195px;
+            background: url('media/play_button.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            z-index: 4;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 15px rgba(45, 223, 255, 0.7));
+            animation: pulse 1.3s infinite;
+        }
+        
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            filter: drop-shadow(0 0 20px rgba(45, 223, 255, 1));
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                filter: drop-shadow(0 0 15px rgba(145, 223, 255, 0.7));
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.07);
+                filter: drop-shadow(0 0 20px rgba(145, 223, 255, 0.9));
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                filter: drop-shadow(0 0 15px rgba(145, 223, 255, 0.7));
+            }
+        }
+        
+        /* Down arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.4;
+            z-index: 4;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .scroll-down-arrow {
+            width: 170px;
+            height: 140px;
+            background: url('media/down_arrow.png') no-repeat center center;
+            background-size: contain;
+            filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.7));
+        }
+        
+        /* Video modal */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .video-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .video-container {
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #00f3ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        
+        /* About section */
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .about-text {
+            font-size: 28px;
+            letter-spacing: 1.6px;
+            margin-bottom: 80px;
+            color: #ffffff;
+            line-height: 1.9;
+        }
+        
+        .about-text a {
+            color: #00f3ff;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .about-text a:hover {
             text-decoration: underline;
         }
-        @media (max-width: 768px) {
-            body {
-                line-height: 1.36;
+        
+        /* Video section */
+        .video-section {
+            text-align: center;
+        }
+        
+        .section-video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 88px;
+            border: 2px solid #00f3ff;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+        }
+        
+        .section-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Donate section */
+        .donate {
+            background-color: rgba(42, 42, 42, 0.7);
+            padding: 0px 0;
+            text-align: center;
+        }
+        
+        .donate-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .donate-option {
+            background-color: rgba(0, 243, 255, 0.1);
+            border: 1px solid #00f3ff;
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            transition: all 0.3s ease;
+        }
+        
+        .donate-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);
+        }
+        
+        .donate-option h3 {
+            color: #00f3ff;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .donate-option p {
+            margin-bottom: 20px;
+            color: #cccccc;
+            font-size: 18px;
+        }
+        
+        .donate-btn {
+            display: inline-block;
+            background-color: #ff7e1b;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .donate-btn:hover {
+            background-color: #ff7e1b;
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #2a2a2a;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1240px;
+            margin: 0 auto 0px;
+            gap: 20px;
+        }
+        
+        .social-link {
+            color: #00f3ff;
+            font-size: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .social-link:hover {
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+        
+        .contact-email {
+            color: #00f3ff;
+            font-size: 20px;
+            margin: 30px 0;
+            display: block;
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        
+        /* Futuristic font */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+        
+        /* Responsiveness */
+        @media (max-width: 784px) {
+            .navbar {
+                padding: 10px 0;
             }
-            .header p {
-                padding: 0 20px; /* Увеличенные отступы для хедера */
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-item {
+                margin: 5px 10px;
+                font-size: 14px;
+            }
+            
+            .background-image {
+                background: url('media/poster.png') no-repeat -237px center;
+            }
+
+            .top-image {
+                height: 25%;
+                top: 11%;
+                width: 100%;
+                background-image: url('media/poster_title_vertical.png');
+                background-size: contain;
+            }
+            
+            .bottom-image {
+                height: 17%;
+                bottom: 14%;
+                width: 70%;
+                background-size: contain;
                 max-width: 100%;
             }
-            .project {
+            
+            .play-button {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .scroll-down-arrow {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .about-text {
+                font-size: 16px;
+            }
+            
+            .donate-options {
                 flex-direction: column;
-                padding: 10px;
+                align-items: center;
             }
-            .project-text {
-                padding-right: 0px; /* Уменьшенные отступы для текста проектов */
-                padding-left: 0px;
-                margin-bottom: 20px;
-                min-width: 0; /* Убираем min-width для адаптивности */
-            }
-            .project-gifs {
-                flex: 1;
+            
+            .donate-option {
                 width: 100%;
+                max-width: 300px;
             }
-            .project-gifs img {
-                max-width: 100%; /* GIF масштабируются до ширины контейнера */
-                width: 100%; /* Полная ширина с учётом отступов */
-                box-sizing: border-box; /* Учитываем padding в ширине */
+            
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+            }
+            
+            .social-link {
+                flex: none;
+                width: 50px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="gifs/my-photo.png" alt="Timofey Molokov">
-            <h1>Timofey Molokov</h1>
-            <h2>Game Developer Portfolio</h2>
-            <p>I’m a game developer and programmer with over 6 years of experience, tackling complex challenges across various platforms. I’ve built games using Unreal Engine, Unity, and Godot, and developed custom engines and physics systems in Rust. With a background in low-level programming, shader development, and computer graphics, I also bring an artistic perspective from my architectural education. Currently freelancing and open to exciting projects.</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#about" class="nav-item about-link">About</a>
+            <a href="team.html" class="nav-item">Team</a>
+            <a href="https://slice4d.itch.io/slice4d" class="nav-item">Download</a>
+            <a href="blog.html" class="nav-item">Blog</a>
+            <a href="#donate" class="nav-item donate">Donate</a>
         </div>
-
-        <!-- Project 1: 4D Shooter -->
-        <div class="project">
-            <div class="project-text">
-                <h2>4D Shooter</h2>
-                <p><strong>Client:</strong> Personal Project (solo developer)</p>
-                <p><strong>Duration:</strong> May 2023 - Present (2 years)</p>
-                <p><strong>Technologies:</strong> Rust, custom 4D engine</p>
-                <p><strong>Target Platforms:</strong> Windows, Linux, macOS, Web</p>
-                <p><strong>Project Description:</strong> A multiplayer competitive arena shooter set in 4D space, featuring 3D slices of 4D objects.</p>
-                <p><strong>What I Did:</strong></p>
-                <ul>
-                    <li>Developed a custom 4D game engine from scratch in Rust.</li>
-                    <li>Implemented 4D physics using SDF-based collision detection.</li>
-                    <li>Created an optimized raymarching renderer for 4D visuals.</li>
-                    <li>Built a multiplayer system with a game server and matchmaking.</li>
-                    <li>Designed gameplay mechanics for 4D movement and interactions.</li>
-                    <li>Crafted the visual style, shaders, and HUD.</li>
-                </ul>
-            </div>
-            <div class="project-gifs">
-                <img src="gifs/4d-shooter.gif" alt="4D Shooter GIF">
-            </div>
+    </nav>
+    
+    <!-- Hero section -->
+    <section class="hero">
+        <!-- Background -->
+        <div class="background"></div>
+        
+        <!-- Background image -->
+        <div class="background-image"></div>
+        
+        <!-- Top image -->
+        <div class="top-image"></div>
+        
+        <!-- Bottom image -->
+        <div class="bottom-image"></div>
+        
+        <!-- Play button -->
+        <div class="play-button"></div>
+        
+        <!-- Down arrow -->
+        <div class="scroll-down" id="scrollDown">
+            <div class="scroll-down-arrow"></div>
         </div>
-
-        <div class="divider"></div>
-
-        <!-- Project 2: Purpose -->
-        <div class="project">
-            <div class="project-text">
-                <h2>Purpose</h2>
-                <p><strong>Client:</strong> Personal Project (Global Game Jam Montenegro 2025)</p>
-                <p><strong>Duration:</strong> 48 hours (23-25 January 2025)</p>
-                <p><strong>Award:</strong> 1st Place, Global Game Jam Montenegro 2025</p>
-                <p><strong>Technologies:</strong> Godot Engine</p>
-                <p><strong>Target Platforms:</strong> Windows, Linux</p>
-                <p><strong>Project Description:</strong> A 2D journey of consciousness seeking purpose, with time tied to player movement.</p>
-                <p><strong>What I Did:</strong></p>
-                <ul>
-                    <li>Designed and implemented gameplay as the sole developer.</li>
-                    <li>Built a custom SDF-based engine for physics and rendering.</li>
-                    <li>Wrote a shader for smooth bubble interactions using smooth minimum.</li>
-                    <li>Created reactive movement with size-changing mechanics.</li>
-                    <li>Linked time flow to player movement (forward speeds up, backward reverses).</li>
-                    <li>Crafted a unique visual style with dynamic effects.</li>
-                </ul>
-            </div>
-            <div class="project-gifs">
-                <img src="gifs/purpose.gif" alt="Purpose GIF">
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Project 3: Terrain Editor -->
-        <div class="project">
-            <div class="project-text">
-                <h2>Terrain Editor</h2>
-                <p><strong>Client:</strong> mech.com (aka mixie)</p>
-                <p><strong>Duration:</strong> April 2022 - October 2022 (7 months)</p>
-                <p><strong>Technologies:</strong> Godot Engine 3, custom shaders</p>
-                <p><strong>Target Platforms:</strong> Web (desktop and mobile browsers)</p>
-                <p><strong>Project Description:</strong> A real-time terrain editor optimized for web browsers.</p>
-                <p><strong>What I Did:</strong></p>
-                <ul>
-                    <li>Prototyped and evaluated multiple approaches for a mobile-friendly map editor.</li>
-                    <li>Implemented a hexagonal grid with irregular quad-based meshing.</li>
-                    <li>Developed Vertex Shader-based terrain deformation for performance.</li>
-                    <li>Wrote shaders for real-time normal generation and texture blending.</li>
-                    <li>Added dynamic features like plant placement and water levels.</li>
-                    <li>Optimized for 30+ FPS on low-end mobile browsers.</li>
-                </ul>
-            </div>
-            <div class="project-gifs">
-                <img src="gifs/mechterrain.gif" alt="Terrain Editor GIF">
+    </section>
+    
+    <!-- About section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Slice 4d Shooter</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    <a href="#" class="trailer-link">Slice 4D Shooter</a> is the first multiplayer competitive first person shooter set in true 4D space.
+                    Learn how to play a shooter in 4D space in the video tutorial below.
+                </p>
+                
+                <!-- Tutorial video -->
+                <div class="video-section">
+                    <div class="section-video-container">
+                        <iframe src="https://www.youtube.com/embed/n-Rh9EIZ0Ag?si=JwNgKGuqf9KNiROD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <p class="about-text">
+                    Slice 4D Shooter is being developed by a small indie <a href="team.html">team of developers</a> since 2023 on a custom-built 4D game engine with the Rust programming language. All <a href="https://github.com/slice4d/slice4d">source code</a> of the game is open under a free <a href="https://github.com/slice4d/slice4d/blob/main/LICENSE">modified GPL license</a>.
+                </p>
+                
+                <p class="about-text">
+                    Currently, Slice 4D Shooter is in the playable prototype stage of development and you can <a href="https://slice4d.itch.io/slice4d">try it on itch.io</a>.
+                    The current version supports online multiplayer.
+                </p>
+                
+                <p class="about-text">
+                    We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by freely funding from the audience.
+                </p>
+                
+                <p class="about-text">
+                    <a href="#donate">Support</a> the Slice 4D Shooter team to help us make a truly free competitive esport game where players truly own the game they invest money and time into, and greedy owners can't break the game because it's open for improvements and modifications by anyone.
+                </p>
             </div>
         </div>
+    </section>
 
-        <div class="divider"></div>
-
-        <!-- Project 4: Building Editor -->
-        <div class="project">
-            <div class="project-text">
-                <h2>Building Editor</h2>
-                <p><strong>Client:</strong> mech.com (aka mixie)</p>
-                <p><strong>Duration:</strong> November 2022 - January 2023 (3 months)</p>
-                <p><strong>Technologies:</strong> Godot Engine 3</p>
-                <p><strong>Target Platforms:</strong> Web (desktop and mobile browsers)</p>
-                <p><strong>Project Description:</strong> A real-time building editor with transformable geometry for terrain maps.</p>
-                <p><strong>What I Did:</strong></p>
-                <ul>
-                    <li>Developed a system for "transformer" buildings using scalable 3D boxes.</li>
-                    <li>Created a JSON-based structure for defining fixed and stretchable building elements.</li>
-                    <li>Implemented automatic floor and detail generation (doors, windows) based on size.</li>
-                    <li>Built real-time 3D model deformation and geometry generation.</li>
-                    <li>Optimized for seamless integration with the Terrain Editor on web platforms.</li>
-                </ul>
-            </div>
-            <div class="project-gifs">
-                <img src="gifs/mechbuildings.gif" alt="Building Editor GIF">
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Project 5: Level Generator -->
-        <div class="project">
-            <div class="project-text">
-                <h2>Level Generator</h2>
-                <p><strong>Client:</strong> mech.com (aka mixie)</p>
-                <p><strong>Duration:</strong> February 2023 - April 2023 (3 months)</p>
-                <p><strong>Technologies:</strong> Godot Engine 3, custom shaders</p>
-                <p><strong>Target Platforms:</strong> Web (desktop and mobile browsers)</p>
-                <p><strong>Project Description:</strong> A real-time level generator based on text prompts for dynamic game environments.</p>
-                <p><strong>What I Did:</strong></p>
-                <ul>
-                    <li>Built a Godot frontend to generate level geometry from text prompts.</li>
-                    <li>Created shaders for visual effects and depth map generation.</li>
-                    <li>Integrated server-side texture overlay with seamless blending across segments.</li>
-                    <li>Added expandable level squares with unique prompt-based styles.</li>
-                    <li>Developed a controllable robot for testing with keyboard and joystick support.</li>
-                    <li>Optimized for smooth performance on web browsers.</li>
-                </ul>
-            </div>
-            <div class="project-gifs">
-                <img src="gifs/mechgen.gif" alt="Level Generator GIF">
+    <!-- Donate section -->
+    <section class="donate" id="donate">
+        <div class="container">
+            <h2 class="section-title">Support development</h2>
+            <div class="donate-options">
+                <div class="donate-option">
+                    <h3>Patreon</h3>
+                    <p>Become a patron and get exclusive rewards</p>
+                    <a href="#" class="donate-btn">Support</a>
+                </div>
+                <div class="donate-option">
+                    <h3>PayPal</h3>
+                    <p>Make a secure donation via PayPal</p>
+                    <a href="#" class="donate-btn">Donate</a>
+                </div>
+                <div class="donate-option">
+                    <h3>Crypto</h3>
+                    <p>Donate with cryptocurrency</p>
+                    <a href="#" class="donate-btn">Donate</a>
+                </div>
+                <div class="donate-option">
+                    <h3>Boosty</h3>
+                    <p>Support us on the Russian platform Boosty</p>
+                    <a href="#" class="donate-btn">Support</a>
+                </div>
+                <div class="donate-option">
+                    <h3>Russia</h3>
+                    <p>Payment options for Russian supporters</p>
+                    <a href="#" class="donate-btn">Support</a>
+                </div>
             </div>
         </div>
-
-        <div class="divider"></div>
-
-        <!-- Project 6: Another World -->
-        <div class="project">
-            <div class="project-text">
-                <h2>Another World</h2>
-                <p><strong>Client:</strong> Another World</p>
-                <p><strong>Duration:</strong> November 2019 - January 2020 (3 months)</p>
-                <p><strong>Technologies:</strong> Unity Engine</p>
-                <p><strong>Target Platforms:</strong> VR (Windows)</p>
-                <p><strong>Project Description:</strong> A cooperative VR shooter for physical platforms supporting up to 4 players.</p>
-                <p><strong>What I Did:</strong></p>
-                <ul>
-                    <li>Developed AI for enemy monsters with dynamic behavior.</li>
-                    <li>Configured physics for realistic monster interactions.</li>
-                    <li>Built a movement controller for enemies.</li>
-                    <li>Created animations synced with AI actions.</li>
-                </ul>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/slice4d/slice4d" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://slice4d.itch.io/slice4d" class="social-link"><i class="fab fa-itch-io"></i></a>
             </div>
-            <div class="project-gifs">
-                <img src="gifs/anotherworld.gif" alt="Another World GIF">
-            </div>
+            
+            <a href="mailto:contact@slice4d.com" class="contact-email">contact@slice4d.com</a>
+            
+            <p class="copyright">© 2023 Slice 4D Shooter. All rights reserved.</p>
         </div>
-
-        <div class="divider"></div>
-
-        <!-- Project 7: Dragon Destiny -->
-        <div class="project">
-            <div class="project-text">
-                <h2>Dragon Destiny</h2>
-                <p><strong>Client:</strong> Personal Project</p>
-                <p><strong>Duration:</strong> January 2019 - September 2019 (9 months)</p>
-                <p><strong>Technologies:</strong> Unreal Engine 4</p>
-                <p><strong>Target Platforms:</strong> Mobile (Android, iOS)</p>
-                <p><strong>Project Description:</strong> A fantasy shoot 'em up with RPG elements where you control a dragon.</p>
-                <p><strong>What I Did:</strong></p>
-                <ul>
-                    <li>Developed core gameplay with finger-based dragon control and attacks.</li>
-                    <li>Implemented enemy AI and behavior systems.</li>
-                    <li>Created RPG mechanics: talent tree, abilities, and dragon upgrades.</li>
-                    <li>Built character controller and animations for the dragon.</li>
-                    <li>Optimized performance for mobile platforms.</li>
-                    <li>Designed menus and level transition systems.</li>
-                </ul>
+    </footer>
+    
+    <!-- Video modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <div class="close-button" id="closeButton">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="project-gifs">
-                <img src="gifs/dragon.gif" alt="Dragon Destiny GIF">
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Skills & Contact -->
-        <div class="skills-contact">
-            <h2>Skills & Contact</h2>
-            <p><strong>Game Engines:</strong> Unreal Engine, Unity, Godot</p>
-            <p><strong>Programming Languages:</strong> Rust, C#, C, Godot Script</p>
-            <p><strong>Graphics & APIs:</strong> OpenGL, WebGL, WebGPU, DirectX, Vulkan (via Rust WGPU), shaders (SDF, raymarching)</p>
-            <p><strong>Other:</strong> Custom engine development, physics systems, game design, level design, art</p>
-            <p><strong>Availability:</strong> Open to freelance projects and remote opportunities</p>
-            <p><strong>Contact:</strong> <a href="mailto:maffi44maffi44@gmail.com">Email</a> | <a href="https://github.com/maffi44">GitHub</a> | <a href="https://linkedin.com/in/timofei-molokov-1978961a4">LinkedIn</a> | <a href="https://t.me/maffi44">Telegram</a></p>
+            <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.querySelector('.play-button');
+            const videoModal = document.getElementById('videoModal');
+            const closeButton = document.getElementById('closeButton');
+            const videoFrame = document.getElementById('videoFrame');
+            const scrollDown = document.getElementById('scrollDown');
+            const aboutSection = document.getElementById('about');
+            const aboutLink = document.querySelector('.nav-item.about-link');
+            const trailerLink = document.querySelector('.trailer-link');
+            
+            // Play button handler
+            playButton.addEventListener('click', function() {
+                videoFrame.src = "https://www.youtube.com/embed/n-Rh9EIZ0Ag?si=JwNgKGuqf9KNiROD&autoplay=1";
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Trailer link handler
+            trailerLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                videoFrame.src = "https://www.youtube.com/embed/n-Rh9EIZ0Ag?si=JwNgKGuqf9KNiROD&autoplay=1";
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close modal
+            closeButton.addEventListener('click', function() {
+                videoModal.classList.remove('active');
+                videoFrame.src = "";
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Scroll to about section
+            scrollDown.addEventListener('click', function() {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // About link handler
+            aboutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Handle donate links
+            document.querySelectorAll('a[href="#donate"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Image responsiveness
+            function adjustImages() {
+                const topImage = document.querySelector('.top-image');
+                const bottomImage = document.querySelector('.bottom-image');
+                
+                if (window.innerWidth <= 784) {
+                    topImage.style.backgroundSize = 'contain';
+                    bottomImage.style.backgroundSize = 'cover';
+                    bottomImage.style.width = '100%';
+                    bottomImage.style.maxWidth = '100%';
+                } else {
+                    topImage.style.backgroundSize = 'contain';
+                    bottomImage.style.backgroundSize = 'contain';
+                    bottomImage.style.width = '55%';
+                    bottomImage.style.maxWidth = '800px';
+                }
+            }
+            
+            // Initial call and resize handler
+            adjustImages();
+            window.addEventListener('resize', adjustImages);
+        });
+    </script>
 </body>
 </html>
