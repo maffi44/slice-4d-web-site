@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slice 4D Shooter - Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #2a2a2a;
+            color: #fff;
+            font-family: 'Orbitron', 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 992px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 1.0);
+            padding: 6.4px 0;
+            z-index: 1000;
+            border-bottom: 2.4px solid rgba(45, 223, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 16px;
+            flex: 1;
+        }
+        
+        .nav-item {
+            margin: 0 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16.8px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-item:hover {
+            color: #00f3ff;
+        }
+        
+        .nav-item.active {
+            color: #00f3ff;
+            font-weight: bold;
+        }
+        
+        .nav-item.donate {
+            background-color: #ff7e1b;
+            padding: 4px 32px;
+            border-radius: 24px;
+            color: white;
+        }
+        
+        .nav-item.donate:hover {
+            background-color: #ff7e1b;
+            transform: scale(1.05);
+        }
+        
+        .nav-item.donate::after {
+            content: " ♥";
+        }
+        
+        .language-selector {
+            position: fixed;
+            top: 7px;
+            right: 15px;
+            z-index: 1001;
+        }
+        
+        .language-btn {
+            background: rgba(0, 213, 255, 0.1);
+            border: 1px solid #00f3ff;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+        
+        .language-btn:hover {
+            background: rgba(0, 243, 255, 0.3);
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #1a1a1a;
+            border: 1px solid #00f3ff;
+            border-radius: 5px;
+            margin-top: 5px;
+            display: none;
+            flex-direction: column;
+            min-width: 120px;
+            z-index: 1003;
+        }
+        
+        .language-dropdown.show {
+            display: flex;
+        }
+        
+        .language-option {
+            padding: 8px 12px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        
+        .language-option:hover {
+            background: rgba(0, 243, 255, 0.2);
+        }
+        
+        .team-hero {
+            height: 16vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        
+        .team-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #1f1f1f 100%);
+            z-index: 1;
+        }
+        
+        .team-title {
+            position: relative;
+            z-index: 3;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00f3ff;
+            text-align: center;
+        }
+        
+        .team-content {
+            padding: 34px 0;
+        }
+        
+        .team-members {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.2);
+        }
+        
+        .member-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #333;
+            margin-right: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00f3ff;
+            font-size: 40px;
+            border: 2px solid #00f3ff;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .member-info {
+            flex: 1;
+        }
+        
+        .member-name {
+            font-size: 24px;
+            color: #00f3ff;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            font-size: 24px;
+            color: #fff;
+        }
+        
+        .expand-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2a2a2a;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .member-header.active .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .member-skills {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .member-skills.show {
+            max-height: 500px;
+        }
+        
+        .skills-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .skills-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .skills-list li:before {
+            content: "•";
+            color: #00f3ff;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+        
+        .skills-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .footer {
+            background-color: #2a2a2a;
+            padding: 48px 0 24px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            max-width: 992px;
+            margin: 0 auto 0px;
+            gap: 16px;
+        }
+        
+        .social-link {
+            color: #00f3ff;
+            font-size: 40px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .social-link:hover {
+            color: #ffffff;
+            transform: translateY(-2.4px);
+        }
+        
+        .x-icon {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+        
+        .contact-email {
+            color: #00f3ff;
+            font-size: 16px;
+            margin: 24px 0;
+            display: block;
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 11.2px;
+            margin-top: 24px;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+        
+        @media (max-width: 784px) {
+            .navbar {
+                padding: 8px 0;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-item {
+                margin: 4px 8px;
+                font-size: 11.2px;
+            }
+            
+            .team-hero {
+                height: 30vh;
+                margin-top: 50px;
+            }
+            
+            .team-title {
+                font-size: 32px;
+            }
+            
+            .member-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .member-photo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .expand-icon {
+                position: absolute;
+                bottom: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .social-link {
+                flex: none;
+                width: 40px;
+                font-size: 32px;
+            }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .language-btn {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <div class="language-btn" id="languageBtn">
+            <i class="fas fa-globe"></i> <span id="currentLangCode">EN</span>
+        </div>
+        <div class="language-dropdown" id="languageDropdown">
+            <a href="#" class="language-option" data-lang="en">English</a>
+            <a href="#" class="language-option" data-lang="ru">Русский</a>
+            <a href="#" class="language-option" data-lang="es">Español</a>
+            <a href="#" class="language-option" data-lang="fr">Français</a>
+            <a href="#" class="language-option" data-lang="de">Deutsch</a>
+            <a href="#" class="language-option" data-lang="zh">中文</a>
+            <a href="#" class="language-option" data-lang="ja">日本語</a>
+            <a href="#" class="language-option" data-lang="ko">한국어</a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item about-link" data-key="nav.about">About</a>
+            <a href="team.html" class="nav-item active" data-key="nav.team">Team</a>
+            <a href="https://slice4d.itch.io/slice4d" class="nav-item" data-key="nav.download">Download</a>
+            <a href="blog.html" class="nav-item" data-key="nav.blog">Blog</a>
+            <a href="index.html#donate" class="nav-item donate" data-key="nav.donate">Donate</a>
+        </div>
+    </nav>
+    
+    <section class="team-hero">
+        <div class="team-background"></div>
+        <h1 class="team-title" data-key="team.title">Slice 4D Shooter Team</h1>
+    </section>
+    
+    <section class="team-content">
+        <div class="container">
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="member-header">
+                        <!-- Замените style="background-image: url('media/timofey.jpg')" на путь к вашему фото -->
+                        <div class="member-photo" style="background-image: url('media/timofey.jpg')">
+                            <!-- Иконка пользователя будет отображаться только если фото не загружено -->
+                        </div>
+                        <div class="member-info">
+                            <h2 class="member-name">Timofey Molokov</h2>
+                            <p class="member-role" data-key="team.timofey.role">Game Developer</p>
+                        </div>
+                        <div class="expand-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="member-skills">
+                        <ul class="skills-list">
+                            <li data-key="team.timofey.skill1">Game Engine Development</li>
+                            <li data-key="team.timofey.skill2">Gameplay Programming</li>
+                            <li data-key="team.timofey.skill3">Game Design</li>
+                            <li data-key="team.timofey.skill4">UX/UI Design</li>
+                            <li data-key="team.timofey.skill5">Level Design</li>
+                            <li data-key="team.timofey.skill6">Sound design</li>
+                            <li data-key="team.timofey.skill7">Art</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-header">
+                        <!-- Замените style="background-image: url('media/fedor.jpg')" на путь к вашему фото -->
+                        <div class="member-photo" style="background-image: url('media/fedor.jpg')">
+                            <!-- Иконка пользователя будет отображаться только если фото не загружено -->
+                        </div>
+                        <div class="member-info">
+                            <h2 class="member-name">Fedor Molokov</h2>
+                            <p class="member-role" data-key="team.fedor.role">DevOps</p>
+                        </div>
+                        <div class="expand-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="member-skills">
+                        <ul class="skills-list">
+                            <li data-key="team.fedor.skill1">Maintains and automating server infrastructure</li>
+                            <li data-key="team.fedor.skill2">Network load testing and analysis</li>
+                            <li data-key="team.fedor.skill3">Building monitoring and analytics systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><span class="x-icon">X</span></a>
+                <a href="https://github.com/slice4d/slice4d" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+            
+            <a href="mailto:contact@slice4d.com" class="contact-email">contact@slice4d.com</a>
+            
+            <p class="copyright">© 2023 Slice 4D Shooter. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                'nav.about': 'About',
+                'nav.team': 'Team',
+                'nav.download': 'Download',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Donate',
+                'team.title': 'Slice 4D Shooter Team',
+                'team.timofey.role': 'Game Developer',
+                'team.timofey.skill1': 'Game Engine Development',
+                'team.timofey.skill2': 'Gameplay Programming',
+                'team.timofey.skill3': 'Game Design',
+                'team.timofey.skill4': 'UX/UI Design',
+                'team.timofey.skill5': 'Level Design',
+                'team.timofey.skill6': 'Sound design',
+                'team.timofey.skill7': 'Art',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': 'Maintains and automating server infrastructure',
+                'team.fedor.skill2': 'Network load testing and analysis',
+                'team.fedor.skill3': 'Building monitoring and analytics systems'
+            },
+            ru: {
+                'nav.about': 'О проекте',
+                'nav.team': 'Команда',
+                'nav.download': 'Скачать',
+                'nav.blog': 'Блог',
+                'nav.donate': 'Поддержать',
+                'team.title': 'Команда Slice 4D Shooter',
+                'team.timofey.role': 'Разработчик игр',
+                'team.timofey.skill1': 'Разработка игрового движка',
+                'team.timofey.skill2': 'Программирование геймплея',
+                'team.timofey.skill3': 'Дизайн игры',
+                'team.timofey.skill4': 'UX/UI дизайн',
+                'team.timofey.skill5': 'Дизайн уровней',
+                'team.timofey.skill6': 'Звуковой дизайн',
+                'team.timofey.skill7': 'Арт',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': 'Обслуживание и автоматизация серверной инфраструктуры',
+                'team.fedor.skill2': 'Тестирование и анализ сетевой нагрузки',
+                'team.fedor.skill3': 'Создание систем мониторинга и аналитики'
+            },
+            es: {
+                'nav.about': 'Acerca de',
+                'nav.team': 'Equipo',
+                'nav.download': 'Descargar',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Donar',
+                'team.title': 'Equipo de Slice 4D Shooter',
+                'team.timofey.role': 'Desarrollador de Juegos',
+                'team.timofey.skill1': 'Desarrollo de Motor de Juego',
+                'team.timofey.skill2': 'Programación de Gameplay',
+                'team.timofey.skill3': 'Diseño de Juego',
+                'team.timofey.skill4': 'Diseño UX/UI',
+                'team.timofey.skill5': 'Diseño de Niveles',
+                'team.timofey.skill6': 'Diseño de Sonido',
+                'team.timofey.skill7': 'Arte',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': 'Mantenimiento y automatización de infraestructura de servidores',
+                'team.fedor.skill2': 'Pruebas y análisis de carga de red',
+                'team.fedor.skill3': 'Construcción de sistemas de monitoreo и análisis'
+            },
+            fr: {
+                'nav.about': 'À propos',
+                'nav.team': 'Équipe',
+                'nav.download': 'Télécharger',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Faire un don',
+                'team.title': 'Équipe de Slice 4D Shooter',
+                'team.timofey.role': 'Développeur de Jeu',
+                'team.timofey.skill1': 'Développement de Moteur de Jeu',
+                'team.timofey.skill2': 'Programmation de Gameplay',
+                'team.timofey.skill3': 'Conception de Jeu',
+                'team.timofey.skill4': 'Conception UX/UI',
+                'team.timofey.skill5': 'Conception de Niveaux',
+                'team.timofey.skill6': 'Conception Sonore',
+                'team.timofey.skill7': 'Art',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': 'Maintenance et automatisation de l\'infrastructure serveur',
+                'team.fedor.skill2': 'Tests et analyse de charge réseau',
+                'team.fedor.skill3': 'Construction de systèmes de surveillance et d\'analyse'
+            },
+            de: {
+                'nav.about': 'Über',
+                'nav.team': 'Team',
+                'nav.download': 'Download',
+                'nav.blog': 'Blog',
+                'nav.donate': 'Spenden',
+                'team.title': 'Slice 4D Shooter Team',
+                'team.timofey.role': 'Spieleentwickler',
+                'team.timofey.skill1': 'Spiel-Engine-Entwicklung',
+                'team.timofey.skill2': 'Gameplay-Programmierung',
+                'team.timofey.skill3': 'Spieldesign',
+                'team.timofey.skill4': 'UX/UI-Design',
+                'team.timofey.skill5': 'Leveldesign',
+                'team.timofey.skill6': 'Sounddesign',
+                'team.timofey.skill7': 'Kunst',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': 'Wartung und Automatisierung der Serverinfrastruktur',
+                'team.fedor.skill2': 'Netzlasttests und -analyse',
+                'team.fedor.skill3': 'Aufbau von Überwachungs- und Analysesystemen'
+            },
+            zh: {
+                'nav.about': '关于',
+                'nav.team': '团队',
+                'nav.download': '下载',
+                'nav.blog': '博客',
+                'nav.donate': '捐赠',
+                'team.title': 'Slice 4D Shooter 团队',
+                'team.timofey.role': '游戏开发者',
+                'team.timofey.skill1': '游戏引擎开发',
+                'team.timofey.skill2': '游戏玩法编程',
+                'team.timofey.skill3': '游戏设计',
+                'team.timofey.skill4': '用户体验/界面设计',
+                'team.timofey.skill5': '关卡设计',
+                'team.timofey.skill6': '声音设计',
+                'team.timofey.skill7': '美术',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': '维护和自动化服务器基础设施',
+                'team.fedor.skill2': '网络负载测试和分析',
+                'team.fedor.skill3': '构建监控和分析系统'
+            },
+            ja: {
+                'nav.about': 'About',
+                'nav.team': 'チーム',
+                'nav.download': 'ダウンロード',
+                'nav.blog': 'ブログ',
+                'nav.donate': '寄付',
+                'team.title': 'Slice 4D Shooter チーム',
+                'team.timofey.role': 'ゲーム開発者',
+                'team.timofey.skill1': 'ゲームエンジン開発',
+                'team.timofey.skill2': 'ゲームプレイプログラミング',
+                'team.timofey.skill3': 'ゲームデザイン',
+                'team.timofey.skill4': 'UX/UIデザイン',
+                'team.timofey.skill5': 'レベルデザイン',
+                'team.timofey.skill6': 'サウンドデザイン',
+                'team.timofey.skill7': 'アート',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': 'サーバーインフラの維持と自動化',
+                'team.fedor.skill2': 'ネットワーク負荷テストと分析',
+                'team.fedor.skill3': '監視および分析システムの構築'
+            },
+            ko: {
+                'nav.about': '소개',
+                'nav.team': '팀',
+                'nav.download': '다운로드',
+                'nav.blog': '블로그',
+                'nav.donate': '기부',
+                'team.title': 'Slice 4D Shooter 팀',
+                'team.timofey.role': '게임 개발자',
+                'team.timofey.skill1': '게임 엔진 개발',
+                'team.timofey.skill2': '게임플레이 프로그래밍',
+                'team.timofey.skill3': '게임 디자인',
+                'team.timofey.skill4': 'UX/UI 디자인',
+                'team.timofey.skill5': '레벨 디자인',
+                'team.timofey.skill6': '사운드 디자인',
+                'team.timofey.skill7': '아트',
+                'team.fedor.role': 'DevOps',
+                'team.fedor.skill1': '서버 인프라 유지 및 자동화',
+                'team.fedor.skill2': '네트워크 부하 테스트 및 분석',
+                'team.fedor.skill3': '모니터링 및 분석 시스템 구축'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageBtn = document.getElementById('languageBtn');
+            const languageDropdown = document.getElementById('languageDropdown');
+            const currentLangCode = document.getElementById('currentLangCode');
+            const memberHeaders = document.querySelectorAll('.member-header');
+            
+            // Get saved language or default to English
+            let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            
+            // Apply saved language on page load
+            changeLanguage(currentLanguage);
+            currentLangCode.textContent = currentLanguage.toUpperCase();
+            
+            // Toggle skills visibility
+            memberHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const skills = this.nextElementSibling;
+                    skills.classList.toggle('show');
+                    this.classList.toggle('active');
+                });
+            });
+            
+            // Language selection functionality
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('show');
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.remove('show');
+                }
+            });
+            
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                    languageDropdown.classList.remove('show');
+                    currentLangCode.textContent = lang.toUpperCase();
+                    
+                    // Save language preference
+                    localStorage.setItem('selectedLanguage', lang);
+                    
+                    // Update URL with language parameter without reloading
+                    const url = new URL(window.location);
+                    url.searchParams.set('lang', lang);
+                    window.history.replaceState({}, '', url);
+                });
+            });
+            
+            // Check for language parameter in URL
+            function checkUrlLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const langParam = urlParams.get('lang');
+                if (langParam && translations[langParam]) {
+                    changeLanguage(langParam);
+                    currentLangCode.textContent = langParam.toUpperCase();
+                    localStorage.setItem('selectedLanguage', langParam);
+                }
+            }
+            
+            // Handle browser back/forward navigation
+            window.addEventListener('popstate', function() {
+                checkUrlLanguage();
+            });
+            
+            // Check URL on initial load
+            checkUrlLanguage();
+            
+            function changeLanguage(lang) {
+                currentLanguage = lang;
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        // For links, preserve the href and only change the text
+                        if (element.tagName === 'A') {
+                            const originalHref = element.getAttribute('href');
+                            element.textContent = translations[lang][key];
+                            if (originalHref) {
+                                element.setAttribute('href', originalHref);
+                            }
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+            }
+            
+            // Modify all internal links to include language parameter
+            document.querySelectorAll('a[href]').forEach(link => {
+                const href = link.getAttribute('href');
+                // Only modify internal links (not starting with http or #)
+                if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+                    link.addEventListener('click', function(e) {
+                        // For internal navigation, preserve language
+                        const url = new URL(href, window.location.origin);
+                        url.searchParams.set('lang', currentLanguage);
+                        link.setAttribute('href', url.toString());
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
