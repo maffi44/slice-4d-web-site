@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slice 4D Shooter - Team</title>
+    <title>Slice 4D Shooter - Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&display=swap');
@@ -146,7 +146,7 @@
             background: rgba(0, 243, 255, 0.2);
         }
         
-        .team-hero {
+        .blog-hero {
             height: 16vh;
             display: flex;
             align-items: center;
@@ -156,7 +156,7 @@
             margin-top: 60px;
         }
         
-        .team-background {
+        .blog-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -166,7 +166,7 @@
             z-index: 1;
         }
         
-        .team-title {
+        .blog-title {
             position: relative;
             z-index: 3;
             font-size: 36px;
@@ -176,121 +176,52 @@
             text-align: center;
         }
         
-        .team-content {
+        .blog-content {
             padding: 34px 0;
         }
         
-        .team-members {
+        .blog-posts {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .team-member {
+        .blog-post {
             background-color: rgba(26, 26, 26, 0.8);
             border-radius: 10px;
-            padding: 20px;
+            padding: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
         
-        .team-member:hover {
+        .blog-post:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 243, 255, 0.2);
         }
         
-        .member-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .member-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #333;
-            margin-right: 20px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00f3ff;
-            font-size: 40px;
-            border: 2px solid #00f3ff;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .member-info {
-            flex: 1;
-        }
-        
-        .member-name {
+        .post-title {
             font-size: 24px;
             color: #00f3ff;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
         
-        .member-role {
-            font-size: 24px;
-            color: #fff;
-        }
-        
-        .expand-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: rgb(0, 238, 255);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2a2a2a;
+        .post-excerpt {
+            color: #cccccc;
             font-size: 16px;
-            transition: all 0.3s ease;
+            line-height: 1.6;
         }
         
-        .member-header.active .expand-icon {
-            transform: rotate(180deg);
-        }
-        
-        .member-skills {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        
-        .member-skills.show {
-            max-height: 500px;
-        }
-        
-        .skills-list {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-        
-        .skills-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .skills-list li:before {
-            content: "•";
-            color: #00f3ff;
-            font-size: 20px;
-            position: absolute;
-            left: 0;
-            top: 5px;
-        }
-        
-        .skills-list li:last-child {
-            border-bottom: none;
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            color: #888;
+            font-size: 14px;
         }
         
         .footer {
@@ -352,55 +283,32 @@
                 margin: 4px 8px;
                 font-size: 11.2px;
             }
-
-            .team-content {
-                padding: 4px 0;
+            .blog-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #1a1a1a 0%, #1f1f1f 100%);
+                z-index: 1;
             }
-            
-            .team-hero {
+
+            .blog-hero {
                 height: 18vh;
                 margin-top: 50px;
             }
 
-            .team-background {
+            .blog-background {
                 height: 78%;
             }
             
-            .team-title {
+            .blog-title {
                 font-size: 24px;
             }
             
-            .member-header {
+            .post-meta {
                 flex-direction: column;
-                text-align: center;
-            }
-            
-            .member-photo {
-                width: 100px;
-                height: 100px;
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-
-            .member-name {
-                font-size: 18px;
-                color: #00f3ff;
-                margin-bottom: 1px;
-            }
-            
-            .member-role {
-                font-size: 18px;
-                color: #fff;
-                margin-bottom: 1px;
-
-            }
-            
-            .expand-icon {
-                width: 20px;
-                height: 20px;
-                position: absolute;
-                bottom: -25px;
-                left: 49%;
+                gap: 10px;
             }
             
             .social-links {
@@ -447,71 +355,42 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-item about-link" data-key="nav.about">About</a>
-            <a href="team.html" class="nav-item active" data-key="nav.team">Team</a>
-            <a href="roadmap.html" class="nav-item" data-key="nav.roadmap">Roadmap</a>
+            <a href="team.html" class="nav-item" data-key="nav.team">Team</a>
             <a href="https://slice4d.itch.io/slice4d" class="nav-item" data-key="nav.download">Download</a>
-            <!-- <a href="blog.html" class="nav-item" data-key="nav.blog">Blog</a> -->
+            <a href="blog.html" class="nav-item active" data-key="nav.blog">Blog</a>
+            <a href="roadmap.html" class="nav-item" data-key="nav.roadmap">Roadmap</a>
             <a href="index.html#donate" class="nav-item donate" data-key="nav.donate">Donate 🤍</a>
         </div>
     </nav>
     
-    <section class="team-hero">
-        <div class="team-background"></div>
-        <h1 class="team-title" data-key="team.title">Slice 4D Shooter Team</h1>
+    <section class="blog-hero">
+        <div class="blog-background"></div>
+        <h1 class="blog-title" data-key="blog.title">BLOG</h1>
     </section>
     
-    <section class="team-content">
+    <section class="blog-content">
         <div class="container">
-            <div class="team-members">
-                <div class="team-member">
-                    <div class="member-header">
-                        <!-- Замените style="background-image: url('media/timofey.jpg')" на путь к вашему фото -->
-                        <div class="member-photo" style="background-image: url('media/timofey.jpg')">
-                            <!-- Иконка пользователя будет отображаться только если фото не загружено -->
-                        </div>
-                        <div class="member-info">
-                            <h2 class="member-name">Timofey Molokov</h2>
-                            <p class="member-role" data-key="team.timofey.role">Game Developer</p>
-                        </div>
-                        <div class="expand-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+            <div class="blog-posts">
+                <!-- <a href="posts/1.html" class="blog-post">
+                    <h2 class="post-title">How it started and what's next</h2>
+                    <p class="post-excerpt">Discover the origins of Slice 4D Shooter and learn about our development journey, challenges we faced, and what exciting features are coming next in the world's first 4D multiplayer shooter.</p>
+                    <div class="post-meta">
+                        <span>September 1, 2025</span>
+                        <span>5 min read</span>
                     </div>
-                    <div class="member-skills">
-                        <ul class="skills-list">
-                            <li data-key="team.timofey.skill1">Game Engine Development</li>
-                            <li data-key="team.timofey.skill2">Gameplay Programming</li>
-                            <li data-key="team.timofey.skill3">Game Design</li>
-                            <li data-key="team.timofey.skill4">UX/UI Design</li>
-                            <li data-key="team.timofey.skill5">Level Design</li>
-                            <li data-key="team.timofey.skill6">Sound design</li>
-                            <li data-key="team.timofey.skill7">Art</li>
-                        </ul>
-                    </div>
-                </div>
+                </a> -->
                 
-                <div class="team-member">
-                    <div class="member-header">
-                        <!-- Замените style="background-image: url('media/fedor.jpg')" на путь к вашему фото -->
-                        <div class="member-photo" style="background-image: url('media/fedor.jpg')">
-                            <!-- Иконка пользователя будет отображаться только если фото не загружено -->
-                        </div>
-                        <div class="member-info">
-                            <h2 class="member-name">Fedor Molokov</h2>
-                            <p class="member-role" data-key="team.fedor.role">DevOps</p>
-                        </div>
-                        <div class="expand-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                <!-- Additional blog posts can be added here in the future -->
+                <!--
+                <a href="posts/2.html" class="blog-post">
+                    <h2 class="post-title">Next Post Title</h2>
+                    <p class="post-excerpt">Post excerpt will appear here...</p>
+                    <div class="post-meta">
+                        <span>Date</span>
+                        <span>X min read</span>
                     </div>
-                    <div class="member-skills">
-                        <ul class="skills-list">
-                            <li data-key="team.fedor.skill1">Maintains and automating server infrastructure</li>
-                            <li data-key="team.fedor.skill2">Network load testing and analysis</li>
-                            <li data-key="team.fedor.skill3">Building monitoring and analytics systems</li>
-                        </ul>
-                    </div>
-                </div>
+                </a>
+                -->
             </div>
         </div>
     </section>
@@ -542,19 +421,7 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Roadmap',
                 'nav.donate': 'Donate',
-                'team.title': 'Slice 4D Shooter Team',
-                'team.timofey.role': 'Game Developer',
-                'team.timofey.skill1': 'Game Engine Development',
-                'team.timofey.skill2': 'Gameplay Programming',
-                'team.timofey.skill3': 'Game Design',
-                'team.timofey.skill4': 'UX/UI Design',
-                'team.timofey.skill5': 'Level Design',
-                'team.timofey.skill6': 'Sound design',
-                'team.timofey.skill7': 'Art',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Maintains and automating server infrastructure',
-                'team.fedor.skill2': 'Network load testing and analysis',
-                'team.fedor.skill3': 'Building monitoring and analytics systems'
+                'blog.title': 'BLOG'
             },
             ru: {
                 'nav.about': 'О проекте',
@@ -563,19 +430,7 @@
                 'nav.blog': 'Блог',
                 'nav.roadmap': 'План разработки',
                 'nav.donate': 'Поддержать',
-                'team.title': 'Команда Slice 4D Shooter',
-                'team.timofey.role': 'Разработчик игр',
-                'team.timofey.skill1': 'Разработка игрового движка',
-                'team.timofey.skill2': 'Программирование геймплея',
-                'team.timofey.skill3': 'Дизайн игры',
-                'team.timofey.skill4': 'UX/UI дизайн',
-                'team.timofey.skill5': 'Дизайн уровней',
-                'team.timofey.skill6': 'Звуковой дизайн',
-                'team.timofey.skill7': 'Арт',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Обслуживание и автоматизация серверной инфраструктуры',
-                'team.fedor.skill2': 'Тестирование и анализ сетевой нагрузки',
-                'team.fedor.skill3': 'Создание систем мониторинга и аналитики'
+                'blog.title': 'БЛОГ'
             },
             es: {
                 'nav.about': 'Acerca de',
@@ -584,19 +439,7 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Hoja de ruta',
                 'nav.donate': 'Donar',
-                'team.title': 'Equipo de Slice 4D Shooter',
-                'team.timofey.role': 'Desarrollador de Juegos',
-                'team.timofey.skill1': 'Desarrollo de Motor de Juego',
-                'team.timofey.skill2': 'Programación de Gameplay',
-                'team.timofey.skill3': 'Diseño de Juego',
-                'team.timofey.skill4': 'Diseño UX/UI',
-                'team.timofey.skill5': 'Diseño de Niveles',
-                'team.timofey.skill6': 'Diseño de Sonido',
-                'team.timofey.skill7': 'Arte',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Mantenimiento y automatización de infraestructura de servidores',
-                'team.fedor.skill2': 'Pruebas y análisis de carga de red',
-                'team.fedor.skill3': 'Construcción de sistemas de monitoreo y análisis'
+                'blog.title': 'BLOG'
             },
             fr: {
                 'nav.about': 'À propos',
@@ -605,19 +448,7 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Feuille de route',
                 'nav.donate': 'Faire un don',
-                'team.title': 'Équipe de Slice 4D Shooter',
-                'team.timofey.role': 'Développeur de Jeu',
-                'team.timofey.skill1': 'Développement de Moteur de Jeu',
-                'team.timofey.skill2': 'Programmation de Gameplay',
-                'team.timofey.skill3': 'Conception de Jeu',
-                'team.timofey.skill4': 'Conception UX/UI',
-                'team.timofey.skill5': 'Conception de Niveles',
-                'team.timofey.skill6': 'Conception Sonore',
-                'team.timofey.skill7': 'Art',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Maintenance et automatisation de l\'infrastructure serveur',
-                'team.fedor.skill2': 'Tests et analyse de charge réseau',
-                'team.fedor.skill3': 'Construction de systèmes de surveillance et d\'analyse'
+                'blog.title': 'BLOG'
             },
             de: {
                 'nav.about': 'Über',
@@ -626,19 +457,7 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Fahrplan',
                 'nav.donate': 'Spenden',
-                'team.title': 'Slice 4D Shooter Team',
-                'team.timofey.role': 'Spieleentwickler',
-                'team.timofey.skill1': 'Spiel-Engine-Entwicklung',
-                'team.timofey.skill2': 'Gameplay-Programmierung',
-                'team.timofey.skill3': 'Spieldesign',
-                'team.timofey.skill4': 'UX/UI-Design',
-                'team.timofey.skill5': 'Leveldesign',
-                'team.timofey.skill6': 'Sounddesign',
-                'team.timofey.skill7': 'Kunst',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Wartung und Automatisierung der Serverinfrastruktur',
-                'team.fedor.skill2': 'Netzlasttests und -analyse',
-                'team.fedor.skill3': 'Aufbau von Überwachungs- und Analysesystemen'
+                'blog.title': 'BLOG'
             },
             zh: {
                 'nav.about': '关于',
@@ -647,19 +466,7 @@
                 'nav.blog': '博客',
                 'nav.roadmap': '路线图',
                 'nav.donate': '捐赠',
-                'team.title': 'Slice 4D Shooter 团队',
-                'team.timofey.role': '游戏开发者',
-                'team.timofey.skill1': '游戏引擎开发',
-                'team.timofey.skill2': '游戏玩法编程',
-                'team.timofey.skill3': '游戏设计',
-                'team.timofey.skill4': '用户体验/界面设计',
-                'team.timofey.skill5': '关卡设计',
-                'team.timofey.skill6': '声音设计',
-                'team.timofey.skill7': '美术',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': '维护和自动化服务器基础设施',
-                'team.fedor.skill2': '网络负载测试和分析',
-                'team.fedor.skill3': '构建监控和分析系统'
+                'blog.title': '博客'
             },
             ja: {
                 'nav.about': 'About',
@@ -668,19 +475,7 @@
                 'nav.blog': 'ブログ',
                 'nav.roadmap': 'ロードマップ',
                 'nav.donate': '寄付',
-                'team.title': 'Slice 4D Shooter チーム',
-                'team.timofey.role': 'ゲーム開発者',
-                'team.timofey.skill1': 'ゲームエンジン開発',
-                'team.timofey.skill2': 'ゲームプレイプログラミング',
-                'team.timofey.skill3': 'ゲームデザイン',
-                'team.timofey.skill4': 'UX/UIデザイン',
-                'team.timofey.skill5': 'レベルデザイン',
-                'team.timofey.skill6': 'サウンドデザイン',
-                'team.timofey.skill7': 'アート',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'サーバーインフラの維持と自動化',
-                'team.fedor.skill2': 'ネットワーク負荷テストと分析',
-                'team.fedor.skill3': '監視および分析システムの構築'
+                'blog.title': 'ブログ'
             },
             ko: {
                 'nav.about': '소개',
@@ -689,19 +484,7 @@
                 'nav.blog': '블로그',
                 'nav.roadmap': '로드맵',
                 'nav.donate': '기부',
-                'team.title': 'Slice 4D Shooter 팀',
-                'team.timofey.role': '게임 개발자',
-                'team.timofey.skill1': '게임 엔진 개발',
-                'team.timofey.skill2': '게임플레이 프로그래밍',
-                'team.timofey.skill3': '게임 디자인',
-                'team.timofey.skill4': 'UX/UI 디자인',
-                'team.timofey.skill5': '레벨 디자인',
-                'team.timofey.skill6': '사운드 디자인',
-                'team.timofey.skill7': '아트',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': '서버 인프라 유지 및 자동화',
-                'team.fedor.skill2': '네트워크 부하 테스트 및 분석',
-                'team.fedor.skill3': '모니터링 및 분석 시스템 구축'
+                'blog.title': '블로그'
             }
         };
 
@@ -709,7 +492,6 @@
             const languageBtn = document.getElementById('languageBtn');
             const languageDropdown = document.getElementById('languageDropdown');
             const currentLangCode = document.getElementById('currentLangCode');
-            const memberHeaders = document.querySelectorAll('.member-header');
             
             // Get saved language or default to English
             let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
@@ -717,15 +499,6 @@
             // Apply saved language on page load
             changeLanguage(currentLanguage);
             currentLangCode.textContent = currentLanguage.toUpperCase();
-            
-            // Toggle skills visibility
-            memberHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    const skills = this.nextElementSibling;
-                    skills.classList.toggle('show');
-                    this.classList.toggle('active');
-                });
-            });
             
             // Language selection functionality
             languageBtn.addEventListener('click', function(e) {

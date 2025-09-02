@@ -6,6 +6,10 @@
     <title>Slice 4D Shooter - The First 4D Multiplayer Shooter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -45,14 +49,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 960px;
+            max-width: 3840px;
             margin: 0 auto;
             padding: 0 16px;
             flex: 1;
         }
         
         .nav-item {
-            margin: 0 20px;
+            margin: 0 22px;
             color: #fff;
             text-decoration: none;
             font-size: 16.8px;
@@ -73,14 +77,14 @@
         }
         
         .nav-item.donate {
-            background-color: #ff7e1b;
+            background-color: #ff8a30;
             padding: 4px 32px;
             border-radius: 24px;
             color: white;
         }
         
         .nav-item.donate:hover {
-            background-color: #ff7e1b;
+            background-color: #ff8a30;
             transform: scale(1.05);
         }
         
@@ -100,7 +104,7 @@
             border: 1px solid #00f3ff;
             color: white;
             padding: 6px 12px;
-            border-radius: 10px;
+            border-radius: 20px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -257,7 +261,7 @@
         .scroll-down-arrow {
             width: 136px;
             height: 112px;
-            background: url('media/down_arrow.png') no-repeat center center;
+            background: url('media/down_arrow') no-repeat center center;
             background-size: contain;
             filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.7));
         }
@@ -304,16 +308,23 @@
         }
         
         section {
-            padding: 64px 0;
+            padding: 0px 0;
         }
         
         .section-title {
             font-size: 25.6px;
-            margin-bottom: 24px;
-            color: #00f3ff;
+            margin-top: 48px;
+            margin-bottom: 34px;
+            color: #00f2ff00;
+            background: linear-gradient(135deg,  #00f3ff, #b7faff, #00f3ff);
+            background-size: 200% auto;
+            background-clip: text;
             text-transform: uppercase;
+            font-weight: bold;
             letter-spacing: 1.6px;
             text-align: center;
+            animation: gradientShift 10s linear infinite;
+
         }
         
         .about-content {
@@ -405,58 +416,52 @@
         }
         
         .donate-options {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin-top: 32px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            margin-top: 62px;
+            margin-bottom:  38px;
             z-index: 5;
         }
-        
-        .donate-option {
-            background-color: rgba(0, 243, 255, 0.1);
-            border: 1px solid #00f3ff;
-            border-radius: 8px;
-            padding: 24px;
-            width: 224px;
-            transition: all 0.3s ease;
-        }
-        
-        .donate-option:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0, 243, 255, 0.2);
-        }
-        
-        .donate-option h3 {
-            color: #ff7e1b;
-            margin-bottom: 12px;
-            font-size: 19.2px;
-            min-height: 30px;
-        }
-        
-        .donate-option p {
-            margin-bottom: 16px;
-            color: #cccccc;
-            font-size: 14.4px;
-            min-height: 40px;
-        }
-        
-        .donate-btn {
-            display: inline-block;
-            background-color: #ff7e1b;
-            color: white;
-            padding: 9.6px 20px;
-            border-radius: 24px;
+
+        .donate-link {
+            font-size: 23.9px;
+            letter-spacing: 1.38px;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 14.4px;
+            font-weight: bold;
+            color: #00f3ff;
+            background: linear-gradient(135deg,  #00f3ff, #b7faff, #00f3ff);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 30s linear infinite;
         }
-        
-        .donate-btn:hover {
-            background-color: #ff7e1b;
-            transform: scale(1.05);
+
+        .donate-link:hover {
+            color: #ff8a30;
+            background: #ff8a30;
+            background-size: 200% auto;
+            background-clip: text;
+            text-decoration: underline;
         }
-        
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% center;
+                text-shadow: 0 0 1px rgba(0, 221, 255, 0.0);
+            }
+            50% {
+                background-position: -200% center;
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.0);
+            }
+            100% {
+                background-position: 0% center;
+                text-shadow: 0 0 1px rgba(0, 221, 255, 0.0);
+            }
+        }
         .footer {
             background-color: #2a2a2a;
             padding: 48px 0 24px;
@@ -472,8 +477,8 @@
         }
         
         .social-link {
-            color: #00f3ff;
-            font-size: 40px;
+            color: #c4c4c4;
+            font-size: 36px;
             text-decoration: none;
             transition: all 0.3s ease;
             flex: 1;
@@ -503,9 +508,7 @@
             font-size: 11.2px;
             margin-top: 24px;
         }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
-        
+                
         @media (max-width: 784px) {
             .navbar {
                 padding: 8px 0;
@@ -522,27 +525,27 @@
             
             .background-image {
                 background: url('media/poster.png') no-repeat -190px center;
+                background-size: cover;
             }
 
             .top-image {
-                height: 20%;
-                top: 8.8%;
+                height: 15%;
+                top: 18.4%;
                 width: 100%;
                 background-image: url('media/poster_title_vertical.png');
                 background-size: contain;
             }
             
             .bottom-image {
-                height: 13.6%;
-                bottom: 11.2%;
-                width: 56%;
+                height: 15%;
+                width: 100%;
+                bottom: 17.2%;
                 background-size: contain;
-                max-width: 100%;
             }
             
             .play-button {
-                width: 144px;
-                height: 144px;
+                width: 100px;
+                height: 100px;
             }
             
             .scroll-down-arrow {
@@ -551,7 +554,20 @@
             }
             
             .about-text {
-                font-size: 12.8px;
+                font-size: 16.8px;
+                line-height: 1.82;
+                margin-bottom: 44px;
+            }
+
+            .section-title {
+                font-size: 19px;
+                margin-top: 0px;
+                margin-bottom: 34px;
+                color: #00f3ff;
+                background: none;
+                text-transform: uppercase;
+                letter-spacing: 1.6px;
+                text-align: center;
             }
             
             .download-button {
@@ -562,13 +578,29 @@
             .donate-options {
                 flex-direction: column;
                 align-items: center;
+                margin-bottom:  18px;
             }
             
             .donate-option {
                 width: 100%;
                 max-width: 240px;
             }
-            
+
+            .donate-link {
+                font-size: 17.2px;
+                letter-spacing: 1.38px;
+                /* text-decoration: none; */
+                /* transition: all 0.3s ease; */
+                font-weight: bold;
+                color: #00f3ff;
+                /* background: none; */
+                /* background: linear-gradient(135deg,  #00f3ff, #b7faff, #00f3ff); */
+                /* background-size: 200% auto;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradientShift 30s linear infinite; */
+            }
             .social-links {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -578,7 +610,7 @@
             .social-link {
                 flex: none;
                 width: 40px;
-                font-size: 32px;
+                font-size: 26px;
             }
             
             .language-selector {
@@ -614,9 +646,10 @@
         <div class="nav-container">
             <a href="#about" class="nav-item about-link" data-key="nav.about">About</a>
             <a href="team.html" class="nav-item" data-key="nav.team">Team</a>
+            <a href="roadmap.html" class="nav-item" data-key="nav.roadmap">Roadmap</a>
             <a href="https://slice4d.itch.io/slice4d" class="nav-item" data-key="nav.download">Download</a>
-            <a href="blog.html" class="nav-item" data-key="nav.blog">Blog</a>
-            <a href="#donate" class="nav-item donate" data-key="nav.donate">Donate</a>
+            <!-- <a href="blog.html" class="nav-item" data-key="nav.blog">Blog</a> -->
+            <a href="#donate" class="nav-item donate" data-key="nav.donate">Donate 🤍</a>
         </div>
     </nav>
     
@@ -663,59 +696,42 @@
                     <span data-key="about.description4.text2">. The current version supports online multiplayer.</span>
                 </p>
                 
-                <p class="about-text" data-key="about.description5">
-                    We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by community funding.
+                <p class="about-text">
+                    <span data-key="about.description5.text">We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by community funding. You can find the development road map </span>
+                    <a href="roadmap.html" data-key="about.roadmapLink">here</a>
+                    <span>.</span>
                 </p>
                 
                 <p class="about-text">
                     <a href="#donate" data-key="about.supportLink">Support the Slice 4D Shooter team</a>
-                    <span data-key="about.description6"> to help us make a truly free competitive esport game where players truly own the game they invest money and time into. You can find the development road map </span>
-                    <a href="blog/1.html" data-key="about.roadmapLink">here</a>
-                    <span>.</span>
+                    <span data-key="about.description6"> to help us make a truly free competitive esport game where players truly own the game they invest money and time into.</span>
                 </p>
-
-                <!-- Download button section -->
-                <div class="download-container">
-                    <a href="https://slice4d.itch.io/slice4d" class="download-button">
-                        <i class="fab fa-windows"></i> Download Demo version
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
     <section class="donate" id="donate">
         <div class="container">
-            <h2 class="section-title" data-key="donate.title">Support development</h2>
+            <!-- <h2 class="section-title" data-key="donate.title">Support development</h2> -->
             <div class="donate-options">
-                <div class="donate-option">
-                    <h3 data-key="donate.patreon">Patreon</h3>
-                    <p data-key="donate.patreonDesc">Become a patron and get exclusive rewards</p>
-                    <a href="#" class="donate-btn" data-key="donate.supportBtn">Support</a>
-                </div>
-                <div class="donate-option">
-                    <h3 data-key="donate.paypal">PayPal</h3>
-                    <p data-key="donate.paypalDesc">Make a secure donation via PayPal</p>
-                    <a href="#" class="donate-btn" data-key="donate.donateBtn">Donate</a>
-                </div>
-                <div class="donate-option">
-                    <h3 data-key="donate.crypto">Crypto</h3>
-                    <p data-key="donate.cryptoDesc">Donate with cryptocurrency</p>
-                    <a href="#" class="donate-btn" data-key="donate.donateBtn">Donate</a>
-                </div>
-                <div class="donate-option">
-                    <h3 data-key="donate.boosty">Boosty</h3>
-                    <p data-key="donate.boostyDesc">Support us on the Russian platform Boosty</p>
-                    <a href="#" class="donate-btn" data-key="donate.supportBtn">Support</a>
-                </div>
-                <div class="donate-option">
-                    <h3 data-key="donate.russia">Russia</h3>
-                    <p data-key="donate.russiaDesc">Payment options for Russian supporters</p>
-                    <a href="#" class="donate-btn" data-key="donate.supportBtn">Support</a>
-                </div>
+                <a href="#" class="donate-link" data-key="donate.patreonLink">Support us on Patreon</a>
+                <a href="#" class="donate-link" data-key="donate.paypalLink">Support us via PayPal</a>
+                <a href="#" class="donate-link" data-key="donate.cryptoLink">Support us with cryptocurrency</a>
+                <a href="#" class="donate-link" data-key="donate.russiaLink">Payment options for supporters from Russia</a>
             </div>
         </div>
     </section>
+    
+    <!-- Download button section moved below donate section -->
+    <!-- <section class="download-section">
+        <div class="container">
+            <div class="download-container">
+                <a href="https://slice4d.itch.io/slice4d" class="download-button">
+                    <i class="fab fa-windows"></i> <span data-key="download.button">Download Demo version</span>
+                </a>
+            </div>
+        </div>
+    </section> -->
     
     <footer class="footer">
         <div class="container">
@@ -744,304 +760,352 @@
     
     <script>
         // Language translations
-        const translations = {
-            en: {
-                'nav.about': 'About',
-                'nav.team': 'Team',
-                'nav.download': 'Download',
-                'nav.blog': 'Blog',
-                'nav.donate': 'Donate',
-                'about.title': 'About Slice 4D Shooter',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': ' is the first multiplayer competitive first person shooter set in true 4D space.',
-                'about.description2': ' Learn how to play a shooter in 4D space in the video tutorial below.',
-                'about.description3.text': 'Slice 4D Shooter is being developed by a small indie ',
-                'about.teamLink': 'team of developers',
-                'about.description3.text2': ' since 2023 year on a custom-built 4D game engine with the Rust programming language. All ',
-                'about.sourceLink': 'source code',
-                'about.description3.text3': ' of the game is open under a free ',
-                'about.licenseLink': 'modified GPL license',
-                'about.description4.text': 'Currently, Slice 4D Shooter is in the playable prototype stage of development and you can ',
-                'about.itchLink': 'try it on itch.io',
-                'about.description4.text2': '. The current version supports online multiplayer.',
-                'about.description5': 'We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by community funding.',
-                'about.supportLink': 'Support the Slice 4D Shooter team',
-                'about.description6': ' to help us make a truly free competitive esport game where players truly own the game they invest money and time into. You can find the development road map ',
-                'about.roadmapLink': 'here',
-                'donate.title': 'Support development',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': 'Become a patron and get exclusive rewards',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': 'Make a secure donation via PayPal',
-                'donate.crypto': 'Crypto',
-                'donate.cryptoDesc': 'Donate with cryptocurrency',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': 'Support us on the Russian platform Boosty',
-                'donate.russia': 'Russia',
-                'donate.russiaDesc': 'Payment options for Russian supporters',
-                'donate.supportBtn': 'Support',
-                'donate.donateBtn': 'Donate'
-            },
-            ru: {
-                'nav.about': 'О проекте',
-                'nav.team': 'Команда',
-                'nav.download': 'Скачать',
-                'nav.blog': 'Блог',
-                'nav.donate': 'Поддержать',
-                'about.title': 'О Slice 4D Shooter',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': ' — это первый многопользовательский соревновательный шутер от первого лица в настоящем 4D-пространстве.',
-                'about.description2': ' Научитесь играть в шутер в 4D-пространстве в видеоуроке ниже.',
-                'about.description3.text': 'Slice 4D Shooter разрабатывается небольшой инди-',
-                'about.teamLink': 'командой разработчиков',
-                'about.description3.text2': ' с 2023 года на собственном движке для 4D-игр с использованием языка программирования Rust. Весь ',
-                'about.sourceLink': 'исходный код',
-                'about.description3.text3': ' игры открыт под свободной ',
-                'about.licenseLink': 'модифицированной лицензией GPL',
-                'about.description4.text': 'В настоящее время Slice 4D Shooter находится на стадии играбельного прототипа, и вы можете ',
-                'about.itchLink': 'попробовать его на itch.io',
-                'about.description4.text2': '. Текущая версия поддерживает многопользовательский онлайн-режим.',
-                'about.description5': 'Мы хотим сделать Slice 4D Shooter первым многопользовательским киберспортивным соревновательным онлайн-шутером в четырехмерном пространстве, поддерживаемым за счет финансирования сообщества.',
-                'about.supportLink': 'Поддержите команду Slice 4D Shooter',
-                'about.description6': ' чтобы помочь нам создать по-настоящему свободную киберспортивную игру, где игроки по-настоящему владеют игрой, в которую вкладывают свое время и деньги. План разработки можно найти ',
-                'about.roadmapLink': 'здесь',
-                'donate.title': 'Поддержать разработку',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': 'Станьте патроном и получайте эксклюзивные награды',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': 'Сделайте безопасное пожертвование через PayPal',
-                'donate.crypto': 'Криптовалюта',
-                'donate.cryptoDesc': 'Пожертвуйте криптовалютой',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': 'Поддержите нас на российском сервисе Boosty',
-                'donate.russia': 'Россия',
-                'donate.russiaDesc': 'Варианты оплаты для жертвователей из России',
-                'donate.supportBtn': 'Поддержать',
-                'donate.donateBtn': 'Пожертвовать'
-            },
-            es: {
-                'nav.about': 'Acerca de',
-                'nav.team': 'Equipo',
-                'nav.download': 'Descargar',
-                'nav.blog': 'Blog',
-                'nav.donate': 'Donar',
-                'about.title': 'Acerca de Slice 4D Shooter',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': ' es el primer shooter competitivo multijugador en primera persona ambientado en un espacio 4D real.',
-                'about.description2': ' Aprende a jugar un shooter en espacio 4D en el video tutorial a continuación.',
-                'about.description3.text': 'Slice 4D Shooter está siendo desarrollado por un pequeño equipo indie de ',
-                'about.teamLink': 'desarrolladores',
-                'about.description3.text2': ' desde el año 2023 en un motor de juego 4D personalizado con el lenguaje de programación Rust. Todo el ',
-                'about.sourceLink': 'código fuente',
-                'about.description3.text3': ' del juego es abierto bajo una ',
-                'about.licenseLink': 'licencia GPL modificada gratuita',
-                'about.description4.text': 'Actualmente, Slice 4D Shooter está en la etapa de prototipo jugable y puedes ',
-                'about.itchLink': 'probarlo en itch.io',
-                'about.description4.text2': '. La versión actual soporta multijugador en línea.',
-                'about.description5': 'Queremos hacer de Slice 4D Shooter el primer shooter competitivo esport en línea multijugador ambientado en espacio tetradimensional, apoyado por financiación comunitaria.',
-                'about.supportLink': 'Apoya al equipo de Slice 4D Shooter',
-                'about.description6': ' para ayudarnos a hacer a un juego esport competitivo verdaderamente libre donde los jugadores sean verdaderos dueños del juego en el que invierten dinero y tiempo. Puedes encontrar la hoja de ruta de desarrollo ',
-                'about.roadmapLink': 'aquí',
-                'donate.title': 'Apoya el desarrollo',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': 'Conviértete en patrocinador y obtén recompensas exclusivas',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': 'Haz una donación segura a través de PayPal',
-                'donate.crypto': 'Cripto',
-                'donate.cryptoDesc': 'Dona con criptomonedas',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': 'Apóyanos en la plataforma rusa Boosty',
-                'donate.russia': 'Rusia',
-                'donate.russiaDesc': 'Opciones de pago para partidarios rusos',
-                'donate.supportBtn': 'Apoyar',
-                'donate.donateBtn': 'Donar'
-            },
-            fr: {
-                'nav.about': 'À propos',
-                'nav.team': 'Équipe',
-                'nav.download': 'Télécharger',
-                'nav.blog': 'Blog',
-                'nav.donate': 'Faire un don',
-                'about.title': 'À propos de Slice 4D Shooter',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': ' est le premier jeu de tir compétitif multijoueur à la première personne se déroulant dans un véritable espace 4D.',
-                'about.description2': ' Apprenez à jouer à un shooter en espace 4D dans le tutoriel vidéo ci-dessous.',
-                'about.description3.text': 'Slice 4D Shooter est développé par une petite équipe indie de ',
-                'about.teamLink': 'développeurs',
-                'about.description3.text2': ' depuis 2023 sur un moteur de jeu 4D personnalisé avec le langage de programmation Rust. Tout le ',
-                'about.sourceLink': 'code source',
-                'about.description3.text3': ' du jeu est ouvert sous une ',
-                'about.licenseLink': 'licence GPL modifiée gratuite',
-                'about.description4.text': 'Actuellement, Slice 4D Shooter est au stade de prototype jouable et vous pouvez l',
-                'about.itchLink': 'essayer sur itch.io',
-                'about.description4.text2': '. La version actuelle prend en charge le multijoueur en ligne.',
-                'about.description5': 'Nous voulons faire de Slice 4D Shooter le premier jeu de tir compétitif esport en ligne multijoueur se déroulant dans un espace à quatre dimensions, soutenu par un financement communautaire.',
-                'about.supportLink': 'Soutenez léquipe de Slice 4D Shooter',
-                'about.description6': ' pour nous aider à créer un jeu esport compétitif véritablement libre où les joueurs soient de véritables propriétaires du jeu dans lequel ils investissent argent et temps. Vous pouvez trouver la feuille de route de développement ',
-                'about.roadmapLink': 'ici',
-                'donate.title': 'Soutenez le développement',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': 'Devenez mécène et obtenez des récompenses exclusives',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': 'Faites un don sécurisé via PayPal',
-                'donate.crypto': 'Crypto',
-                'donate.cryptoDesc': 'Faites un don en cryptomonnaie',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': 'Soutenez nous sur la plateforme russe Boosty',
-                'donate.russia': 'Russie',
-                'donate.russiaDesc': 'Options de paiement pour les supporters russes',
-                'donate.supportBtn': 'Soutenir',
-                'donate.donateBtn': 'Faire un don'
-            },
-            de: {
-                'nav.about': 'Über',
-                'nav.team': 'Team',
-                'nav.download': 'Download',
-                'nav.blog': 'Blog',
-                'nav.donate': 'Spenden',
-                'about.title': 'Über Slice 4D Shooter',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': ' ist der erste multiplayer Competitive First-Person-Shooter in einem echten 4D-Raum.',
-                'about.description2': ' Erfahren Sie, wie Sie einen Shooter im 4D-Raum im Video-Tutorial unten spielen.',
-                'about.description3.text': 'Slice 4D Shooter wird seit 2023 von einem kleinen Indie-',
-                'about.teamLink': 'Entwicklerteam',
-                'about.description3.text2': ' mit der Rust-Programmiersprache auf einer maßgeschneiderten 4D-Spiel-Engine entwickelt. Der gesamte ',
-                'about.sourceLink': 'Quellcode',
-                'about.description3.text3': ' des Spiels ist unter einer kostenlosen ',
-                'about.licenseLink': 'modifizierten GPL-Lizenz Open Source',
-                'about.description4.text': 'Derzeit befindet sich Slice 4D Shooter im spielbaren Prototypenstadium und Sie können es auf ',
-                'about.itchLink': 'itch.io ausprobieren',
-                'about.description4.text2': '. Die aktuelle Version unterstützt Online-Multiplayer.',
-                'about.description5': 'Wir wollen Slice 4D Shooter zum ersten multiplayer Competitive Esport-Online-Shooter im vierdimensionalen Raum machen, der durch Community-Finanzierung unterstützt wird.',
-                'about.supportLink': 'Unterstützen Sie das Slice 4D Shooter-Team',
-                'about.description6': ' um uns zu helfen, ein wirklich freies Competitive-Esport-Spiel zu entwickeln, in dem Spieler das Spiel, in das sie investieren, auch wirklich besitzen. Den Entwicklungsfahrplan finden Sie ',
-                'about.roadmapLink': 'hier',
-                'donate.title': 'Entwicklung unterstützen',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': 'Werden Sie Patron und erhalten Sie exklusive Belohnungen',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': 'Machen Sie eine sichere Spende über PayPal',
-                'donate.crypto': 'Krypto',
-                'donate.cryptoDesc': 'Spenden Sie mit Kryptowährung',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': 'Unterstützen Sie uns auf der russischen Plattform Boosty',
-                'donate.russia': 'Russland',
-                'donate.russiaDesc': 'Zahlungsmöglichkeiten für russische Unterstützer',
-                'donate.supportBtn': 'Unterstützen',
-                'donate.donateBtn': 'Spenden'
-            },
-            zh: {
-                'nav.about': '关于',
-                'nav.team': '团队',
-                'nav.download': '下载',
-                'nav.blog': '博客',
-                'nav.donate': '捐赠',
-                'about.title': '关于 Slice 4D Shooter',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': ' 是第一款设置在真 4D 空间中的多人竞技第一人称射击游戏。',
-                'about.description2': ' 在下面的视频教程中学习如何在 4D 空间中玩射击游戏。',
-                'about.description3.text': 'Slice 4D Shooter 自 2023 年起由一个小型独立',
-                'about.teamLink': '开发团队',
-                'about.description3.text2': ' 使用 Rust 编程语言在自定义 4D 游戏引擎上开发。游戏的所有',
-                'about.sourceLink': '源代码',
-                'about.description3.text3': ' 都在免费的',
-                'about.licenseLink': '修改版 GPL 许可证',
-                'about.description4.text': '下开放。目前，Slice 4D Shooter 处于可玩原型开发阶段，您可以在',
-                'about.itchLink': 'itch.io 上尝试',
-                'about.description4.text2': '。当前版本支持在线多人游戏。',
-                'about.description5': '我们希望将 Slice 4D Shooter 打造成第一款设置在四维空间中的多人竞技电子竞技在线射击游戏，由社区资助支持。',
-                'about.supportLink': '支持 Slice 4D Shooter 团队',
-                'about.description6': ' 帮助我们制作一个真正免费的竞技电子竞技游戏，玩家真正拥有他们投入金钱和时间的游戏。您可以在此处找到开发路线图',
-                'about.roadmapLink': '这里',
-                'donate.title': '支持开发',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': '成为赞助人并获得独家奖励',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': '通过 PayPal 进行安全捐赠',
-                'donate.crypto': '加密货币',
-                'donate.cryptoDesc': '使用加密货币捐赠',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': '在俄罗斯平台 Boosty 上支持我们',
-                'donate.russia': '俄罗斯',
-                'donate.russiaDesc': '俄罗斯支持者的支付选项',
-                'donate.supportBtn': '支持',
-                'donate.donateBtn': '捐赠'
-            },
-            ja: {
-                'nav.about': 'About',
-                'nav.team': 'チーム',
-                'nav.download': 'ダウンロード',
-                'nav.blog': 'ブログ',
-                'nav.donate': '寄付',
-                'about.title': 'Slice 4D Shooterについて',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': 'は、真の4D空間を舞台にした最初のマルチプレイヤー競技型ファーストパーソンシューティングゲームです。',
-                'about.description2': '以下のビデオチュートリアルで、4D空間でのシューティングゲームのプレイ方法を学びましょう。',
-                'about.description3.text': 'Slice 4D Shooterは、2023年からRustプログラミング言語を使用したカスタムビルドの4Dゲームエンジンで、小さなインディー',
-                'about.teamLink': '開発者チーム',
-                'about.description3.text2': 'によって開発されています。ゲームの全',
-                'about.sourceLink': 'ソースコード',
-                'about.description3.text3': 'は、無料の',
-                'about.licenseLink': '修正版GPLライセンス',
-                'about.description4.text': 'の下で公開されています。目前、Slice 4D Shooterはプレイ可能なプロトタイプ段階にあり、',
-                'about.itchLink': 'itch.ioで試す',
-                'about.description4.text2': 'ことができます。現在のバージョンはオンラインマルチプレイヤーをサポートしています。',
-                'about.description5': '私たちは、Slice 4D Shooterを、コミュニティの資金支援を受けた四次元空間を舞台にした最初のマルチプレイヤー競技eスポーツオンラインシューティングゲームにしたいと考えています。',
-                'about.supportLink': 'Slice 4D Shooterチームを支援する',
-                'about.description6': 'プレイヤーがお金と時間を投資したゲームを真に所有できる、真に無料の競技eスポーツゲームを作るために。開発ロードマップは',
-                'about.roadmapLink': 'こちら',
-                'donate.title': '開発を支援する',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': 'パトロンになって限定特典をゲット',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': 'PayPalで安全に寄付',
-                'donate.crypto': '暗号通貨',
-                'donate.cryptoDesc': '暗号通貨で寄付',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': 'ロシアのプラットフォームBoostyで私たちを支援',
-                'donate.russia': 'ロシア',
-                'donate.russiaDesc': 'ロシアのサポーター向け支払いオプション',
-                'donate.supportBtn': '支援',
-                'donate.donateBtn': '寄付'
-            },
-            ko: {
-                'nav.about': '소개',
-                'nav.team': '팀',
-                'nav.download': '다운로드',
-                'nav.blog': '블로그',
-                'nav.donate': '기부',
-                'about.title': 'Slice 4D Shooter 소개',
-                'about.gameName': 'Slice 4D Shooter',
-                'about.description1': '는 진정한 4D 공간을 배경으로 하는 최초의 멀티플레이어 경쟁형 1인칭 슈팅 게임입니다.',
-                'about.description2': ' 아래 동영상 튜토리얼에서 4D 공간에서 슈팅 게임을 플레이하는 방법을 배워보세요.',
-                'about.description3.text': 'Slice 4D Shooter는 2023년부터 Rust 프로그래밍 언어를 사용한 맞춤형 4D 게임 엔진으로 소규모 인디 ',
-                'about.teamLink': '개발자 팀',
-                'about.description3.text2': '이 개발하고 있습니다. 게임의 모든 ',
-                'about.sourceLink': '소스 코드',
-                'about.description3.text3': '는 무료 ',
-                'about.licenseLink': '수정 GPL 라이선스',
-                'about.description4.text': '로 공개되어 있습니다. 현재 Slice 4D Shooter는 플레이 가능한 프로토타입 개발 단계에 있으며 ',
-                'about.itchLink': 'itch.io에서 시험해 볼',
-                'about.description4.text2': ' 수 있습니다. 현재 버전은 온라인 멀티플레이어를 지원합니다.',
-                'about.description5': '우리는 Slice 4D Shooter를 커뮤니티 펀딩으로 지원되는 4차원 공간을 배경으로 하는 최초의 멀티플레이어 경쟁 e스포츠 온라인 슈팅 게ーム으로 만들고 싶습니다.',
-                'about.supportLink': 'Slice 4D Shooter 팀 지원하기',
-                'about.description6': ' 플레이어가 돈과 시간을 투자한 게임을 진정으로 소유하는 진정한 무료 경쟁 e스포츠 게임을 만드는 데 도움을 주세요. 개발 로드맵은 ',
-                'about.roadmapLink': '여기',
-                'donate.title': '개발 지원하기',
-                'donate.patreon': 'Patreon',
-                'donate.patreonDesc': '후원자가 되어 독점 보상 받기',
-                'donate.paypal': 'PayPal',
-                'donate.paypalDesc': 'PayPal로 안전하게 기부하기',
-                'donate.crypto': '암호화폐',
-                'donate.cryptoDesc': '암호화폐로 기부하기',
-                'donate.boosty': 'Boosty',
-                'donate.boostyDesc': '러시아 플랫폼 Boosty에서 우리 지원하기',
-                'donate.russia': '러시아',
-                'donate.russiaDesc': '러시아 지원자를 위한 결제 옵션',
-                'donate.supportBtn': '지원',
-                'donate.donateBtn': '기부'
-            }
-        };
+const translations = {
+    en: {
+        'nav.about': 'About',
+        'nav.team': 'Team',
+        'nav.download': 'Download',
+        'nav.blog': 'Blog',
+        'nav.roadmap': 'Roadmap',
+        'nav.donate': 'Donate',
+        'about.title': 'About Slice 4D Shooter',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': ' is the first multiplayer competitive first person shooter set in true 4D space.',
+        'about.description2': ' Learn how to play a shooter in 4D space in the video tutorial below.',
+        'about.description3.text': 'Slice 4D Shooter is being developed by a small indie ',
+        'about.teamLink': 'team of developers',
+        'about.description3.text2': ' since 2023 year on a custom-built 4D game engine with the Rust programming language. All ',
+        'about.sourceLink': 'source code',
+        'about.description3.text3': ' of the game is open under a free ',
+        'about.licenseLink': 'modified GPL license',
+        'about.description4.text': 'Currently, Slice 4D Shooter is in the playable prototype stage of development and you can ',
+        'about.itchLink': 'try it on itch.io',
+        'about.description4.text2': '. The current version supports online multiplayer.',
+        'about.description5.text': 'We want to make Slice 4D Shooter the first multiplayer competitive esport online shooter set in four-dimensional space, supported by community funding. You can find the development road map ',
+        'about.roadmapLink': 'here',
+        'about.supportLink': 'Support the Slice 4D Shooter team',
+        'about.description6': ' to help us make a truly free competitive esport game where players truly own the game they invest money and time into.',
+        'donate.title': 'Support development',
+        'donate.patreonLink': 'Support us on Patreon ♥',
+        'donate.paypalLink': 'Support us via PayPal ♥',
+        'donate.cryptoLink': 'Support us with cryptocurrency ♥',
+        'donate.russiaLink': 'Payment options for supporters from Russia ♥',
+        'download.button': 'Download Demo version',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': 'Become a patron and get exclusive rewards',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': 'Make a secure donation via PayPal',
+        'donate.crypto': 'Crypto',
+        'donate.cryptoDesc': 'Donate with cryptocurrency',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': 'Support us on the Russian platform Boosty',
+        'donate.russia': 'Russia',
+        'donate.russiaDesc': 'Payment options for Russian supporters',
+        'donate.supportBtn': 'Support',
+        'donate.donateBtn': 'Donate'
+    },
+    ru: {
+        'nav.about': 'О проекте',
+        'nav.team': 'Команда',
+        'nav.download': 'Скачать',
+        'nav.blog': 'Блог',
+        'nav.roadmap': 'План разработки',
+        'nav.donate': 'Поддержать',
+        'about.title': 'О Slice 4D Shooter',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': ' — это первый многопользовательский соревновательный шутер от первого лица в настоящем 4D-пространстве.',
+        'about.description2': ' Научитесь играть в шутер в 4D-пространстве в видеоуроке ниже.',
+        'about.description3.text': 'Slice 4D Shooter разрабатывается небольшой инди-',
+        'about.teamLink': 'командой разработчиков',
+        'about.description3.text2': ' с 2023 года на собственном движке для 4D-игр с использованием языка программирования Rust. Весь ',
+        'about.sourceLink': 'исходный код',
+        'about.description3.text3': ' игры открыт под свободной ',
+        'about.licenseLink': 'модифицированной лицензией GPL',
+        'about.description4.text': 'В настоящее время Slice 4D Shooter находится на стадии играбельного прототипа, и вы можете ',
+        'about.itchLink': 'попробовать его на itch.io',
+        'about.description4.text2': '. Текущая версия поддерживает многопользовательский онлайн-режим.',
+        'about.description5.text': 'Мы хотим сделать Slice 4D Shooter первым многопользовательским киберспортивным соревновательным онлайн-шутером в четырехмерном пространстве, поддерживаемым за счет финансирования сообщества. План разработки можно найти ',
+        'about.roadmapLink': 'здесь',
+        'about.supportLink': 'Поддержите команду Slice 4D Shooter',
+        'about.description6': ' чтобы помочь нам создать по-настоящему свободную киберспортивную игру, где игроки по-настоящему владеют игрой, в которую вкладывают свое время и деньги.',
+        'donate.title': 'Поддержать разработку',
+        'donate.patreonLink': 'Поддержите нас на Patreon ♥',
+        'donate.paypalLink': 'Поддержите нас через PayPal ♥',
+        'donate.cryptoLink': 'Поддержите нас криптовалютой ♥',
+        'donate.russiaLink': 'Варианты оплаты для жертвователей из России ♥',
+        'download.button': 'Скачать демо-версию',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': 'Станьте патроном и получайте эксклюзивные награды',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': 'Сделайте безопасное пожертвование через PayPal',
+        'donate.crypto': 'Криптовалюта',
+        'donate.cryptoDesc': 'Пожертвуйте криптовалютой',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': 'Поддержите нас на российском сервисе Boosty',
+        'donate.russia': 'Россия',
+        'donate.russiaDesc': 'Варианты оплата для жертвователей из России',
+        'donate.supportBtn': 'Поддержать',
+        'donate.donateBtn': 'Пожертвовать'
+    },
+    es: {
+        'nav.about': 'Acerca de',
+        'nav.team': 'Equipo',
+        'nav.download': 'Descargar',
+        'nav.blog': 'Blog',
+        'nav.roadmap': 'Hoja de ruta',
+        'nav.donate': 'Donar',
+        'about.title': 'Acerca de Slice 4D Shooter',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': ' es el primer shooter competitivo multijugador en primera persona ambientado en un espacio 4D real.',
+        'about.description2': ' Aprende a jugar un shooter en espacio 4D en el video tutorial a continuación.',
+        'about.description3.text': 'Slice 4D Shooter está siendo desarrollado por un pequeño equipo indie de ',
+        'about.teamLink': 'desarrolladores',
+        'about.description3.text2': ' desde el año 2023 en un motor de juego 4D personalizado con el lenguaje de programación Rust. Todo el ',
+        'about.sourceLink': 'código fuente',
+        'about.description3.text3': ' del juego es abierto bajo una ',
+        'about.licenseLink': 'licencia GPL modificada gratuita',
+        'about.description4.text': 'Actualmente, Slice 4D Shooter está en la etapa de prototipo jugable y puedes ',
+        'about.itchLink': 'probarlo en itch.io',
+        'about.description4.text2': '. La versión actual soporta multijugador en línea.',
+        'about.description5.text': 'Queremos hacer de Slice 4D Shooter el primer shooter competitivo esport en línea multijugador ambientado en espacio tetradimensional, apoyado por financiación comunitaria. Puedes encontrar la hoja de ruta de desarrollo ',
+        'about.roadmapLink': 'aquí',
+        'about.supportLink': 'Apoya al equipo de Slice 4D Shooter',
+        'about.description6': ' para ayudarnos a hacer a un juego esport competitivo verdaderamente libre donde los jugadores sean verdaderos dueños del juego en el que invierten dinero y tiempo.',
+        'donate.title': 'Apoya el desarrollo',
+        'donate.patreonLink': 'Apóyanos en Patreon ♥',
+        'donate.paypalLink': 'Apóyanos a través de PayPal ♥',
+        'donate.cryptoLink': 'Apóyanos con criptomonedas ♥',
+        'donate.russiaLink': 'Opciones de pago para seguidores de Rusia ♥',
+        'download.button': 'Descargar versión demo',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': 'Conviértete en patrocinador и obtén recompensas exclusivas',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': 'Haz una donación segura a través de PayPal',
+        'donate.crypto': 'Cripto',
+        'donate.cryptoDesc': 'Dona con criptomonedas',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': 'Apóyanos en la plataforma rusa Boosty',
+        'donate.russia': 'Rusia',
+        'donate.russiaDesc': 'Opciones de pago para partidarios rusos',
+        'donate.supportBtn': 'Apoyar',
+        'donate.donateBtn': 'Donar'
+    },
+    fr: {
+        'nav.about': 'À propos',
+        'nav.team': 'Équipe',
+        'nav.download': 'Télécharger',
+        'nav.blog': 'Blog',
+        'nav.roadmap': 'Feuille de route',
+        'nav.donate': 'Faire un don',
+        'about.title': 'À propos de Slice 4D Shooter',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': ' est le premier jeu de tir compétitif multijoueur à la première personne se déroulant dans un véritable espace 4D.',
+        'about.description2': ' Apprenez à jouer à un shooter en espace 4D dans le tutoriel vidéo ci-dessous.',
+        'about.description3.text': 'Slice 4D Shooter est développé par une petite équipe indie de ',
+        'about.teamLink': 'développeurs',
+        'about.description3.text2': ' depuis 2023 sur un moteur de jeu 4D personnalisé avec le langage de programación Rust. Tout le ',
+        'about.sourceLink': 'code source',
+        'about.description3.text3': ' du jeu est ouvert sous une ',
+        'about.licenseLink': 'licence GPL modifiée gratuite',
+        'about.description4.text': 'Actuellement, Slice 4D Shooter est au stade de prototype jouable et vous pouvez l',
+        'about.itchLink': 'essayer sur itch.io',
+        'about.description4.text2': '. La version actuelle prend en charge le multijoueur en ligne.',
+        'about.description5.text': 'Nous voulons faire de Slice 4D Shooter le premier jeu de tir compétitif esport en ligne multijoueur se déroulant dans un espace à quatre dimensions, soutenu par un financement communautaire. Vous pouvez trouver la feuille de route de développement ',
+        'about.roadmapLink': 'ici',
+        'about.supportLink': 'Soutenez léquipe de Slice 4D Shooter',
+        'about.description6': ' pour nous aider à créer un jeu esport compétitif véritablement libre où les joueurs soient de véritables propriétaires du jeu dans lequel ils investissent argent et temps.',
+        'donate.title': 'Soutenez le développement',
+        'donate.patreonLink': 'Soutenez-nous sur Patreon ♥',
+        'donate.paypalLink': 'Soutenez-nous via PayPal ♥',
+        'donate.cryptoLink': 'Soutenez-nous avec cryptomonnaie ♥',
+        'donate.russiaLink': 'Options de paiement pour les supporters de Russie ♥',
+        'download.button': 'Télécharger la version démo',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': 'Devenez mécène et obtenez des récompenses exclusives',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': 'Faites un don sécurisé via PayPal',
+        'donate.crypto': 'Crypto',
+        'donate.cryptoDesc': 'Faites un don en cryptomonnaie',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': 'Soutenez nous sur la plateforme russe Boosty',
+        'donate.russia': 'Russie',
+        'donate.russiaDesc': 'Options de paiement pour les supporters russes',
+        'donate.supportBtn': 'Soutenir',
+        'donate.donateBtn': 'Faire un don'
+    },
+    de: {
+        'nav.about': 'Über',
+        'nav.team': 'Team',
+        'nav.download': 'Download',
+        'nav.blog': 'Blog',
+        'nav.roadmap': 'Fahrplan',
+        'nav.donate': 'Spenden',
+        'about.title': 'Über Slice 4D Shooter',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': ' ist der erste multiplayer Competitive First-Person-Shooter in einem echten 4D-Raum.',
+        'about.description2': ' Erfahren Sie, wie Sie einen Shooter im 4D-Raum im Video-Tutorial unten spielen.',
+        'about.description3.text': 'Slice 4D Shooter wird seit 2023 von einem kleinen Indie-',
+        'about.teamLink': 'Entwicklerteam',
+        'about.description3.text2': ' mit der Rust-Programmiersprache auf einer maßgeschneiderten 4D-Spiel-Engine entwickelt. Der gesamte ',
+        'about.sourceLink': 'Quellcode',
+        'about.description3.text3': ' des Spiels ist unter einer kostenlosen ',
+        'about.licenseLink': 'modifizierten GPL-Lizenz Open Source',
+        'about.description4.text': 'Derzeit befindet sich Slice 4D Shooter im spielbaren Prototypenstadium und Sie können es auf ',
+        'about.itchLink': 'itch.io ausprobieren',
+        'about.description4.text2': '. Die aktuelle Version unterstützt Online-Multiplayer.',
+        'about.description5.text': 'Wir wollen Slice 4D Shooter zum ersten multiplayer Competitive Esport-Online-Shooter im vierdimensionalen Raum machen, der durch Community-Finanzierung unterstützt wird. Den Entwicklungsfahrplan finden Sie ',
+        'about.roadmapLink': 'hier',
+        'about.supportLink': 'Unterstützen Sie das Slice 4D Shooter-Team',
+        'about.description6': ' um uns zu helfen, ein wirklich freies Competitive-Esport-Spiel zu entwickeln, in dem Spieler das Spiel, in das sie investieren, auch wirklich besitzen.',
+        'donate.title': 'Entwicklung unterstützen',
+        'donate.patreonLink': 'Unterstützen Sie uns auf Patreon ♥',
+        'donate.paypalLink': 'Unterstützen Sie uns über PayPal ♥',
+        'donate.cryptoLink': 'Unterstützen Sie uns mit Kryptowährung ♥',
+        'donate.russiaLink': 'Zahlungsmöglichkeiten für Unterstützer aus Russland ♥',
+        'download.button': 'Demo-Version herunterladen',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': 'Werden Sie Patron und erhalten Sie exklusive Belohnungen',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': 'Machen Sie eine sichere Spende über PayPal',
+        'donate.crypto': 'Krypto',
+        'donate.cryptoDesc': 'Spenden Sie mit Kryptowährung',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': 'Unterstützen Sie uns auf der russischen Plattform Boosty',
+        'donate.russia': 'Russland',
+        'donate.russiaDesc': 'Zahlungsmöglichkeiten für русских Unterstützer',
+        'donate.supportBtn': 'Unterstützen',
+        'donate.donateBtn': 'Spenden'
+    },
+    zh: {
+        'nav.about': '关于',
+        'nav.team': '团队',
+        'nav.download': '下载',
+        'nav.blog': '博客',
+        'nav.roadmap': '路线图',
+        'nav.donate': '捐赠',
+        'about.title': '关于 Slice 4D Shooter',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': ' 是第一款设置在真 4D 空间中的多人竞技第一人称射击游戏。',
+        'about.description2': ' 在下面的视频教程中学习如何在 4D 空间中玩射击游戏。',
+        'about.description3.text': 'Slice 4D Shooter 自 2023 年起由一个小型独立',
+        'about.teamLink': '开发团队',
+        'about.description3.text2': ' 使用 Rust 编程语言在自定义 4D 游戏引擎上开发。游戏的所有',
+        'about.sourceLink': '源代码',
+        'about.description3.text3': ' 都在免费的',
+        'about.licenseLink': '修改版 GPL 许可证',
+        'about.description4.text': '下开放。目前，Slice 4D Shooter 处于可玩原型开发阶段，您可以在',
+        'about.itchLink': 'itch.io 上尝试',
+        'about.description4.text2': '。当前版本支持在线多人游戏。',
+        'about.description5.text': '我们希望将 Slice 4D Shooter 打造成第一款设置在四维空间中的多人竞技电子竞技在线射击游戏，由社区资助支持。您可以在此处找到开发路线图 ',
+        'about.roadmapLink': '这里',
+        'about.supportLink': '支持 Slice 4D Shooter 团队',
+        'about.description6': ' 帮助我们制作一个真正免费的竞技电子竞技游戏，玩家真正拥有他们投入金钱和时间的游戏。',
+        'donate.title': '支持开发',
+        'donate.patreonLink': '在 Patreon 上支持我们 ♥',
+        'donate.paypalLink': '通过 PayPal 支持我们 ♥',
+        'donate.cryptoLink': '通过加密货币支持我们 ♥',
+        'donate.russiaLink': '俄罗斯支持者的支付选项 ♥',
+        'download.button': '下载演示版本',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': '成为赞助人并获得独家奖励',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': '通过 PayPal 进行安全捐赠',
+        'donate.crypto': '加密货币',
+        'donate.cryptoDesc': '使用加密货币捐赠',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': '在俄罗斯平台 Boosty 上支持我们',
+        'donate.russia': '俄罗斯',
+        'donate.russiaDesc': '俄罗斯支持者的支付选项',
+        'donate.supportBtn': '支持',
+        'donate.donateBtn': '捐赠'
+    },
+    ja: {
+        'nav.about': 'About',
+        'nav.team': 'チーム',
+        'nav.download': 'ダウンロード',
+        'nav.blog': 'ブログ',
+        'nav.roadmap': 'ロードマップ',
+        'nav.donate': '寄付',
+        'about.title': 'Slice 4D Shooterについて',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': 'は、真の4D空間を舞台にした最初のマルチプレイヤー競技型ファーストパーソンシューティングゲームです。',
+        'about.description2': '以下のビデオチュートリアルで、4D空間でのシューティングゲームのプレイ方法を学びましょう。',
+        'about.description3.text': 'Slice 4D Shooterは、2023年からRustプログラミング言語を使用したカスタムビルドの4Dゲームエンジンで、小さなインディー',
+        'about.teamLink': '開発者チーム',
+        'about.description3.text2': 'によって開発されています。ゲームの全',
+        'about.sourceLink': 'ソースコード',
+        'about.description3.text3': 'は、無料の',
+        'about.licenseLink': '修正版GPLライセンス',
+        'about.description4.text': 'の下で公開されています。目前、Slice 4D Shooterはプレイ可能なプロトタイプ段階にあり、',
+        'about.itchLink': 'itch.ioで試す',
+        'about.description4.text2': 'ことができます。現在のバージョンはオンラインマルチプレイヤーをサポートしています。',
+        'about.description5.text': '私たちは、Slice 4D Shooterを、コミュニティの資金支援を受けた四次元空間を舞台にした最初のマルチプレイヤー競技eスポーツオンラインシューティングゲームにしたいと考えています。開発ロードマップは ',
+        'about.roadmapLink': 'こちら',
+        'about.supportLink': 'Slice 4D Shooterチームを支援する',
+        'about.description6': 'プレイヤーがお金と時間を投資したゲームを真に所有できる、真に無料の競技eスポーツゲームを作るために。',
+        'donate.title': '開発を支援する',
+        'donate.patreonLink': 'Patreonで私たちをサポート ♥',
+        'donate.paypalLink': 'PayPalで私たちをサポート ♥',
+        'donate.cryptoLink': '暗号通貨で私たちをサポート ♥',
+        'donate.russiaLink': 'ロシアからのサポーター向けの支払いオプション ♥',
+        'download.button': 'デモ版をダウンロード',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': 'パトロンになって限定特典をゲット',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': 'PayPalで安全に寄付',
+        'donate.crypto': '暗号通貨',
+        'donate.cryptoDesc': '暗号通貨で寄付',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': 'ロシアのプラットフォームBoostyで私たちを支援',
+        'donate.russia': 'ロシア',
+        'donate.russiaDesc': 'ロシアのサポーター向け支払いオプション',
+        'donate.supportBtn': '支援',
+        'donate.donateBtn': '寄付'
+    },
+    ko: {
+        'nav.about': '소개',
+        'nav.team': '팀',
+        'nav.download': '다운로드',
+        'nav.blog': '블로그',
+        'nav.roadmap': '로드맵',
+        'nav.donate': '기부',
+        'about.title': 'Slice 4D Shooter 소개',
+        'about.gameName': 'Slice 4D Shooter',
+        'about.description1': '는 진정한 4D 공간을 배경으로 하는 최초의 멀티플레이어 경쟁형 1인칭 슈팅 게임입니다.',
+        'about.description2': ' 아래 동영상 튜토리얼에서 4D 공간에서 슈팅 게임을 플레이하는 방법을 배워보세요.',
+        'about.description3.text': 'Slice 4D Shooter는 2023년부터 Rust 프로그래밍 언어를 사용한 맞춤형 4D 게임 엔진으로 소규모 인디 ',
+        'about.teamLink': '개발자 팀',
+        'about.description3.text2': '이 개발하고 있습니다. 게임의 모든 ',
+        'about.sourceLink': '소스 코드',
+        'about.description3.text3': '는 무료 ',
+        'about.licenseLink': '수정 GPL 라이선스',
+        'about.description4.text': '로 공개되어 있습니다. 현재 Slice 4D Shooter는 플레이 가능한 프로토타입 개발 단계에 있으며 ',
+        'about.itchLink': 'itch.io에서 시험해 볼',
+        'about.description4.text2': ' 수 있습니다. 현재 버전은 온라인 멀티플레이어를 지원합니다.',
+        'about.description5.text': '우리는 Slice 4D Shooter를 커뮤니티 펀딩으로 지원되는 4차원 공간을 배경으로 하는 최초의 멀티플레이어 경쟁 e스포츠 온라인 슈팅 게임으로 만들고 싶습니다. 개발 로드맵은 ',
+        'about.roadmapLink': '여기',
+        'about.supportLink': 'Slice 4D Shooter 팀 지원하기',
+        'about.description6': ' 플레이어가 돈과 시간을 투자한 게임을 진정으로 소유하는 진정한 무료 경쟁 e스포츠 게임을 만드는 데 도움을 주세요.',
+        'donate.title': '개발 지원하기',
+        'donate.patreonLink': 'Patreon에서 우리를 지원하세요 ♥',
+        'donate.paypalLink': 'PayPal을 통해 우리를 지원하세요 ♥',
+        'donate.cryptoLink': '암호화폐로 우리를 지원하세요 ♥',
+        'donate.russiaLink': '러시아 지원자를 위한 결제 옵션 ♥',
+        'download.button': '데모 버전 다운로드',
+        'donate.patreon': 'Patreon',
+        'donate.patreonDesc': '후원자가 되어 독점 보상 받기',
+        'donate.paypal': 'PayPal',
+        'donate.paypalDesc': 'PayPal로 안전하게 기부하기',
+        'donate.crypto': '암호화폐',
+        'donate.cryptoDesc': '암호화폐로 기부하기',
+        'donate.boosty': 'Boosty',
+        'donate.boostyDesc': '러시아 플랫폼 Boosty에서 우리 지원하기',
+        'donate.russia': '러시아',
+        'donate.russiaDesc': '러시아 지원자를 위한 결제 옵션',
+        'donate.supportBtn': '지원',
+        'donate.donateBtn': '기부'
+    }
+};
 
         document.addEventListener('DOMContentLoaded', function() {
             const playButton = document.querySelector('.play-button');
@@ -1114,6 +1178,13 @@
             
             function changeLanguage(lang) {
                 currentLanguage = lang;
+
+                if (lang === 'ru') {
+                    document.body.style.fontFamily = "'Jura', 'Arial', sans-serif";
+                } else {
+                    document.body.style.fontFamily = "'Orbitron', 'Arial', sans-serif";
+                }
+
                 document.querySelectorAll('[data-key]').forEach(element => {
                     const key = element.getAttribute('data-key');
                     if (translations[lang] && translations[lang][key]) {
@@ -1127,6 +1198,20 @@
                         } else {
                             element.textContent = translations[lang][key];
                         }
+                    }
+                });
+                
+                // Fix spaces before dots after hyperlinks
+                fixHyperlinkSpaces();
+            }
+            
+            // Fix spaces before dots after hyperlinks
+            function fixHyperlinkSpaces() {
+                document.querySelectorAll('.about-text a').forEach(link => {
+                    const nextSibling = link.nextSibling;
+                    if (nextSibling && nextSibling.nodeType === 3 && nextSibling.textContent.trim() === '.') {
+                        // Remove any whitespace before the dot
+                        nextSibling.textContent = nextSibling.textContent.replace(/\s+\./, '.');
                     }
                 });
             }
@@ -1185,6 +1270,9 @@
                     document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
                 });
             });
+            
+            // Fix hyperlink spaces on initial load
+            fixHyperlinkSpaces();
             
             // Image responsiveness
             function adjustImages() {

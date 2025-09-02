@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slice 4D Shooter - Team</title>
+    <title>Slice 4D Shooter - Roadmap</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&display=swap');
@@ -146,7 +146,7 @@
             background: rgba(0, 243, 255, 0.2);
         }
         
-        .team-hero {
+        .roadmap-hero {
             height: 16vh;
             display: flex;
             align-items: center;
@@ -156,7 +156,7 @@
             margin-top: 60px;
         }
         
-        .team-background {
+        .roadmap-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -166,7 +166,7 @@
             z-index: 1;
         }
         
-        .team-title {
+        .roadmap-title {
             position: relative;
             z-index: 3;
             font-size: 36px;
@@ -176,121 +176,74 @@
             text-align: center;
         }
         
-        .team-content {
+        .roadmap-content {
             padding: 34px 0;
         }
         
-        .team-members {
+        .roadmap-items {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 20px;
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .team-member {
+        .roadmap-item {
             background-color: rgba(26, 26, 26, 0.8);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            position: relative;
         }
         
-        .team-member:hover {
-            transform: translateY(-5px);
+        .roadmap-item.completed {
+            border-left: 4px solid #00ff00;
+        }
+        
+        .roadmap-item.pending {
+            border-left: 4px solid #00f3ff;
+        }
+        
+        .roadmap-item:hover {
+            transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 243, 255, 0.2);
         }
         
-        .member-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .member-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #333;
-            margin-right: 20px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00f3ff;
-            font-size: 40px;
-            border: 2px solid #00f3ff;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .member-info {
-            flex: 1;
-        }
-        
-        .member-name {
-            font-size: 24px;
-            color: #00f3ff;
-            margin-bottom: 5px;
-        }
-        
-        .member-role {
-            font-size: 24px;
-            color: #fff;
-        }
-        
-        .expand-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: rgb(0, 238, 255);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2a2a2a;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .member-header.active .expand-icon {
-            transform: rotate(180deg);
-        }
-        
-        .member-skills {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        
-        .member-skills.show {
-            max-height: 500px;
-        }
-        
-        .skills-list {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-        
-        .skills-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .skills-list li:before {
-            content: "•";
-            color: #00f3ff;
-            font-size: 20px;
+        .roadmap-status {
             position: absolute;
-            left: 0;
-            top: 5px;
+            top: 20px;
+            right: 20px;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: bold;
         }
         
-        .skills-list li:last-child {
-            border-bottom: none;
+        .status-completed {
+            background-color: #00ff00;
+            color: #000;
+        }
+        
+        .status-pending {
+            background-color: #00f3ff;
+            color: #000;
+        }
+        
+        .roadmap-text {
+            color: #cccccc;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-right: 80px;
+        }
+        
+        .roadmap-note {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.6);
+            border-radius: 10px;
+            border-left: 4px solid #ff8a30;
+            font-style: italic;
         }
         
         .footer {
@@ -353,54 +306,33 @@
                 font-size: 11.2px;
             }
 
-            .team-content {
+            .roadmap-content {
                 padding: 4px 0;
             }
             
-            .team-hero {
+            .roadmap-hero {
                 height: 18vh;
                 margin-top: 50px;
             }
 
-            .team-background {
+            .roadmap-background {
                 height: 78%;
             }
             
-            .team-title {
+            .roadmap-title {
                 font-size: 24px;
             }
             
-            .member-header {
-                flex-direction: column;
-                text-align: center;
+            .roadmap-status {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 10px;
+                display: inline-block;
             }
             
-            .member-photo {
-                width: 100px;
-                height: 100px;
+            .roadmap-text {
                 margin-right: 0;
-                margin-bottom: 15px;
-            }
-
-            .member-name {
-                font-size: 18px;
-                color: #00f3ff;
-                margin-bottom: 1px;
-            }
-            
-            .member-role {
-                font-size: 18px;
-                color: #fff;
-                margin-bottom: 1px;
-
-            }
-            
-            .expand-icon {
-                width: 20px;
-                height: 20px;
-                position: absolute;
-                bottom: -25px;
-                left: 49%;
             }
             
             .social-links {
@@ -447,71 +379,70 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-item about-link" data-key="nav.about">About</a>
-            <a href="team.html" class="nav-item active" data-key="nav.team">Team</a>
-            <a href="roadmap.html" class="nav-item" data-key="nav.roadmap">Roadmap</a>
+            <a href="team.html" class="nav-item" data-key="nav.team">Team</a>
+            <a href="roadmap.html" class="nav-item active" data-key="nav.roadmap">Roadmap</a>
             <a href="https://slice4d.itch.io/slice4d" class="nav-item" data-key="nav.download">Download</a>
             <!-- <a href="blog.html" class="nav-item" data-key="nav.blog">Blog</a> -->
             <a href="index.html#donate" class="nav-item donate" data-key="nav.donate">Donate 🤍</a>
         </div>
     </nav>
     
-    <section class="team-hero">
-        <div class="team-background"></div>
-        <h1 class="team-title" data-key="team.title">Slice 4D Shooter Team</h1>
+    <section class="roadmap-hero">
+        <div class="roadmap-background"></div>
+        <h1 class="roadmap-title" data-key="roadmap.title">SLICE 4D SHOOTER ROADMAP</h1>
     </section>
     
-    <section class="team-content">
+    <section class="roadmap-content">
         <div class="container">
-            <div class="team-members">
-                <div class="team-member">
-                    <div class="member-header">
-                        <!-- Замените style="background-image: url('media/timofey.jpg')" на путь к вашему фото -->
-                        <div class="member-photo" style="background-image: url('media/timofey.jpg')">
-                            <!-- Иконка пользователя будет отображаться только если фото не загружено -->
-                        </div>
-                        <div class="member-info">
-                            <h2 class="member-name">Timofey Molokov</h2>
-                            <p class="member-role" data-key="team.timofey.role">Game Developer</p>
-                        </div>
-                        <div class="expand-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="member-skills">
-                        <ul class="skills-list">
-                            <li data-key="team.timofey.skill1">Game Engine Development</li>
-                            <li data-key="team.timofey.skill2">Gameplay Programming</li>
-                            <li data-key="team.timofey.skill3">Game Design</li>
-                            <li data-key="team.timofey.skill4">UX/UI Design</li>
-                            <li data-key="team.timofey.skill5">Level Design</li>
-                            <li data-key="team.timofey.skill6">Sound design</li>
-                            <li data-key="team.timofey.skill7">Art</li>
-                        </ul>
-                    </div>
+            <div class="roadmap-items">
+                <div class="roadmap-item completed">
+                    <span class="roadmap-status status-completed" data-key="roadmap.status.completed">COMPLETED</span>
+                    <p class="roadmap-text" data-key="roadmap.item1">Create playable Slice 4D Shooter prototype with online multiplayer support</p>
                 </div>
                 
-                <div class="team-member">
-                    <div class="member-header">
-                        <!-- Замените style="background-image: url('media/fedor.jpg')" на путь к вашему фото -->
-                        <div class="member-photo" style="background-image: url('media/fedor.jpg')">
-                            <!-- Иконка пользователя будет отображаться только если фото не загружено -->
-                        </div>
-                        <div class="member-info">
-                            <h2 class="member-name">Fedor Molokov</h2>
-                            <p class="member-role" data-key="team.fedor.role">DevOps</p>
-                        </div>
-                        <div class="expand-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="member-skills">
-                        <ul class="skills-list">
-                            <li data-key="team.fedor.skill1">Maintains and automating server infrastructure</li>
-                            <li data-key="team.fedor.skill2">Network load testing and analysis</li>
-                            <li data-key="team.fedor.skill3">Building monitoring and analytics systems</li>
-                        </ul>
-                    </div>
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item2">Fix critical bugs and game balance issues identified by the community</p>
                 </div>
+                
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item3">Integrate UI system into Slice 4D engine and implement main game menus</p>
+                </div>
+                
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item4">Implement basic anti-cheat protection (authoritative server system)</p>
+                </div>
+                
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item5">Develop visual map editor for community content creation</p>
+                </div>
+                
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item6">Add core round-based game mode with droid upgrade item system</p>
+                </div>
+                
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item7">Revamp matchmaking system and implement player ranking system</p>
+                </div>
+                
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item8">Organize esports tournaments for Slice 4D Shooter</p>
+                </div>
+                
+                <div class="roadmap-item pending">
+                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <p class="roadmap-text" data-key="roadmap.item9">Continue iterative development based on community feedback</p>
+                </div>
+            </div>
+            
+            <div class="roadmap-note">
+                <p data-key="roadmap.note">During Slice 4D Shooter development, the roadmap may change based on community feedback and development conditions.</p>
             </div>
         </div>
     </section>
@@ -542,19 +473,19 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Roadmap',
                 'nav.donate': 'Donate',
-                'team.title': 'Slice 4D Shooter Team',
-                'team.timofey.role': 'Game Developer',
-                'team.timofey.skill1': 'Game Engine Development',
-                'team.timofey.skill2': 'Gameplay Programming',
-                'team.timofey.skill3': 'Game Design',
-                'team.timofey.skill4': 'UX/UI Design',
-                'team.timofey.skill5': 'Level Design',
-                'team.timofey.skill6': 'Sound design',
-                'team.timofey.skill7': 'Art',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Maintains and automating server infrastructure',
-                'team.fedor.skill2': 'Network load testing and analysis',
-                'team.fedor.skill3': 'Building monitoring and analytics systems'
+                'roadmap.title': 'SLICE 4D SHOOTER ROADMAP',
+                'roadmap.status.completed': 'COMPLETED',
+                'roadmap.status.pending': 'PENDING',
+                'roadmap.item1': 'Create playable Slice 4D Shooter prototype with online multiplayer support',
+                'roadmap.item2': 'Fix critical bugs and game balance issues identified by the community',
+                'roadmap.item3': 'Integrate UI system into Slice 4D engine and implement main game menus',
+                'roadmap.item4': 'Implement basic anti-cheat protection (authoritative server system)',
+                'roadmap.item5': 'Develop visual map editor for community content creation',
+                'roadmap.item6': 'Add core round-based game mode with droid upgrade item system',
+                'roadmap.item7': 'Revamp matchmaking system and implement player ranking system',
+                'roadmap.item8': 'Organize esports tournaments for Slice 4D Shooter',
+                'roadmap.item9': 'Continue iterative development based on community feedback',
+                'roadmap.note': 'During Slice 4D Shooter development, the roadmap may change based on community feedback and development conditions.'
             },
             ru: {
                 'nav.about': 'О проекте',
@@ -563,19 +494,19 @@
                 'nav.blog': 'Блог',
                 'nav.roadmap': 'План разработки',
                 'nav.donate': 'Поддержать',
-                'team.title': 'Команда Slice 4D Shooter',
-                'team.timofey.role': 'Разработчик игр',
-                'team.timofey.skill1': 'Разработка игрового движка',
-                'team.timofey.skill2': 'Программирование геймплея',
-                'team.timofey.skill3': 'Дизайн игры',
-                'team.timofey.skill4': 'UX/UI дизайн',
-                'team.timofey.skill5': 'Дизайн уровней',
-                'team.timofey.skill6': 'Звуковой дизайн',
-                'team.timofey.skill7': 'Арт',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Обслуживание и автоматизация серверной инфраструктуры',
-                'team.fedor.skill2': 'Тестирование и анализ сетевой нагрузки',
-                'team.fedor.skill3': 'Создание систем мониторинга и аналитики'
+                'roadmap.title': 'ПЛАН РАЗРАБОТКИ SLICE 4D SHOOTER',
+                'roadmap.status.completed': 'ЗАВЕРШЕНО',
+                'roadmap.status.pending': 'В ПРОЦЕССЕ',
+                'roadmap.item1': 'Создать играбельный прототип Slice 4D Shooter с поддержкой онлайн-мультиплеера',
+                'roadmap.item2': 'Исправить критические баги и проблемы баланса, выявленные сообществом',
+                'roadmap.item3': 'Интегрировать систему UI в движок Slice 4D и реализовать основные игровые меню',
+                'roadmap.item4': 'Реализовать базовую защиту от читерства (авторитарная серверная система)',
+                'roadmap.item5': 'Разработать визуальный редактор карт для создания контента сообществом',
+                'roadmap.item6': 'Добавить основной режим игры по раундам с системой улучшения дроидов',
+                'roadmap.item7': 'Переработать систему подбора матчей и внедрить систему рейтинга игроков',
+                'roadmap.item8': 'Организовать киберспортивные турниры по Slice 4D Shooter',
+                'roadmap.item9': 'Продолжать итеративную разработку на основе обратной связи от сообщества',
+                'roadmap.note': 'В процессе разработки Slice 4D Shooter план может изменяться в зависимости от обратной связи сообщества и условий разработки.'
             },
             es: {
                 'nav.about': 'Acerca de',
@@ -584,19 +515,19 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Hoja de ruta',
                 'nav.donate': 'Donar',
-                'team.title': 'Equipo de Slice 4D Shooter',
-                'team.timofey.role': 'Desarrollador de Juegos',
-                'team.timofey.skill1': 'Desarrollo de Motor de Juego',
-                'team.timofey.skill2': 'Programación de Gameplay',
-                'team.timofey.skill3': 'Diseño de Juego',
-                'team.timofey.skill4': 'Diseño UX/UI',
-                'team.timofey.skill5': 'Diseño de Niveles',
-                'team.timofey.skill6': 'Diseño de Sonido',
-                'team.timofey.skill7': 'Arte',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Mantenimiento y automatización de infraestructura de servidores',
-                'team.fedor.skill2': 'Pruebas y análisis de carga de red',
-                'team.fedor.skill3': 'Construcción de sistemas de monitoreo y análisis'
+                'roadmap.title': 'HOJA DE RUTA DE SLICE 4D SHOOTER',
+                'roadmap.status.completed': 'COMPLETADO',
+                'roadmap.status.pending': 'PENDIENTE',
+                'roadmap.item1': 'Crear prototipo jugable de Slice 4D Shooter con soporte multijugador online',
+                'roadmap.item2': 'Corregir errores críticos y problemas de equilibrio identificados por la comunidad',
+                'roadmap.item3': 'Integrar sistema de UI en el motor Slice 4D e implementar menús principales del juego',
+                'roadmap.item4': 'Implementar protección básica contra trampas (sistema de servidor autoritario)',
+                'roadmap.item5': 'Desarrollar editor visual de mapas para creación de contenido comunitario',
+                'roadmap.item6': 'Añadir modo de juego principal por rondas con sistema de mejoras de drones',
+                'roadmap.item7': 'Renovar sistema de emparejamiento e implementar sistema de ranking de jugadores',
+                'roadmap.item8': 'Organizar torneos esports de Slice 4D Shooter',
+                'roadmap.item9': 'Continuar desarrollo iterativo basado en feedback de la comunidad',
+                'roadmap.note': 'Durante el desarrollo de Slice 4D Shooter, la hoja de ruta puede cambiar según el feedback de la comunidad y las condiciones de desarrollo.'
             },
             fr: {
                 'nav.about': 'À propos',
@@ -605,19 +536,19 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Feuille de route',
                 'nav.donate': 'Faire un don',
-                'team.title': 'Équipe de Slice 4D Shooter',
-                'team.timofey.role': 'Développeur de Jeu',
-                'team.timofey.skill1': 'Développement de Moteur de Jeu',
-                'team.timofey.skill2': 'Programmation de Gameplay',
-                'team.timofey.skill3': 'Conception de Jeu',
-                'team.timofey.skill4': 'Conception UX/UI',
-                'team.timofey.skill5': 'Conception de Niveles',
-                'team.timofey.skill6': 'Conception Sonore',
-                'team.timofey.skill7': 'Art',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Maintenance et automatisation de l\'infrastructure serveur',
-                'team.fedor.skill2': 'Tests et analyse de charge réseau',
-                'team.fedor.skill3': 'Construction de systèmes de surveillance et d\'analyse'
+                'roadmap.title': 'FEUILLE DE ROUTE SLICE 4D SHOOTER',
+                'roadmap.status.completed': 'TERMINÉ',
+                'roadmap.status.pending': 'EN ATTENTE',
+                'roadmap.item1': 'Créer un prototype jouable de Slice 4D Shooter avec support multijoueur en ligne',
+                'roadmap.item2': 'Corriger les bugs critiques et problèmes d\'équilibre identifiés par la communauté',
+                'roadmap.item3': 'Intégrer le système UI dans le moteur Slice 4D et implémenter les menus principaux du jeu',
+                'roadmap.item4': 'Implémenter une protection anti-triche basique (système de serveur autoritaire)',
+                'roadmap.item5': 'Développer un éditeur de cartes visuel pour la création de contenu communautaire',
+                'roadmap.item6': 'Ajouter le mode de jeu principal en rounds avec système d\'amélioration de drones',
+                'roadmap.item7': 'Refondre le système de matchmaking et implémenter un système de classement des joueurs',
+                'roadmap.item8': 'Organiser des tournois esports pour Slice 4D Shooter',
+                'roadmap.item9': 'Continuer le développement itératif basé sur les retours de la communauté',
+                'roadmap.note': 'Durant le développement de Slice 4D Shooter, la feuille de route peut changer en fonction des retours de la communauté et des conditions de développement.'
             },
             de: {
                 'nav.about': 'Über',
@@ -626,19 +557,19 @@
                 'nav.blog': 'Blog',
                 'nav.roadmap': 'Fahrplan',
                 'nav.donate': 'Spenden',
-                'team.title': 'Slice 4D Shooter Team',
-                'team.timofey.role': 'Spieleentwickler',
-                'team.timofey.skill1': 'Spiel-Engine-Entwicklung',
-                'team.timofey.skill2': 'Gameplay-Programmierung',
-                'team.timofey.skill3': 'Spieldesign',
-                'team.timofey.skill4': 'UX/UI-Design',
-                'team.timofey.skill5': 'Leveldesign',
-                'team.timofey.skill6': 'Sounddesign',
-                'team.timofey.skill7': 'Kunst',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'Wartung und Automatisierung der Serverinfrastruktur',
-                'team.fedor.skill2': 'Netzlasttests und -analyse',
-                'team.fedor.skill3': 'Aufbau von Überwachungs- und Analysesystemen'
+                'roadmap.title': 'SLICE 4D SHOOTER FAHRPLAN',
+                'roadmap.status.completed': 'ABGESCHLOSSEN',
+                'roadmap.status.pending': 'AUSSTEHEND',
+                'roadmap.item1': 'Erstelle spielbares Slice 4D Shooter Prototyp mit Online-Multiplayer-Unterstützung',
+                'roadmap.item2': 'Behebe kritische Fehler und Spielbalance-Probleme, die von der Community identifiziert wurden',
+                'roadmap.item3': 'Integriere UI-System in Slice 4D Engine und implementiere Hauptspielmenüs',
+                'roadmap.item4': 'Implementiere grundlegenden Anti-Cheat-Schutz (autoritäres Server-System)',
+                'roadmap.item5': 'Entwickle visuellen Karteneditor für Community-Inhaltserstellung',
+                'roadmap.item6': 'Füge rundenbasierten Hauptspielmodus mit Droiden-Upgrade-System hinzu',
+                'roadmap.item7': 'Überarbeite Matchmaking-System und implementiere Spieler-Rangsystem',
+                'roadmap.item8': 'Organisiere Esports-Turniere für Slice 4D Shooter',
+                'roadmap.item9': 'Setze iterative Entwicklung basierend auf Community-Feedback fort',
+                'roadmap.note': 'Während der Entwicklung von Slice 4D Shooter kann der Fahrplan basierend auf Community-Feedback und Entwicklungsbedingungen ändern.'
             },
             zh: {
                 'nav.about': '关于',
@@ -647,19 +578,19 @@
                 'nav.blog': '博客',
                 'nav.roadmap': '路线图',
                 'nav.donate': '捐赠',
-                'team.title': 'Slice 4D Shooter 团队',
-                'team.timofey.role': '游戏开发者',
-                'team.timofey.skill1': '游戏引擎开发',
-                'team.timofey.skill2': '游戏玩法编程',
-                'team.timofey.skill3': '游戏设计',
-                'team.timofey.skill4': '用户体验/界面设计',
-                'team.timofey.skill5': '关卡设计',
-                'team.timofey.skill6': '声音设计',
-                'team.timofey.skill7': '美术',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': '维护和自动化服务器基础设施',
-                'team.fedor.skill2': '网络负载测试和分析',
-                'team.fedor.skill3': '构建监控和分析系统'
+                'roadmap.title': 'SLICE 4D SHOOTER 路线图',
+                'roadmap.status.completed': '已完成',
+                'roadmap.status.pending': '进行中',
+                'roadmap.item1': '创建可玩的 Slice 4D Shooter 原型，支持在线多人游戏',
+                'roadmap.item2': '修复社区发现的关键错误和游戏平衡问题',
+                'roadmap.item3': '将 UI 系统集成到 Slice 4D 引擎并实现主游戏菜单',
+                'roadmap.item4': '实施基本反作弊保护（权威服务器系统）',
+                'roadmap.item5': '开发可视化地图编辑器供社区创作内容',
+                'roadmap.item6': '添加基于回合的核心游戏模式，带有机器人升级物品系统',
+                'roadmap.item7': '改进匹配系统并实施玩家排名系统',
+                'roadmap.item8': '组织 Slice 4D Shooter 电子竞技锦标赛',
+                'roadmap.item9': '基于社区反馈继续迭代开发',
+                'roadmap.note': '在 Slice 4D Shooter 开发过程中，路线图可能会根据社区反馈和开发条件发生变化。'
             },
             ja: {
                 'nav.about': 'About',
@@ -668,19 +599,19 @@
                 'nav.blog': 'ブログ',
                 'nav.roadmap': 'ロードマップ',
                 'nav.donate': '寄付',
-                'team.title': 'Slice 4D Shooter チーム',
-                'team.timofey.role': 'ゲーム開発者',
-                'team.timofey.skill1': 'ゲームエンジン開発',
-                'team.timofey.skill2': 'ゲームプレイプログラミング',
-                'team.timofey.skill3': 'ゲームデザイン',
-                'team.timofey.skill4': 'UX/UIデザイン',
-                'team.timofey.skill5': 'レベルデザイン',
-                'team.timofey.skill6': 'サウンドデザイン',
-                'team.timofey.skill7': 'アート',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': 'サーバーインフラの維持と自動化',
-                'team.fedor.skill2': 'ネットワーク負荷テストと分析',
-                'team.fedor.skill3': '監視および分析システムの構築'
+                'roadmap.title': 'SLICE 4D SHOOTER ロードマップ',
+                'roadmap.status.completed': '完了',
+                'roadmap.status.pending': '進行中',
+                'roadmap.item1': 'オンラインマルチプレイ対応のプレイ可能な Slice 4D Shooter プロトタイプを作成',
+                'roadmap.item2': 'コミュニティから指摘された重大なバグとゲームバランスの問題を修正',
+                'roadmap.item3': 'UIシステムを Slice 4D エンジンに統合し、メインゲームメニューを実装',
+                'roadmap.item4': '基本的なアンチチート保護を実装（権威サーバーシステム）',
+                'roadmap.item5': 'コミュニティコンテンツ作成のためのビジュアルマップエディターを開発',
+                'roadmap.item6': 'ドロイドアップグレードアイテムシステムを含むラウンド制メインゲームモードを追加',
+                'roadmap.item7': 'マッチメイキングシステムを刷新し、プレイヤーランキングシステムを実装',
+                'roadmap.item8': 'Slice 4D Shooter のeスポーツトーナメントを開催',
+                'roadmap.item9': 'コミュニティフィードバックに基づいた反復開発を継続',
+                'roadmap.note': 'Slice 4D Shooter の開発中、ロードマップはコミュニティのフィードバックと開発条件に基づいて変更される可能性があります。'
             },
             ko: {
                 'nav.about': '소개',
@@ -689,19 +620,19 @@
                 'nav.blog': '블로그',
                 'nav.roadmap': '로드맵',
                 'nav.donate': '기부',
-                'team.title': 'Slice 4D Shooter 팀',
-                'team.timofey.role': '게임 개발자',
-                'team.timofey.skill1': '게임 엔진 개발',
-                'team.timofey.skill2': '게임플레이 프로그래밍',
-                'team.timofey.skill3': '게임 디자인',
-                'team.timofey.skill4': 'UX/UI 디자인',
-                'team.timofey.skill5': '레벨 디자인',
-                'team.timofey.skill6': '사운드 디자인',
-                'team.timofey.skill7': '아트',
-                'team.fedor.role': 'DevOps',
-                'team.fedor.skill1': '서버 인프라 유지 및 자동화',
-                'team.fedor.skill2': '네트워크 부하 테스트 및 분석',
-                'team.fedor.skill3': '모니터링 및 분석 시스템 구축'
+                'roadmap.title': 'SLICE 4D SHOOTER 로드맵',
+                'roadmap.status.completed': '완료됨',
+                'roadmap.status.pending': '진행중',
+                'roadmap.item1': '온라인 멀티플레이어 지원 가능한 Slice 4D Shooter 프로토타입 개발',
+                'roadmap.item2': '커뮤니티에서 발견된 치명적 버그 및 게임 밸런스 문제 수정',
+                'roadmap.item3': 'UI 시스템을 Slice 4D 엔진에 통합 및 메인 게임 메뉴 구현',
+                'roadmap.item4': '기본 안티치트 보호 구현 (권위적인 서버 시스템)',
+                'roadmap.item5': '커뮤니티 콘텐츠 제작을 위한 시각적 맵 에디터 개발',
+                'roadmap.item6': '드로이드 업그레이드 아이템 시스템이 있는 라운드 기반 메인 게임 모드 추가',
+                'roadmap.item7': '매치메이킹 시스템 개선 및 플레이어 랭킹 시스템 구현',
+                'roadmap.item8': 'Slice 4D Shooter e스포츠 토너먼트 조직',
+                'roadmap.item9': '커뮤니티 피드백 기반 반복 개발 지속',
+                'roadmap.note': 'Slice 4D Shooter 개발 과정에서 로드맵은 커뮤니티 피드백과 개발 조건에 따라 변경될 수 있습니다.'
             }
         };
 
@@ -709,7 +640,6 @@
             const languageBtn = document.getElementById('languageBtn');
             const languageDropdown = document.getElementById('languageDropdown');
             const currentLangCode = document.getElementById('currentLangCode');
-            const memberHeaders = document.querySelectorAll('.member-header');
             
             // Get saved language or default to English
             let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
@@ -717,15 +647,6 @@
             // Apply saved language on page load
             changeLanguage(currentLanguage);
             currentLangCode.textContent = currentLanguage.toUpperCase();
-            
-            // Toggle skills visibility
-            memberHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    const skills = this.nextElementSibling;
-                    skills.classList.toggle('show');
-                    this.classList.toggle('active');
-                });
-            });
             
             // Language selection functionality
             languageBtn.addEventListener('click', function(e) {
