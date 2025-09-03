@@ -1119,14 +1119,36 @@ const translations = {
             const languageBtn = document.getElementById('languageBtn');
             const languageDropdown = document.getElementById('languageDropdown');
             const currentLangCode = document.getElementById('currentLangCode');
-            
-            // Get saved language or default to English
-            let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
-            
-            // Apply saved language on page load
+
+            // Get language from URL, localStorage, or browser
+            let currentLanguage = 'en';
+
+            // 1. URL param
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+
+            // 2. localStorage
+            const storedLang = localStorage.getItem('selectedLanguage');
+
+            // 3. browser language (navigator.language)
+            const browserLang = navigator.language.slice(0, 2).toLowerCase();
+
+            // Определяем язык по приоритету: URL → localStorage → браузер → fallback
+            if (langParam && translations[langParam]) {
+                currentLanguage = langParam;
+            } else if (storedLang && translations[storedLang]) {
+                currentLanguage = storedLang;
+            } else if (translations[browserLang]) {
+                currentLanguage = browserLang;
+            }
+
+            // Применить язык
             changeLanguage(currentLanguage);
             currentLangCode.textContent = currentLanguage.toUpperCase();
-            
+
+            // Сохраняем выбор
+            localStorage.setItem('selectedLanguage', currentLanguage);
+
             // Language selection functionality
             languageBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
