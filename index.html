@@ -442,10 +442,8 @@
 
         .donate-link:hover {
             color: #ff8a30;
-            background: #ff8a30;
-            background-size: 200% auto;
-            background-clip: text;
-            text-decoration: underline;
+            background: none;
+            -webkit-text-fill-color: #ff8a30;
         }
 
         @keyframes gradientShift {
@@ -589,17 +587,10 @@
             .donate-link {
                 font-size: 17.2px;
                 letter-spacing: 1.38px;
-                /* text-decoration: none; */
-                /* transition: all 0.3s ease; */
                 font-weight: bold;
                 color: #00f3ff;
-                /* background: none; */
-                /* background: linear-gradient(135deg,  #00f3ff, #b7faff, #00f3ff); */
-                /* background-size: 200% auto;
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: gradientShift 30s linear infinite; */
+                background: none;
+                -webkit-text-fill-color: #00f3ff;
             }
             .social-links {
                 flex-wrap: wrap;

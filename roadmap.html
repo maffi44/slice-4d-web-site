@@ -25,7 +25,7 @@
         }
         
         .container {
-            max-width: 992px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 0 16px;
         }
@@ -183,14 +183,13 @@
         .roadmap-items {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
+            max-width: 500px;
             margin: 0 auto;
         }
         
         .roadmap-item {
             background-color: rgba(26, 26, 26, 0.8);
-            border-radius: 10px;
+            border-radius: 35px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
@@ -198,15 +197,16 @@
         }
         
         .roadmap-item.completed {
-            border-left: 4px solid #00ff00;
+            border: 3px solid #00f3ff;
+            /* border-right: 2px solid #00f3ff; */
         }
         
         .roadmap-item.pending {
-            border-left: 4px solid #00f3ff;
+            border: 1px solid #a6a6a6;
         }
         
         .roadmap-item:hover {
-            transform: translateY(-2px);
+            /* transform: translateY(-2px); */
             box-shadow: 0 8px 25px rgba(0, 243, 255, 0.2);
         }
         
@@ -221,34 +221,100 @@
         }
         
         .status-completed {
-            background-color: #00ff00;
-            color: #000;
-        }
-        
-        .status-pending {
             background-color: #00f3ff;
             color: #000;
         }
         
-        .roadmap-text {
-            color: #cccccc;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-right: 80px;
+        .status-pending {
+            background-color: #a6a6a6;
+            color: #000;
         }
         
-        .roadmap-note {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: rgba(26, 26, 26, 0.6);
-            border-radius: 10px;
-            border-left: 4px solid #ff8a30;
+        .roadmap-text {
+            color: #ffffff;
+            font-size: 18px;
+            letter-spacing: 1.4px;
             font-style: italic;
+            line-height: 1.81;
+            margin-right: 120px;
+        }
+        
+        .timeline-connector {
+            height: 40px;
+            position: relative;
+        }
+        
+        .timeline-connector::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #00f3ff;
+            transform: translateX(-50%);
+        }
+        
+        .date-connector {
+            height: 120px;
+            position: relative;
+        }
+        
+        .date-connector::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #00f3ff;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: calc(50% - 20px);
+            transform: translateY(-50%);
+            text-align: right;
+            font-size: 23px;
+            color: #00f3ff;
+            font-weight: bold;
+            font-style: italic;
+            letter-spacing: 1.1px;
+        }
+        
+        .timeline-date::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 20px;
+            height: 4px;
+            background: #00f3ff;
+            transform: translateY(-50%);
+        }
+        
+        .bottom-note {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            border-top: 1px solid rgba(45, 223, 255, 0.3);
+            font-style: italic;
+            font-size: 18px;
+            letter-spacing: 1.5px;
+            line-height: 35px;
         }
         
         .footer {
             background-color: #2a2a2a;
-            padding: 48px 0 24px;
+            padding: 18px 0 164px;
             text-align: center;
         }
         
@@ -356,6 +422,15 @@
                 font-size: 12px;
                 padding: 4px 8px;
             }
+            
+            .timeline-date {
+                font-size: 18px;
+            }
+            
+            .bottom-note {
+                font-size: 15px;
+                padding: 20px 0;
+            }
         }
     </style>
 </head>
@@ -400,49 +475,69 @@
                     <p class="roadmap-text" data-key="roadmap.item1">Create playable Slice 4D Shooter prototype with online multiplayer support</p>
                 </div>
                 
+                <div class="timeline-connector"></div>
+                
                 <div class="roadmap-item pending">
                     <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
                     <p class="roadmap-text" data-key="roadmap.item2">Fix critical bugs and game balance issues identified by the community</p>
                 </div>
                 
+                <div class="timeline-connector"></div>
+                
                 <div class="roadmap-item pending">
-                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <!-- <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span> -->
                     <p class="roadmap-text" data-key="roadmap.item3">Integrate UI system into Slice 4D engine and implement main game menus</p>
                 </div>
                 
+                <div class="date-connector">
+                    <span class="timeline-date" data-key="date.2025">End of 2025</span>
+                </div>
+                
                 <div class="roadmap-item pending">
-                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <!-- <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span> -->
                     <p class="roadmap-text" data-key="roadmap.item4">Implement basic anti-cheat protection (authoritative server system)</p>
                 </div>
                 
+                <div class="timeline-connector"></div>
+                
                 <div class="roadmap-item pending">
-                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <!-- <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span> -->
                     <p class="roadmap-text" data-key="roadmap.item5">Develop visual map editor for community content creation</p>
                 </div>
                 
+                <div class="timeline-connector"></div>
+                
                 <div class="roadmap-item pending">
-                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <!-- <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span> -->
                     <p class="roadmap-text" data-key="roadmap.item6">Add core round-based game mode with droid upgrade item system</p>
                 </div>
                 
+                <div class="timeline-connector"></div>
+                
                 <div class="roadmap-item pending">
-                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <!-- <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span> -->
                     <p class="roadmap-text" data-key="roadmap.item7">Revamp matchmaking system and implement player ranking system</p>
                 </div>
                 
-                <div class="roadmap-item pending">
-                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
-                    <p class="roadmap-text" data-key="roadmap.item8">Organize esports tournaments for Slice 4D Shooter</p>
+                <div class="date-connector">
+                    <span class="timeline-date" data-key="date.2026">End of 2026</span>
                 </div>
                 
                 <div class="roadmap-item pending">
-                    <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span>
+                    <!-- <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span> -->
+                    <p class="roadmap-text" data-key="roadmap.item8">Organize esports tournaments for Slice 4D Shooter</p>
+                </div>
+                
+                <div class="timeline-connector"></div>
+                
+                <div class="roadmap-item pending">
+                    <!-- <span class="roadmap-status status-pending" data-key="roadmap.status.pending">PENDING</span> -->
                     <p class="roadmap-text" data-key="roadmap.item9">Continue iterative development based on community feedback</p>
                 </div>
-            </div>
-            
-            <div class="roadmap-note">
-                <p data-key="roadmap.note">During Slice 4D Shooter development, the roadmap may change based on community feedback and development conditions.</p>
+
+                <div class="timeline-connector"></div>
+                
+
             </div>
         </div>
     </section>
@@ -462,6 +557,12 @@
             <p class="copyright">© 2023 Slice 4D Shooter. All rights reserved.</p>
         </div>
     </footer>
+    
+    <div class="bottom-note">
+        <div class="container">
+            <p data-key="roadmap.note">During Slice 4D Shooter development, the roadmap may change based on community feedback and development conditions.</p>
+        </div>
+    </div>
     
     <script>
         // Language translations
@@ -485,7 +586,9 @@
                 'roadmap.item7': 'Revamp matchmaking system and implement player ranking system',
                 'roadmap.item8': 'Organize esports tournaments for Slice 4D Shooter',
                 'roadmap.item9': 'Continue iterative development based on community feedback',
-                'roadmap.note': 'During Slice 4D Shooter development, the roadmap may change based on community feedback and development conditions.'
+                'roadmap.note': 'During Slice 4D Shooter development, the roadmap may change based on community feedback and development conditions.',
+                'date.2025': 'End of 2025',
+                'date.2026': 'End of 2026'
             },
             ru: {
                 'nav.about': 'О проекте',
@@ -506,7 +609,9 @@
                 'roadmap.item7': 'Переработать систему подбора матчей и внедрить систему рейтинга игроков',
                 'roadmap.item8': 'Организовать киберспортивные турниры по Slice 4D Shooter',
                 'roadmap.item9': 'Продолжать итеративную разработку на основе обратной связи от сообщества',
-                'roadmap.note': 'В процессе разработки Slice 4D Shooter план может изменяться в зависимости от обратной связи сообщества и условий разработки.'
+                'roadmap.note': 'В процессе разработки Slice 4D Shooter план может изменяться в зависимости от обратной связи сообщества и условий разработки.',
+                'date.2025': 'Конец 2025 года',
+                'date.2026': 'Конец 2026 года'
             },
             es: {
                 'nav.about': 'Acerca de',
@@ -527,7 +632,9 @@
                 'roadmap.item7': 'Renovar sistema de emparejamiento e implementar sistema de ranking de jugadores',
                 'roadmap.item8': 'Organizar torneos esports de Slice 4D Shooter',
                 'roadmap.item9': 'Continuar desarrollo iterativo basado en feedback de la comunidad',
-                'roadmap.note': 'Durante el desarrollo de Slice 4D Shooter, la hoja de ruta puede cambiar según el feedback de la comunidad y las condiciones de desarrollo.'
+                'roadmap.note': 'Durante el desarrollo de Slice 4D Shooter, la hoja de ruta puede cambiar según el feedback de la comunidad y las condiciones de desarrollo.',
+                'date.2025': 'Fin de 2025',
+                'date.2026': 'Fin de 2026'
             },
             fr: {
                 'nav.about': 'À propos',
@@ -548,7 +655,9 @@
                 'roadmap.item7': 'Refondre le système de matchmaking et implémenter un système de classement des joueurs',
                 'roadmap.item8': 'Organiser des tournois esports pour Slice 4D Shooter',
                 'roadmap.item9': 'Continuer le développement itératif basé sur les retours de la communauté',
-                'roadmap.note': 'Durant le développement de Slice 4D Shooter, la feuille de route peut changer en fonction des retours de la communauté et des conditions de développement.'
+                'roadmap.note': 'Durant le développement de Slice 4D Shooter, la feuille de route peut changer en fonction des retours de la communauté et des conditions de développement.',
+                'date.2025': 'Fin 2025',
+                'date.2026': 'Fin 2026'
             },
             de: {
                 'nav.about': 'Über',
@@ -569,7 +678,9 @@
                 'roadmap.item7': 'Überarbeite Matchmaking-System und implementiere Spieler-Rangsystem',
                 'roadmap.item8': 'Organisiere Esports-Turniere für Slice 4D Shooter',
                 'roadmap.item9': 'Setze iterative Entwicklung basierend auf Community-Feedback fort',
-                'roadmap.note': 'Während der Entwicklung von Slice 4D Shooter kann der Fahrplan basierend auf Community-Feedback und Entwicklungsbedingungen ändern.'
+                'roadmap.note': 'Während der Entwicklung von Slice 4D Shooter kann der Fahrplan basierend auf Community-Feedback und Entwicklungsbedingungen ändern.',
+                'date.2025': 'Ende 2025',
+                'date.2026': 'Ende 2026'
             },
             zh: {
                 'nav.about': '关于',
@@ -590,7 +701,9 @@
                 'roadmap.item7': '改进匹配系统并实施玩家排名系统',
                 'roadmap.item8': '组织 Slice 4D Shooter 电子竞技锦标赛',
                 'roadmap.item9': '基于社区反馈继续迭代开发',
-                'roadmap.note': '在 Slice 4D Shooter 开发过程中，路线图可能会根据社区反馈和开发条件发生变化。'
+                'roadmap.note': '在 Slice 4D Shooter 开发过程中，路线图可能会根据社区反馈和开发条件发生变化。',
+                'date.2025': '2025 年末',
+                'date.2026': '2026 年末'
             },
             ja: {
                 'nav.about': 'About',
@@ -611,7 +724,9 @@
                 'roadmap.item7': 'マッチメイキングシステムを刷新し、プレイヤーランキングシステムを実装',
                 'roadmap.item8': 'Slice 4D Shooter のeスポーツトーナメントを開催',
                 'roadmap.item9': 'コミュニティフィードバックに基づいた反復開発を継続',
-                'roadmap.note': 'Slice 4D Shooter の開発中、ロードマップはコミュニティのフィードバックと開発条件に基づいて変更される可能性があります。'
+                'roadmap.note': 'Slice 4D Shooter の開発中、ロードマップはコミュニティのフィードバックと開発条件に基づいて変更される可能性があります。',
+                'date.2025': '2025年末',
+                'date.2026': '2026年末'
             },
             ko: {
                 'nav.about': '소개',
@@ -632,7 +747,9 @@
                 'roadmap.item7': '매치메이킹 시스템 개선 및 플레이어 랭킹 시스템 구현',
                 'roadmap.item8': 'Slice 4D Shooter e스포츠 토너먼트 조직',
                 'roadmap.item9': '커뮤니티 피드백 기반 반복 개발 지속',
-                'roadmap.note': 'Slice 4D Shooter 개발 과정에서 로드맵은 커뮤니티 피드백과 개발 조건에 따라 변경될 수 있습니다.'
+                'roadmap.note': 'Slice 4D Shooter 개발 과정에서 로드맵은 커뮤니티 피드백과 개발 조건에 따라 변경될 수 있습니다.',
+                'date.2025': '2025년 말',
+                'date.2026': '2026년 말'
             }
         };
 
